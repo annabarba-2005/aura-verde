@@ -1,0 +1,23 @@
+.about__experience {
+  position: absolute;
+  top: 30px;
+  left: -30px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-lg)
+}
+
+.about__experience-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold)
+}
+
+.about__experience-text {
+  font-size: var(--font-size-xs);
+  opacity: .9
+}

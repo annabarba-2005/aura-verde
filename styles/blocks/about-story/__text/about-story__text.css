@@ -1,0 +1,6 @@
+.about-story__text {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md)
+}

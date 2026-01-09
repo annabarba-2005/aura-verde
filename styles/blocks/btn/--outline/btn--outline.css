@@ -1,0 +1,24 @@
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: rgba(46, 125, 50, 0.05);
+}
+
+.btn--outline-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn--outline-white:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-white);
+}
+

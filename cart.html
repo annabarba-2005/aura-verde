@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина — AuraVerde | Ваши покупки</title>
+    <meta name="description" content="Корзина интернет-магазина AuraVerde. Оформите заказ экологически чистых товаров.">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/free-icon-leaf-5806342.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/free-icon-leaf-5806342.png">
+    <link rel="shortcut icon" type="image/png" href="images/free-icon-leaf-5806342.png">
+    <link rel="apple-touch-icon" href="images/free-icon-leaf-5806342.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles/index.css">
+    <style>
+        .cart-page {
+            padding-top: 120px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.05) 0%, rgba(102, 187, 106, 0.08) 25%, rgba(139, 195, 74, 0.05) 50%, rgba(102, 187, 106, 0.08) 75%, rgba(46, 125, 50, 0.05) 100%);
+            background-size: 400% 400%;
+            animation: bgGradientShift 45s ease infinite;
+        }
+        
+        @keyframes bgGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .floating-eco-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .floating-eco-icon {
+            position: absolute;
+            opacity: 0.04;
+            font-size: 2rem;
+            color: var(--color-primary);
+            animation: floatEcoIcon 30s ease-in-out infinite;
+        }
+        
+        .floating-eco-icon--1 { top: 20%; left: 5%; animation-delay: 0s; font-size: 1.5rem; }
+        .floating-eco-icon--2 { top: 30%; right: 8%; animation-delay: -7s; font-size: 2.5rem; }
+        .floating-eco-icon--3 { top: 60%; left: 3%; animation-delay: -14s; }
+        .floating-eco-icon--4 { top: 75%; right: 5%; animation-delay: -21s; font-size: 1.8rem; }
+        
+        @keyframes floatEcoIcon {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.03; }
+            25% { transform: translate(15px, -25px) rotate(10deg); opacity: 0.06; }
+            50% { transform: translate(-10px, 15px) rotate(-5deg); opacity: 0.04; }
+            75% { transform: translate(20px, 10px) rotate(8deg); opacity: 0.05; }
+        }
+
+        .cart-page__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            align-items: start;
+            padding: 0 20px;
+        }
+
+        .cart-page__container--empty {
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+
+        .cart-page__items {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-page__items--empty {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 60vh;
+            padding: 60px 20px;
+            grid-column: 1 / -1;
+            width: 100%;
+            max-width: none;
+        }
+
+        .cart-page__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(76, 175, 80, 0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .cart-page__title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-page__count {
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .cart-page__clear {
+            background: none;
+            border: none;
+            color: var(--color-text-light);
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .cart-page__clear:hover { color: #f44336; }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            align-items: center;
+        }
+
+        .cart-item:last-child { border-bottom: none; }
+
+        .cart-item__image {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(102, 187, 106, 0.2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .cart-item__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .cart-item__info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .cart-item__name {
+            font-weight: 600;
+            color: var(--color-text);
+            font-size: 1.1rem;
+        }
+        .cart-item__category {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+        .cart-item__price {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+        .cart-item__actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        .cart-item__quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .cart-item__qty-btn {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--color-text);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-item__qty-btn:hover {
+            background: var(--color-primary);
+            color: #fff;
+        }
+        .cart-item__qty-value {
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+        .cart-item__remove {
+            background: none;
+            border: none;
+            color: var(--color-text-light);
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        .cart-item__remove:hover { color: #f44336; }
+
+        /* Sidebar & Summary */
+        .cart-page__sidebar { position: sticky; top: 100px; }
+        .cart-page__summary {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        .cart-page__summary-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cart-page__promo {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .cart-page__promo-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+        .cart-page__promo-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        .cart-page__promo-btn {
+            padding: 12px 20px;
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .cart-page__promo-btn:hover { background: #2E7D32; }
+        .cart-page__row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .cart-page__row--total {
+            border-bottom: none;
+            padding-top: 20px;
+            margin-top: 10px;
+            border-top: 2px solid rgba(76, 175, 80, 0.2);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .cart-page__row--total span:last-child { color: var(--color-primary); }
+        .cart-page__checkout-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .cart-page__checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(67, 160, 71, 0.3);
+        }
+        .cart-page__continue {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            color: var(--color-text);
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        .cart-page__continue:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+        .cart-page__carbon {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(102, 187, 106, 0.15));
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .cart-page__carbon-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 10px;
+        }
+        .cart-page__carbon-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        .cart-page__carbon-text {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-top: 5px;
+        }
+
+        /* Empty Cart */
+        .cart-empty {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+        .cart-empty__icon {
+            font-size: 6rem;
+            margin-bottom: 25px;
+            opacity: 0.6;
+            color: var(--color-primary);
+        }
+        .cart-empty__title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 15px;
+        }
+        .cart-empty__text {
+            color: var(--color-text-light);
+            margin-bottom: 30px;
+            max-width: 400px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .cart-empty__btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        .cart-empty__btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(67, 160, 71, 0.35);
+        }
+
+        /* Hero Section */
+        .cart-hero {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        .cart-hero__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(67, 160, 71, 0.3);
+        }
+        .cart-hero__title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-top: var(--spacing-lg);
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 30%, #43A047 60%, #66BB6A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Modals */
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        .modal--active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        .modal__content {
+            position: relative;
+            background: #fff;
+            border-radius: 20px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+        .modal--active .modal__content { transform: scale(1); }
+        .modal__close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        .modal__close:hover { background: rgba(0, 0, 0, 0.1); }
+        .success-modal { display: none; position: fixed; inset: 0; z-index: 1000; align-items: center; justify-content: center; }
+        .success-modal--active { display: flex; }
+        .success-modal__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px); }
+        .success-modal__content {
+            position: relative;
+            background: #fff;
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+        .success-modal__icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+        .success-modal__title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        .success-modal__text {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .success-modal__btn {
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .success-modal__btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(67, 160, 71, 0.4);
+        }
+
+        /* Carbon Modal */
+        .carbon-modal { max-width: 600px; padding: 30px; }
+        .carbon-modal__header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+        .carbon-modal__header i { font-size: 2rem; }
+        .carbon-chart {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .carbon-chart__donut {
+            position: relative;
+            width: 180px;
+            height: 180px;
+        }
+        .carbon-chart__donut svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+        .carbon-chart__center {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .carbon-chart__total {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+        .carbon-chart__unit {
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+        }
+        .carbon-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .carbon-legend__item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .carbon-legend__color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+        .carbon-legend__color--production { background: #43A047; }
+        .carbon-legend__color--transport { background: #2196F3; }
+        .carbon-legend__color--packaging { background: #FF9800; }
+        .carbon-legend__label { font-weight: 600; font-size: 0.9rem; }
+        .carbon-legend__value { font-size: 0.85rem; color: var(--color-text-light); }
+        .carbon-compare { margin-bottom: 25px; }
+        .carbon-compare__title { margin-bottom: 15px; font-weight: 600; }
+        .carbon-compare__row { margin-bottom: 15px; }
+        .carbon-compare__header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .carbon-compare__label { font-size: 0.9rem; color: var(--color-text-light); }
+        .carbon-compare__value { font-weight: 600; }
+        .carbon-compare__value--eco { color: var(--color-primary); }
+        .carbon-compare__value--regular { color: #f44336; }
+        .carbon-compare__bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+        }
+        .carbon-compare__bar-fill { height: 100%; border-radius: 10px; transition: width 0.5s; }
+        .carbon-compare__bar-fill--eco { background: linear-gradient(90deg, #43A047, #8BC34A); }
+        .carbon-compare__bar-fill--regular { background: linear-gradient(90deg, #ff9800, #f44336); width: 100%; }
+        .carbon-savings {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .carbon-savings__icon { font-size: 2.5rem; }
+        .carbon-savings__title { font-weight: 700; font-size: 1.1rem; color: #2E7D32; }
+        .carbon-savings__subtitle { color: #558B2F; font-size: 0.95rem; }
+        .carbon-tips {
+            background: #FFF8E1;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        .carbon-tips__title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            color: #F57F17;
+        }
+        .carbon-tips__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .carbon-tips__item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+        /* Buttons */
+        .btn--outline {
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn--outline:hover { background: var(--color-primary); color: #fff; }
+        .btn--sm { padding: 8px 16px; font-size: 0.9rem; }
+        .btn--full { width: 100%; }
+        .no-scroll { overflow: hidden; }
+
+        /* Animations */
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: scale(0.9) translateY(-20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .cart-page__container { grid-template-columns: 1fr; }
+            .cart-page__sidebar { position: static; }
+        }
+        @media (max-width: 768px) {
+            .cart-page { padding-top: 100px; }
+            .cart-hero__title { font-size: 2rem; }
+            .cart-page__items { padding: 20px; min-height: 400px; }
+            .cart-page__summary { padding: 20px; }
+        }
+        @media (max-width: 576px) {
+            .cart-page { padding-top: 80px; }
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                gap: 15px;
+            }
+            .cart-item__image {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+            .cart-item__actions {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .cart-hero__badge { padding: 10px 18px; font-size: 0.95rem; }
+            .cart-hero__title { font-size: 1.75rem; }
+            .cart-empty__icon { font-size: 4rem; }
+            .cart-empty__title { font-size: 1.5rem; }
+            .cart-empty__text { font-size: 1rem; }
+            .cart-empty__btn { padding: 14px 28px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-leaves" aria-hidden="true">
+        <span class="floating-leaf floating-leaf--1"><i class="fas fa-leaf"></i></span>
+        <span class="floating-leaf floating-leaf--2"><i class="fas fa-seedling"></i></span>
+        <span class="floating-leaf floating-leaf--3"><i class="fas fa-leaf"></i></span>
+        <span class="floating-leaf floating-leaf--4"><i class="fas fa-seedling"></i></span>
+        <span class="floating-leaf floating-leaf--5"><i class="fas fa-leaf"></i></span>
+    </div>
+    
+    <!-- Floating Eco Icons -->
+    <div class="floating-eco-icons" aria-hidden="true">
+        <span class="floating-eco-icon floating-eco-icon--1"><i class="fas fa-shopping-bag"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--2"><i class="fas fa-leaf"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--3"><i class="fas fa-recycle"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--4"><i class="fas fa-seedling"></i></span>
+    </div>
+
+    <header class="header" id="header" role="banner">
+        <div class="header__top-bar">
+            <div class="header__top-container container">
+                <a href="index.html" class="header__logo" aria-label="AuraVerde - главная">
+                    <span class="header__logo-leaf-wrapper">
+                        <svg viewBox="0 0 100 100" class="header__logo-animated-leaf">
+                            <defs>
+                                <linearGradient id="header-leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#A5D6A7"/><stop offset="30%" stop-color="#66BB6A"/><stop offset="70%" stop-color="#43A047"/><stop offset="100%" stop-color="#1B5E20"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M50 5 C15 25, 5 65, 50 95 C95 65, 85 25, 50 5" fill="url(#header-leaf-grad)"/>
+                            <path d="M50 20 Q50 55, 50 88" fill="none" stroke="#E8F5E9" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M50 35 Q35 40, 25 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M50 35 Q65 40, 75 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="header__logo-text"><span class="header__logo-aura">Aura</span><span class="header__logo-verde">Verde</span></span>
+                </a>
+                <div class="header__search-wrapper">
+                    <button class="header__search-btn" id="search-btn" aria-label="Поиск">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                        <span class="header__search-text">Поиск товаров...</span>
+                    </button>
+                </div>
+                <div class="header__actions">
+                    <a href="cart.html" class="header__cart-btn header__cart-btn--active" aria-label="Корзина">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <span class="header__cart-count" id="cart-count">0</span>
+                    </a>
+                    <button class="header__toggle" id="nav-toggle" aria-label="Открыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav-bar">
+            <div class="header__nav-container container">
+                <nav class="header__nav" id="nav-menu" role="navigation" aria-label="Главное меню">
+                    <ul class="header__nav-list">
+                        <li><a href="index.html" class="header__nav-link">Главная</a></li>
+                        <li><a href="about.html" class="header__nav-link">О нас</a></li>
+                        <li><a href="catalog.html" class="header__nav-link">Каталог</a></li>
+                        <li><a href="blog.html" class="header__nav-link">Блог</a></li>
+                        <li><a href="delivery.html" class="header__nav-link">Доставка</a></li>
+                        <li><a href="contacts.html" class="header__nav-link">Контакты</a></li>
+                    </ul>
+                    <button class="header__nav-close" id="nav-close" aria-label="Закрыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <section class="section" style="padding-top: 40px; padding-bottom: 20px;">
+            <div class="container">
+                <div class="cart-hero">
+                    <span class="cart-hero__badge">
+                        <span style="animation: iconBounce 2s ease-in-out infinite;"><i class="fas fa-shopping-cart"></i></span> КОРЗИНА
+                    </span>
+                    <h1 class="cart-hero__title">Ваша корзина</h1>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 0; padding-bottom: var(--spacing-3xl);">
+            <div class="cart-page__container">
+                <div class="cart-page__items" id="cart-page-items"></div>
+                <div class="cart-page__sidebar">
+                    <div class="cart-page__summary" id="cart-page-summary">
+                        <h3 class="cart-page__summary-title">
+                            <i class="fas fa-receipt"></i> Итого заказа
+                        </h3>
+                        <div class="cart-page__promo">
+                            <input type="text" class="cart-page__promo-input" id="page-promo-input" placeholder="Промокод">
+                            <button class="cart-page__promo-btn" id="page-apply-promo">OK</button>
+                        </div>
+                        <div class="cart-page__row">
+                            <span>Товаров:</span>
+                            <span id="page-cart-items-count">0</span>
+                        </div>
+                        <div class="cart-page__row">
+                            <span>Подытог:</span>
+                            <span id="page-cart-subtotal">0 руб. ПМР</span>
+                        </div>
+                        <div class="cart-page__row" id="page-discount-row" style="display: none;">
+                            <span>Скидка:</span>
+                            <span style="color: #f44336;" id="page-cart-discount">0 руб. ПМР</span>
+                        </div>
+                        <div class="cart-page__row">
+                            <span>Доставка:</span>
+                            <span id="page-delivery">Бесплатно</span>
+                        </div>
+                        <div class="cart-page__row cart-page__row--total">
+                            <span>Итого:</span>
+                            <span id="page-cart-total">0 руб. ПМР</span>
+                        </div>
+                        <button class="cart-page__checkout-btn" id="page-checkout-btn">
+                            <span>Оформить заказ</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                        <a href="catalog.html" class="cart-page__continue">Продолжить покупки</a>
+                        <div class="cart-page__carbon" id="page-carbon">
+                            <div class="cart-page__carbon-title">
+                                <i class="fas fa-seedling"></i> Углеродный след корзины
+                            </div>
+                            <div class="cart-page__carbon-value" id="page-carbon-value">0.00 кг CO₂</div>
+                            <p class="cart-page__carbon-text" id="page-carbon-comparison">Экологичный выбор!</p>
+                            <button class="btn btn--outline btn--sm btn--full" id="carbon-calculator-btn" style="margin-top: 15px;">
+                                <i class="fas fa-chart-bar"></i> Калькулятор CO₂
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-col footer-col-wide">
+                <h3 class="footer-logo"><i class="fas fa-leaf"></i> AuraVerde</h3>
+                <p class="footer-description">Экологически чистые товары для устойчивого будущего</p>
+                <div class="footer-social">
+                    <p class="social-title">МЫ В СОЦИАЛЬНЫХ СЕТЯХ</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="payment-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" loading="lazy" width="60" height="20">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" loading="lazy" width="50" height="30">
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Навигация</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Информация</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="delivery.html">Доставка и оплата</a></li>
+                    <li><a href="blog.html">Эко-блог</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Поддержка</h4>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Помощь</a></li>
+                    <li><a href="delivery.html">Возврат товара</a></li>
+                    <li><a href="contacts.html">Контакты поддержки</a></li>
+                    <li><a href="delivery.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AuraVerde. Барба. Проект создан в рамках курсовой работы.</p>
+        </div>
+    </footer>
+
+    <div class="success-modal" id="success-modal">
+        <div class="success-modal__backdrop" id="success-modal-backdrop"></div>
+        <div class="success-modal__content">
+            <div class="success-modal__icon"><i class="fas fa-check"></i></div>
+            <h2 class="success-modal__title">Успех!</h2>
+            <p class="success-modal__text" id="success-modal-text">Ваш заказ успешно оформлен. Мы свяжемся с вами в ближайшее время.</p>
+            <button class="success-modal__btn" id="success-modal-btn">OK</button>
+        </div>
+    </div>
+
+    <div class="modal" id="carbon-modal" role="dialog" aria-labelledby="carbon-modal-title" aria-modal="true">
+        <div class="modal__backdrop" id="carbon-backdrop"></div>
+        <div class="modal__content carbon-modal">
+            <button class="modal__close" id="carbon-close" aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div>
+                <h2 class="carbon-modal__header"><i class="fas fa-chart-pie"></i> Калькулятор углеродного следа</h2>
+                <div class="carbon-chart">
+                    <div class="carbon-chart__donut">
+                        <svg viewBox="0 0 36 36">
+                            <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e0e0e0" stroke-width="3"></circle>
+                            <circle id="chart-production" cx="18" cy="18" r="15.9" fill="none" stroke="#43A047" stroke-width="3" stroke-dasharray="0 100" stroke-linecap="round"></circle>
+                            <circle id="chart-transport" cx="18" cy="18" r="15.9" fill="none" stroke="#2196F3" stroke-width="3" stroke-dasharray="0 100" stroke-linecap="round"></circle>
+                            <circle id="chart-packaging" cx="18" cy="18" r="15.9" fill="none" stroke="#FF9800" stroke-width="3" stroke-dasharray="0 100" stroke-linecap="round"></circle>
+                        </svg>
+                        <div class="carbon-chart__center">
+                            <span class="carbon-chart__total" id="modal-carbon-total">0.00</span>
+                            <span class="carbon-chart__unit">кг CO₂</span>
+                        </div>
+                    </div>
+                    <div class="carbon-legend">
+                        <div class="carbon-legend__item">
+                            <div class="carbon-legend__color carbon-legend__color--production"></div>
+                            <div>
+                                <div class="carbon-legend__label">Производство</div>
+                                <div class="carbon-legend__value" id="legend-production">0.00 кг</div>
+                            </div>
+                        </div>
+                        <div class="carbon-legend__item">
+                            <div class="carbon-legend__color carbon-legend__color--transport"></div>
+                            <div>
+                                <div class="carbon-legend__label">Транспортировка</div>
+                                <div class="carbon-legend__value" id="legend-transport">0.00 кг</div>
+                            </div>
+                        </div>
+                        <div class="carbon-legend__item">
+                            <div class="carbon-legend__color carbon-legend__color--packaging"></div>
+                            <div>
+                                <div class="carbon-legend__label">Упаковка</div>
+                                <div class="carbon-legend__value" id="legend-packaging">0.00 кг</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carbon-compare">
+                    <h4 class="carbon-compare__title">Сравнение с обычной корзиной</h4>
+                    <div class="carbon-compare__row">
+                        <div class="carbon-compare__header">
+                            <span class="carbon-compare__label"><i class="fas fa-seedling"></i> Ваша эко-корзина</span>
+                            <span class="carbon-compare__value carbon-compare__value--eco" id="modal-eco-value">0 кг</span>
+                        </div>
+                        <div class="carbon-compare__bar">
+                            <div class="carbon-compare__bar-fill carbon-compare__bar-fill--eco" id="modal-eco-bar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="carbon-compare__row">
+                        <div class="carbon-compare__header">
+                            <span class="carbon-compare__label"><i class="fas fa-shopping-cart"></i> Обычная корзина</span>
+                            <span class="carbon-compare__value carbon-compare__value--regular" id="modal-regular-value">0 кг</span>
+                        </div>
+                        <div class="carbon-compare__bar">
+                            <div class="carbon-compare__bar-fill carbon-compare__bar-fill--regular"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carbon-savings">
+                    <span class="carbon-savings__icon"><i class="fas fa-globe-americas"></i></span>
+                    <div>
+                        <div class="carbon-savings__title">Вы экономите <span id="modal-carbon-savings">0 кг CO₂</span></div>
+                        <div class="carbon-savings__subtitle">Это на <span id="modal-savings-percent">0%</span> меньше обычной корзины!</div>
+                    </div>
+                </div>
+                <div class="carbon-tips">
+                    <h4 class="carbon-tips__title"><i class="fas fa-lightbulb"></i> Советы по снижению следа</h4>
+                    <ul class="carbon-tips__list" id="modal-carbon-tips">
+                        <li class="carbon-tips__item"><i class="fas fa-check"></i> Выбирайте товары местного производства</li>
+                        <li class="carbon-tips__item"><i class="fas fa-check"></i> Предпочитайте товары в биоразлагаемой упаковке</li>
+                        <li class="carbon-tips__item"><i class="fas fa-check"></i> Объединяйте заказы для сокращения доставок</li>
+                    </ul>
+                </div>
+                <button class="btn btn--outline btn--full" style="margin-top: 20px;" onclick="closeCarbonModal()">Понятно</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="checkout-modal__backdrop" onclick="closeCheckoutModal()"></div>
+        <div class="checkout-modal__content">
+            <button class="checkout-modal__close" onclick="closeCheckoutModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="checkout-modal__body">
+                <h2 class="checkout-modal__title"><i class="fas fa-shopping-bag"></i> Оформление заказа</h2>
+                
+                <form id="checkout-form" onsubmit="submitCheckoutOrder(event)">
+                    <div class="checkout-modal__section">
+                        <h3><i class="fas fa-user"></i> Контактные данные</h3>
+                        <div class="checkout-modal__field">
+                            <label>Имя *</label>
+                            <input type="text" name="name" required placeholder="Ваше имя">
+                        </div>
+                        <div class="checkout-modal__field">
+                            <label>Email *</label>
+                            <input type="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="checkout-modal__field">
+                            <label>Телефон *</label>
+                            <input type="tel" name="phone" required placeholder="+373 XXX XXXXX">
+                        </div>
+                        <div class="checkout-modal__field">
+                            <label>Адрес доставки *</label>
+                            <textarea name="address" required placeholder="Город, улица, дом, квартира"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-modal__section">
+                        <h3><i class="fas fa-truck"></i> Способ доставки</h3>
+                        <div class="checkout-modal__delivery-options">
+                            <label class="checkout-modal__delivery-option checkout-modal__delivery-option--active" onclick="selectDelivery(this, 'bike', 0)">
+                                <input type="radio" name="delivery" value="bike" checked>
+                                <div class="checkout-modal__delivery-icon"><i class="fas fa-bicycle"></i></div>
+                                <div class="checkout-modal__delivery-info">
+                                    <span class="checkout-modal__delivery-name">Велокурьер</span>
+                                    <span class="checkout-modal__delivery-desc">Бесплатно, -5% к CO₂</span>
+                                </div>
+                                <span class="checkout-modal__delivery-price">0 руб.</span>
+                            </label>
+                            <label class="checkout-modal__delivery-option" onclick="selectDelivery(this, 'electric', 5)">
+                                <input type="radio" name="delivery" value="electric">
+                                <div class="checkout-modal__delivery-icon"><i class="fas fa-car"></i></div>
+                                <div class="checkout-modal__delivery-info">
+                                    <span class="checkout-modal__delivery-name">Электромобиль</span>
+                                    <span class="checkout-modal__delivery-desc">Стандартный CO₂</span>
+                                </div>
+                                <span class="checkout-modal__delivery-price">5 руб.</span>
+                            </label>
+                            <label class="checkout-modal__delivery-option" onclick="selectDelivery(this, 'standard', 10)">
+                                <input type="radio" name="delivery" value="standard">
+                                <div class="checkout-modal__delivery-icon"><i class="fas fa-shipping-fast"></i></div>
+                                <div class="checkout-modal__delivery-info">
+                                    <span class="checkout-modal__delivery-name">Обычная доставка</span>
+                                    <span class="checkout-modal__delivery-desc">+10% к CO₂</span>
+                                </div>
+                                <span class="checkout-modal__delivery-price">10 руб.</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-modal__section">
+                        <h3><i class="fas fa-receipt"></i> Ваш заказ</h3>
+                        <div class="checkout-modal__items" id="checkout-items-list"></div>
+                        <div class="checkout-modal__summary">
+                            <div class="checkout-modal__row">
+                                <span>Подытог:</span>
+                                <span id="checkout-subtotal">0 руб. ПМР</span>
+                            </div>
+                            <div class="checkout-modal__row">
+                                <span>Доставка:</span>
+                                <span id="checkout-delivery-price">Бесплатно</span>
+                            </div>
+                            <div class="checkout-modal__row checkout-modal__row--carbon">
+                                <span><i class="fas fa-seedling"></i> Углеродный след:</span>
+                                <span id="checkout-carbon">0.00 кг CO₂</span>
+                            </div>
+                            <div class="checkout-modal__row checkout-modal__row--total">
+                                <span>Итого:</span>
+                                <span id="checkout-total">0 руб. ПМР</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="checkout-modal__submit">
+                        <i class="fas fa-check"></i> Оформить заказ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="order-success-modal" id="order-success-modal">
+        <div class="order-success-modal__backdrop" onclick="closeOrderSuccessModal()"></div>
+        <div class="order-success-modal__content">
+            <div class="order-success-modal__icon"><i class="fas fa-check"></i></div>
+            <h2>Спасибо за заказ!</h2>
+            <p class="order-success-modal__order">Заказ <strong id="order-number-display">№ECO-12345</strong> оформлен</p>
+            <div class="order-success-modal__details">
+                <div class="order-success-modal__row">
+                    <span>Сумма:</span>
+                    <span id="order-total-display">0 руб. ПМР</span>
+                </div>
+                <div class="order-success-modal__row">
+                    <span>Углеродный след:</span>
+                    <span id="order-carbon-display">0.00 кг CO₂</span>
+                </div>
+                <div class="order-success-modal__row order-success-modal__row--highlight">
+                    <span><i class="fas fa-leaf"></i> Вы сэкономили:</span>
+                    <span id="order-saved-display">0.00 кг CO₂</span>
+                </div>
+            </div>
+            <p class="order-success-modal__message">Мы свяжемся с вами для подтверждения</p>
+            <button class="order-success-modal__btn" onclick="closeOrderSuccessModal()">Отлично!</button>
+            <a href="catalog.html" class="order-success-modal__link">Продолжить покупки</a>
+        </div>
+    </div>
+
+    <style>
+        /* Checkout Modal Styles */
+        .checkout-modal, .order-success-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .checkout-modal--active, .order-success-modal--active {
+            display: flex;
+        }
+        .checkout-modal__backdrop, .order-success-modal__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+        .checkout-modal__content {
+            position: relative;
+            background: #fff;
+            border-radius: 24px;
+            width: 95%;
+            max-width: 650px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+        .checkout-modal__close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .checkout-modal__close:hover {
+            background: rgba(0, 0, 0, 0.15);
+            transform: rotate(90deg);
+        }
+        .checkout-modal__body {
+            padding: 40px;
+        }
+        .checkout-modal__title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .checkout-modal__title i { color: #43A047; }
+        .checkout-modal__section {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .checkout-modal__section:last-of-type { border-bottom: none; }
+        .checkout-modal__section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checkout-modal__section h3 i { color: #43A047; }
+        .checkout-modal__field {
+            margin-bottom: 18px;
+        }
+        .checkout-modal__field label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .checkout-modal__field input,
+        .checkout-modal__field textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        .checkout-modal__field input:focus,
+        .checkout-modal__field textarea:focus {
+            outline: none;
+            border-color: #43A047;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.1);
+        }
+        .checkout-modal__field textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .checkout-modal__delivery-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .checkout-modal__delivery-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        .checkout-modal__delivery-option:hover {
+            border-color: rgba(67, 160, 71, 0.3);
+            background: #fff;
+        }
+        .checkout-modal__delivery-option--active {
+            border-color: #43A047;
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.08), rgba(102, 187, 106, 0.12));
+        }
+        .checkout-modal__delivery-option input { display: none; }
+        .checkout-modal__delivery-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .checkout-modal__delivery-info { flex: 1; }
+        .checkout-modal__delivery-name {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .checkout-modal__delivery-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .checkout-modal__delivery-price {
+            font-weight: 700;
+            color: #43A047;
+            font-size: 1.1rem;
+        }
+        .checkout-modal__items {
+            max-height: 150px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+        .checkout-modal__item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .checkout-modal__item:last-child { border-bottom: none; }
+        .checkout-modal__item-img {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(102, 187, 106, 0.2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            overflow: hidden;
+        }
+        .checkout-modal__item-info { flex: 1; }
+        .checkout-modal__item-name { font-weight: 600; color: #333; font-size: 0.9rem; }
+        .checkout-modal__item-qty { font-size: 0.8rem; color: #666; }
+        .checkout-modal__item-price { font-weight: 600; color: #43A047; }
+        .checkout-modal__row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        .checkout-modal__row--carbon { color: #43A047; font-weight: 500; }
+        .checkout-modal__row--total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1B5E20;
+            padding-top: 15px;
+            margin-top: 10px;
+            border-top: 2px solid rgba(67, 160, 71, 0.2);
+        }
+        .checkout-modal__submit {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .checkout-modal__submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(67, 160, 71, 0.4);
+        }
+
+        /* Order Success Modal */
+        .order-success-modal__content {
+            position: relative;
+            background: #fff;
+            border-radius: 24px;
+            width: 95%;
+            max-width: 420px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+        .order-success-modal__icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            animation: successPulse 2s ease-in-out infinite;
+        }
+        @keyframes successPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 160, 71, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(67, 160, 71, 0); }
+        }
+        .order-success-modal__content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 10px;
+        }
+        .order-success-modal__order {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .order-success-modal__order strong { color: #43A047; }
+        .order-success-modal__details {
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.08), rgba(102, 187, 106, 0.12));
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .order-success-modal__row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        .order-success-modal__row--highlight {
+            color: #2E7D32;
+            font-weight: 600;
+            padding-top: 12px;
+            margin-top: 8px;
+            border-top: 1px solid rgba(67, 160, 71, 0.2);
+        }
+        .order-success-modal__message {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+        .order-success-modal__btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+        .order-success-modal__btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(67, 160, 71, 0.4);
+        }
+        .order-success-modal__link {
+            display: block;
+            color: #43A047;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .order-success-modal__link:hover { text-decoration: underline; }
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: scale(0.9) translateY(-20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .checkout-modal__body { padding: 25px; }
+            .checkout-modal__title { font-size: 1.5rem; }
+            .order-success-modal__content { padding: 35px 25px; }
+        }
+    </style>
+
+    <script defer src="js/data/products.js"></script>
+    <script>
+        const CATEGORIES = { food: 'Продукты питания', cosmetics: 'Косметика', household: 'Бытовая химия', home: 'Для дома', clothes: 'Одежда' };
+        const getCategoryName = cat => CATEGORIES[cat] || cat;
+        let selectedDeliveryPrice = 0;
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCartPage();
+            updateCartCount();
+            document.getElementById('page-apply-promo')?.addEventListener('click', applyPagePromo);
+            document.getElementById('page-checkout-btn')?.addEventListener('click', handleCheckout);
+            document.getElementById('nav-toggle')?.addEventListener('click', () => toggleNav(true));
+            document.getElementById('nav-close')?.addEventListener('click', () => toggleNav(false));
+            document.getElementById('success-modal-btn')?.addEventListener('click', closeSuccessModal);
+            document.getElementById('success-modal-backdrop')?.addEventListener('click', closeSuccessModal);
+            document.getElementById('carbon-calculator-btn')?.addEventListener('click', openCarbonModal);
+            document.getElementById('carbon-backdrop')?.addEventListener('click', closeCarbonModal);
+            document.getElementById('carbon-close')?.addEventListener('click', closeCarbonModal);
+            document.getElementById('back-to-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            window.addEventListener('scroll', () => document.getElementById('back-to-top')?.classList.toggle('back-to-top--visible', window.scrollY > 300));
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeCarbonModal(); closeSuccessModal(); closeCheckoutModal(); closeOrderSuccessModal(); } });
+        });
+
+        function toggleNav(open) {
+            document.getElementById('nav-menu')?.classList.toggle('header__nav--open', open);
+            document.body.classList.toggle('no-scroll', open);
+        }
+
+        function handleCheckout() {
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            if (!cart.length) return showSuccessModal('Корзина пуста! Добавьте товары из каталога.');
+            openCheckoutModal();
+        }
+        
+        function openCheckoutModal() {
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            if (!cart.length) return;
+            
+            // Render items
+            const itemsHtml = cart.map(item => {
+                const imgHtml = item.image 
+                    ? `<img src="images/${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`
+                    : item.emoji || '📦';
+                return `
+                    <div class="checkout-modal__item">
+                        <div class="checkout-modal__item-img">${imgHtml}</div>
+                        <div class="checkout-modal__item-info">
+                            <span class="checkout-modal__item-name">${item.name}</span>
+                            <span class="checkout-modal__item-qty">× ${item.quantity}</span>
+                        </div>
+                        <span class="checkout-modal__item-price">${item.price * item.quantity} руб.</span>
+                    </div>
+                `;
+            }).join('');
+            document.getElementById('checkout-items-list').innerHTML = itemsHtml;
+            
+            updateCheckoutSummary();
+            document.getElementById('checkout-modal').classList.add('checkout-modal--active');
+            document.body.classList.add('no-scroll');
+        }
+        
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.remove('checkout-modal--active');
+            document.body.classList.remove('no-scroll');
+        }
+        
+        function selectDelivery(el, type, price) {
+            document.querySelectorAll('.checkout-modal__delivery-option').forEach(opt => {
+                opt.classList.remove('checkout-modal__delivery-option--active');
+            });
+            el.classList.add('checkout-modal__delivery-option--active');
+            selectedDeliveryPrice = price;
+            updateCheckoutSummary();
+        }
+        
+        function updateCheckoutSummary() {
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            let subtotal = 0, carbonTotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                const w = item.weight || 0.1;
+                carbonTotal += w * 0.5 * item.quantity;
+            });
+            
+            const total = subtotal + selectedDeliveryPrice;
+            document.getElementById('checkout-subtotal').textContent = subtotal.toLocaleString() + ' руб. ПМР';
+            document.getElementById('checkout-delivery-price').textContent = selectedDeliveryPrice ? selectedDeliveryPrice + ' руб.' : 'Бесплатно';
+            document.getElementById('checkout-carbon').textContent = carbonTotal.toFixed(2) + ' кг CO₂';
+            document.getElementById('checkout-total').textContent = total.toLocaleString() + ' руб. ПМР';
+        }
+        
+        function submitCheckoutOrder(e) {
+            e.preventDefault();
+            
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            let subtotal = 0, carbonTotal = 0, regularCarbon = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                const w = item.weight || 0.1;
+                carbonTotal += w * 0.5 * item.quantity;
+                regularCarbon += w * 1.5 * item.quantity;
+            });
+            
+            const total = subtotal + selectedDeliveryPrice;
+            const savedCarbon = regularCarbon - carbonTotal;
+            const orderNumber = 'ECO-' + Math.floor(10000 + Math.random() * 90000);
+            
+            // Show success modal
+            document.getElementById('order-number-display').textContent = '№' + orderNumber;
+            document.getElementById('order-total-display').textContent = total.toLocaleString() + ' руб. ПМР';
+            document.getElementById('order-carbon-display').textContent = carbonTotal.toFixed(2) + ' кг CO₂';
+            document.getElementById('order-saved-display').textContent = savedCarbon.toFixed(2) + ' кг CO₂';
+            
+            closeCheckoutModal();
+            document.getElementById('order-success-modal').classList.add('order-success-modal--active');
+            
+            // Clear cart
+            localStorage.setItem('ecolife-cart', '[]');
+            localStorage.removeItem('ecolife-cartDiscount');
+            renderCartPage();
+            updateCartCount();
+        }
+        
+        function closeOrderSuccessModal() {
+            document.getElementById('order-success-modal').classList.remove('order-success-modal--active');
+            document.body.classList.remove('no-scroll');
+        }
+
+        function showSuccessModal(msg) {
+            const text = document.getElementById('success-modal-text');
+            if (text) text.textContent = msg;
+            document.getElementById('success-modal')?.classList.add('success-modal--active');
+            document.body.classList.add('no-scroll');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal')?.classList.remove('success-modal--active');
+            document.body.classList.remove('no-scroll');
+        }
+
+        function renderCartPage() {
+            const container = document.getElementById('cart-page-items');
+            const pageContainer = document.querySelector('.cart-page__container');
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            
+            if (!cart.length) {
+                container.classList.add('cart-page__items--empty');
+                pageContainer.classList.add('cart-page__container--empty');
+                container.innerHTML = `
+                    <div class="cart-empty">
+                        <div class="cart-empty__icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h3 class="cart-empty__title">Корзина пуста</h3>
+                        <p class="cart-empty__text">Добавьте товары из каталога, чтобы оформить заказ</p>
+                        <a href="catalog.html" class="cart-empty__btn">
+                            <span>Перейти в каталог</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>`;
+                document.getElementById('cart-page-summary').style.display = 'none';
+                document.querySelector('.cart-page__sidebar').style.display = 'none';
+                return;
+            }
+            
+            container.classList.remove('cart-page__items--empty');
+            pageContainer.classList.remove('cart-page__container--empty');
+            document.getElementById('cart-page-summary').style.display = 'block';
+            document.querySelector('.cart-page__sidebar').style.display = 'block';
+            
+            let html = `
+                <div class="cart-page__header">
+                    <h2 class="cart-page__title">
+                        <i class="fas fa-shopping-bag"></i> Товары в корзине
+                        <span class="cart-page__count">${cart.length}</span>
+                    </h2>
+                    <button class="cart-page__clear" onclick="clearCart()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+                        Очистить
+                    </button>
+                </div>`;
+            
+            cart.forEach((item, i) => {
+                const product = typeof PRODUCTS_DATA !== 'undefined' ? PRODUCTS_DATA.find(p => p.id === item.id) : null;
+                const emoji = item.emoji || product?.emoji || '📦';
+                const image = item.image || product?.image;
+                const category = getCategoryName(item.category || product?.category || 'Товар');
+                const imgHtml = image 
+                    ? `<img src="images/${image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:15px;">`
+                    : emoji;
+                
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item__image">${imgHtml}</div>
+                        <div class="cart-item__info">
+                            <div class="cart-item__name">${item.name}</div>
+                            <div class="cart-item__category">${category}</div>
+                            <div class="cart-item__price">${item.price.toLocaleString()} руб. ПМР</div>
+                        </div>
+                        <div class="cart-item__actions">
+                            <div class="cart-item__quantity">
+                                <button class="cart-item__qty-btn" onclick="changeQty(${i},-1)">−</button>
+                                <span class="cart-item__qty-value">${item.quantity}</span>
+                                <button class="cart-item__qty-btn" onclick="changeQty(${i},1)">+</button>
+                            </div>
+                            <button class="cart-item__remove" onclick="removeItem(${i})">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+                                Удалить
+                            </button>
+                        </div>
+                    </div>`;
+            });
+            
+            container.innerHTML = html;
+            updateCartSummary();
+        }
+
+        function changeQty(i, delta) {
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            if (!cart[i]) return;
+            cart[i].quantity += delta;
+            if (cart[i].quantity <= 0) cart.splice(i, 1);
+            localStorage.setItem('ecolife-cart', JSON.stringify(cart));
+            renderCartPage();
+            updateCartCount();
+        }
+
+        function removeItem(i) {
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            cart.splice(i, 1);
+            localStorage.setItem('ecolife-cart', JSON.stringify(cart));
+            renderCartPage();
+            updateCartCount();
+        }
+
+        function clearCart() {
+            if (!confirm('Очистить корзину?')) return;
+            localStorage.setItem('ecolife-cart', '[]');
+            renderCartPage();
+            updateCartCount();
+        }
+
+        function updateCartSummary() {
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            let subtotal = 0, count = 0;
+            cart.forEach(item => { subtotal += item.price * item.quantity; count += item.quantity; });
+            
+            const discount = parseFloat(localStorage.getItem('ecolife-cartDiscount')) || 0;
+            document.getElementById('page-cart-items-count').textContent = count;
+            document.getElementById('page-cart-subtotal').textContent = subtotal.toLocaleString() + ' руб. ПМР';
+            document.getElementById('page-cart-total').textContent = (subtotal - discount).toLocaleString() + ' руб. ПМР';
+            
+            if (discount > 0) {
+                document.getElementById('page-discount-row').style.display = 'flex';
+                document.getElementById('page-cart-discount').textContent = '-' + discount.toLocaleString() + ' руб. ПМР';
+            }
+            document.getElementById('page-carbon-value').textContent = (subtotal * 0.001).toFixed(2) + ' кг CO₂';
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const el = document.getElementById('cart-count');
+            if (el) el.textContent = count;
+        }
+
+        function applyPagePromo() {
+            const code = document.getElementById('page-promo-input').value.trim().toUpperCase();
+            const promos = { ECO10: 10, GREEN20: 20, NATURE15: 15, AURAVERDE10: 10 };
+            
+            if (!promos[code]) return showSuccessModal('Неверный промокод. Попробуйте другой.');
+            
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            let subtotal = 0;
+            cart.forEach(item => subtotal += item.price * item.quantity);
+            localStorage.setItem('ecolife-cartDiscount', subtotal * (promos[code] / 100));
+            showSuccessModal(`Промокод применён! Скидка ${promos[code]}%`);
+            updateCartSummary();
+        }
+
+        function openCarbonModal() {
+            const cart = JSON.parse(localStorage.getItem('ecolife-cart')) || [];
+            let production = 0, transport = 0, packaging = 0, regular = 0;
+            
+            cart.forEach(item => {
+                const product = typeof PRODUCTS_DATA !== 'undefined' ? PRODUCTS_DATA.find(p => p.id === item.id) : null;
+                const w = product?.weight || 0.1, q = item.quantity;
+                production += w * 0.3 * q;
+                transport += w * 0.15 * q;
+                packaging += w * 0.05 * q;
+                regular += w * 1.5 * q;
+            });
+            
+            const eco = production + transport + packaging;
+            const total = eco || 1;
+            const pPct = (production / total) * 100, tPct = (transport / total) * 100, pkgPct = (packaging / total) * 100;
+            
+            document.getElementById('chart-production').setAttribute('stroke-dasharray', `${pPct} ${100 - pPct}`);
+            document.getElementById('chart-production').setAttribute('stroke-dashoffset', '0');
+            document.getElementById('chart-transport').setAttribute('stroke-dasharray', `${tPct} ${100 - tPct}`);
+            document.getElementById('chart-transport').setAttribute('stroke-dashoffset', `-${pPct}`);
+            document.getElementById('chart-packaging').setAttribute('stroke-dasharray', `${pkgPct} ${100 - pkgPct}`);
+            document.getElementById('chart-packaging').setAttribute('stroke-dashoffset', `-${pPct + tPct}`);
+            
+            document.getElementById('legend-production').textContent = production.toFixed(2) + ' кг';
+            document.getElementById('legend-transport').textContent = transport.toFixed(2) + ' кг';
+            document.getElementById('legend-packaging').textContent = packaging.toFixed(2) + ' кг';
+            document.getElementById('modal-carbon-total').textContent = eco.toFixed(2);
+            document.getElementById('modal-eco-value').textContent = eco.toFixed(2) + ' кг';
+            document.getElementById('modal-regular-value').textContent = regular.toFixed(2) + ' кг';
+            
+            const savings = regular - eco;
+            const savingsPct = regular > 0 ? Math.round((savings / regular) * 100) : 0;
+            document.getElementById('modal-carbon-savings').textContent = savings.toFixed(2) + ' кг CO₂';
+            document.getElementById('modal-savings-percent').textContent = savingsPct + '%';
+            document.getElementById('modal-eco-bar').style.width = Math.min((eco / regular) * 100, 100) + '%';
+            document.getElementById('page-carbon-value').textContent = eco.toFixed(2) + ' кг CO₂';
+            document.getElementById('page-carbon-comparison').textContent = 'Это на ' + savingsPct + '% меньше обычной корзины!';
+            
+            document.getElementById('carbon-modal').classList.add('modal--active');
+            document.body.classList.add('no-scroll');
+        }
+
+        function closeCarbonModal() {
+            document.getElementById('carbon-modal').classList.remove('modal--active');
+            document.body.classList.remove('no-scroll');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.about-story__stats {
+  display: flex;
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid rgba(46, 125, 50, .15)
+}
+
+@media (max-width: 768px) {
+  .about-story__stats {
+    flex-direction: column;
+    gap: var(--spacing-lg)
+  }
+}

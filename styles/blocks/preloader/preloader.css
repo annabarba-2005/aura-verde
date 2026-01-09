@@ -1,0 +1,110 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity .5s ease, visibility .5s ease
+}
+
+.preloader--hidden {
+  opacity: 0;
+  visibility: hidden
+}
+
+.preloader__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg)
+}
+
+.preloader__logo {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm)
+}
+
+.preloader__logo-text {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  display: flex
+}
+
+.preloader__logo-aura {
+  background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: preloader-text-appear .8s ease forwards;
+  opacity: 0
+}
+
+.preloader__logo-verde {
+  background: linear-gradient(135deg, #43A047 0%, #66BB6A 50%, #81C784 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: preloader-text-appear .8s ease .2s forwards;
+  opacity: 0
+}
+
+@keyframes preloader-text-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(.9)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1)
+  }
+}
+
+.preloader__spinner {
+  width: 80px;
+  height: 80px;
+  animation: preloader-pulse 1.5s ease-in-out infinite
+}
+
+.preloader__leaf {
+  width: 100%;
+  height: 100%;
+  color: var(--color-primary)
+}
+
+.preloader__leaf path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: preloader-draw 2s ease-in-out infinite
+}
+
+@keyframes preloader-draw {
+  0%, 100% {
+    stroke-dashoffset: 200
+  }
+  50% {
+    stroke-dashoffset: 0
+  }
+}
+
+@keyframes preloader-pulse {
+  0%, 100% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.1)
+  }
+}
+
+.preloader__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted)
+}

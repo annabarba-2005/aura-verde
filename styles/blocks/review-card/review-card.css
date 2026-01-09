@@ -1,0 +1,281 @@
+.section--reviews {
+  background: linear-gradient(180deg, rgba(200, 230, 201, 0.2) 0%, var(--color-bg) 100%);
+  padding-top: var(--spacing-2xl)
+}
+
+.reviews__grid {
+  display: grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-3xl)
+}
+
+.review-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reviewCardFadeIn 0.6s ease forwards
+}
+
+.review-card:nth-child(1) {
+  animation-delay: 0.1s
+}
+
+.review-card:nth-child(2) {
+  animation-delay: 0.2s
+}
+
+.review-card:nth-child(3) {
+  animation-delay: 0.3s
+}
+
+.review-card:nth-child(4) {
+  animation-delay: 0.4s
+}
+
+.review-card:nth-child(5) {
+  animation-delay: 0.5s
+}
+
+.review-card:nth-child(6) {
+  animation-delay: 0.6s
+}
+
+@keyframes reviewCardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg)
+}
+
+.review-card--featured {
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.05) 0%, rgba(102, 187, 106, 0.1) 100%);
+  border: 2px solid var(--color-accent)
+}
+
+.review-card__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: var(--color-white);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-full);
+  white-space: nowrap
+}
+
+.review-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md)
+}
+
+.review-card__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0
+}
+
+.review-card__avatar--green {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%)
+}
+
+.review-card__avatar--brown {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #3E2723 100%)
+}
+
+.review-card__avatar--accent {
+  background: linear-gradient(135deg, #81C784 0%, #4CAF50 100%)
+}
+
+.review-card__avatar-text {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white)
+}
+
+.review-card__info {
+  flex: 1
+}
+
+.review-card__name {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: 0 0 2px 0
+}
+
+.review-card__location {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted)
+}
+
+.review-card__verified {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(46, 125, 50, 0.1);
+  border-radius: var(--radius-full);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium)
+}
+
+.review-card__verified svg {
+  width: 12px;
+  height: 12px
+}
+
+.review-card__rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.review-card__stars {
+  color: #FFB300;
+  font-size: var(--font-size-base);
+  letter-spacing: 2px
+}
+
+.review-card__date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted)
+}
+
+.review-card__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  flex: 1
+}
+
+.review-card__product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border)
+}
+
+.review-card__product-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted)
+}
+
+.review-card__product-name {
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium)
+}
+
+.review-card__eco-impact {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.1) 0%, rgba(102, 187, 106, 0.15) 100%);
+  border-radius: var(--radius-md);
+  margin-top: auto
+}
+
+.review-card__eco-icon {
+  font-size: 1.2rem
+}
+
+.review-card__eco-text {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary)
+}
+
+.reviews__summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1B5E20 100%);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 40px rgba(46, 125, 50, 0.3)
+}
+
+.reviews__summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs)
+}
+
+.reviews__summary-number {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  line-height: 1
+}
+
+.reviews__summary-stars {
+  color: #FFD54F;
+  font-size: var(--font-size-lg);
+  letter-spacing: 2px
+}
+
+.reviews__summary-label {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.8)
+}
+
+.reviews__summary-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2)
+}
+
+@media (max-width: 1200px) {
+  .reviews__grid {
+    grid-template-columns:repeat(2, 1fr)
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews__grid {
+    grid-template-columns:1fr
+  }
+
+  .reviews__summary {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl)
+  }
+
+  .reviews__summary-divider {
+    width: 60px;
+    height: 1px
+  }
+}

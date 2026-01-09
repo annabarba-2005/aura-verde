@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас — AuraVerde | Экологически чистые товары</title>
+    <meta name="description" content="Узнайте историю AuraVerde — компании, которая помогает людям вести экологичный образ жизни.">
+    <link rel="icon" type="image/png" href="images/free-icon-leaf-5806342.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles/index.css">
+    <style>
+        :root {
+            --about-primary: #228B22;
+            --about-primary-light: #4CAF50;
+            --about-primary-dark: #1B5E20;
+            --about-accent: #66BB6A;
+            --about-bg-cream: #FDFBF7;
+            --about-text-dark: #1a1a1a;
+            --about-text-light: #5a5a5a;
+        }
+
+        .about-page-wrapper { position: relative; min-height: 100vh; }
+        .about-page-wrapper::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(ellipse 120px 100px at 10% 15%, rgba(76, 175, 80, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 100px 120px at 90% 10%, rgba(102, 187, 106, 0.1) 0%, transparent 70%),
+                radial-gradient(ellipse 150px 100px at 85% 85%, rgba(139, 195, 74, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 100px 130px at 5% 80%, rgba(67, 160, 71, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 80px 80px at 50% 50%, rgba(129, 199, 132, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 200px 150px at 30% 30%, rgba(165, 214, 167, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 180px 140px at 70% 70%, rgba(200, 230, 201, 0.1) 0%, transparent 70%),
+                linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 15%, #e8f5e9 30%, #dcedc8 45%, #e8f5e9 60%, #c8e6c9 75%, #e8f5e9 100%);
+            background-size: 250px 250px, 220px 220px, 280px 280px, 200px 200px, 180px 180px, 300px 300px, 260px 260px, 400% 400%;
+            animation: gradientShift 25s ease infinite, patternFloat 35s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift { 0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0% 50%; } 50% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 100% 50%; } 100% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0% 50%; } }
+        @keyframes patternFloat { 0%, 100% { background-position: 0 0, 10px 10px, 20px 0, 0 20px, 10px 10px, 0% 50%; } 50% { background-position: 20px 20px, 30px 0, 0 20px, 20px 0, 0 20px, 100% 50%; } }
+
+        .animate-on-scroll { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+        .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+        .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+        .animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+
+        .about-floating-shapes { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+        .about-floating-shape { position: absolute; border-radius: 50%; opacity: 0.08; animation: floatShape 25s ease-in-out infinite; }
+        .about-floating-shape--1 { width: 350px; height: 350px; background: radial-gradient(circle, var(--about-primary) 0%, transparent 70%); top: 5%; left: -8%; animation-delay: 0s; }
+        .about-floating-shape--2 { width: 280px; height: 280px; background: radial-gradient(circle, var(--about-accent) 0%, transparent 70%); top: 55%; right: -5%; animation-delay: -8s; }
+        .about-floating-shape--3 { width: 200px; height: 200px; background: radial-gradient(circle, #8BC34A 0%, transparent 70%); bottom: 15%; left: 15%; animation-delay: -15s; }
+        .about-floating-shape--4 { width: 250px; height: 250px; background: radial-gradient(circle, #43A047 0%, transparent 70%); top: 30%; right: 20%; animation-delay: -5s; opacity: 0.05; }
+        .about-floating-shape--5 { width: 180px; height: 180px; background: radial-gradient(circle, #66BB6A 0%, transparent 70%); bottom: 40%; left: 60%; animation-delay: -12s; opacity: 0.06; }
+        @keyframes floatShape { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(30px, -20px) scale(1.05); } 50% { transform: translate(10px, 20px) scale(0.95); } 75% { transform: translate(-20px, 10px) scale(1.02); } }
+
+        .floating-eco-icons { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+        .floating-eco-icon { position: absolute; opacity: 0.08; font-size: 2rem; color: var(--about-primary); animation: floatEcoIcon 30s ease-in-out infinite; }
+        .floating-eco-icon--1 { top: 15%; left: 8%; animation-delay: 0s; font-size: 1.8rem; }
+        .floating-eco-icon--2 { top: 25%; right: 12%; animation-delay: -5s; font-size: 2.8rem; }
+        .floating-eco-icon--3 { top: 55%; left: 5%; animation-delay: -10s; font-size: 2.2rem; }
+        .floating-eco-icon--4 { top: 70%; right: 8%; animation-delay: -15s; font-size: 2rem; }
+        .floating-eco-icon--5 { top: 40%; left: 85%; animation-delay: -20s; font-size: 2.5rem; }
+        .floating-eco-icon--6 { bottom: 15%; left: 15%; animation-delay: -25s; font-size: 1.9rem; }
+        .floating-eco-icon--7 { top: 80%; left: 50%; animation-delay: -8s; font-size: 1.6rem; }
+        .floating-eco-icon--8 { top: 35%; left: 30%; animation-delay: -18s; font-size: 2.3rem; }
+        @keyframes floatEcoIcon { 0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.05; } 25% { transform: translate(15px, -25px) rotate(10deg); opacity: 0.1; } 50% { transform: translate(-10px, 15px) rotate(-5deg); opacity: 0.07; } 75% { transform: translate(20px, 10px) rotate(8deg); opacity: 0.08; } }
+
+        .about-hero-section { position: relative; width: 100%; min-height: 500px; height: 500px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: 100px; }
+        .about-hero-section__bg { position: absolute; inset: 0; z-index: 0; }
+        .about-hero-section__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: brightness(0.75) saturate(1.1); }
+        .about-hero-section__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 60, 30, 0.55) 0%, rgba(15, 50, 25, 0.65) 50%, rgba(10, 40, 20, 0.75) 100%); z-index: 1; }
+        .about-hero-section__content { position: relative; z-index: 3; text-align: center; padding: var(--spacing-3xl) var(--spacing-xl); max-width: 900px; margin: 0 auto; }
+        .about-hero-section__title { font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; color: #fff; margin-bottom: var(--spacing-lg); text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); line-height: 1.2; }
+        .about-hero-section__title--green { color: #fff; text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); position: relative; display: inline-block; }
+        .about-hero-section__title--green::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 0; height: 4px; background: linear-gradient(90deg, var(--about-primary), var(--about-accent), #8BC34A); border-radius: 2px; animation: underlineGrow 1.5s ease-out 0.8s forwards; }
+        @keyframes underlineGrow { 0% { width: 0; opacity: 0; } 100% { width: 80%; opacity: 1; } }
+        .about-hero-section__text { font-family: var(--font-body); font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255, 255, 255, 0.95); line-height: 1.9; text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); }
+
+        .story-section { padding: var(--spacing-5xl) 0; position: relative; background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(232, 245, 233, 0.4) 50%, rgba(255, 255, 255, 0.6) 100%); backdrop-filter: blur(2px); }
+        .story-section__header { text-align: center; margin-bottom: var(--spacing-3xl); }
+        .story-section__title { font-family: var(--font-heading); font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; color: var(--about-text-dark); line-height: 1.2; }
+        .story-section__title-accent { color: var(--about-primary); }
+        .story-section__decor { width: 80px; height: 4px; background: linear-gradient(90deg, var(--about-primary), var(--about-accent)); border-radius: 2px; margin: var(--spacing-lg) auto 0; }
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); align-items: center; margin-bottom: var(--spacing-4xl); }
+        .story-cards { display: flex; flex-direction: column; gap: var(--spacing-xl); }
+        .story-card { background: #fff; border-radius: 20px; padding: var(--spacing-xl) var(--spacing-2xl); box-shadow: 0 10px 40px rgba(34, 139, 34, 0.08); border-left: 5px solid var(--about-primary); transition: all 0.4s ease; position: relative; }
+        .story-card:hover { transform: translateX(10px); box-shadow: 0 15px 50px rgba(34, 139, 34, 0.12); }
+        .story-card:nth-child(2) { border-left-color: var(--about-accent); }
+        .story-card__title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--about-text-dark); margin-bottom: var(--spacing-md); }
+        .story-card__text { font-size: 0.95rem; color: var(--about-text-light); line-height: 1.8; text-align: justify; }
+        .story-image { position: relative; }
+        .story-image__wrapper { position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(34, 139, 34, 0.15); }
+        .story-image__wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .story-image__wrapper:hover img { transform: scale(1.05); }
+        .story-image__decor-1 { position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: linear-gradient(135deg, rgba(34, 139, 34, 0.15), rgba(102, 187, 106, 0.1)); border-radius: 50%; z-index: -1; }
+        .story-image__decor-2 { position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px; background: linear-gradient(135deg, rgba(102, 187, 106, 0.1), rgba(139, 195, 74, 0.08)); border-radius: 50%; z-index: -1; }
+        .stats-section { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-xl); max-width: 1100px; margin: 0 auto; }
+        .stat-card { background: #fff; border-radius: 20px; padding: var(--spacing-lg) var(--spacing-2xl); text-align: center; box-shadow: 0 10px 40px rgba(34, 139, 34, 0.08); border: 1px solid rgba(34, 139, 34, 0.08); transition: all 0.4s ease; position: relative; overflow: hidden; display: flex; align-items: center; gap: var(--spacing-lg); }
+        .stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--about-primary), var(--about-accent)); transform: scaleX(0); transition: transform 0.4s ease; }
+        .stat-card:hover { transform: translateY(-10px); box-shadow: 0 25px 60px rgba(34, 139, 34, 0.15); }
+        .stat-card:hover::before { transform: scaleX(1); }
+        .stat-card__icon { width: 60px; height: 60px; min-width: 60px; background: linear-gradient(135deg, var(--about-primary), var(--about-accent)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #fff; transition: all 0.4s ease; }
+        .stat-card:hover .stat-card__icon { transform: scale(1.1) rotate(5deg); box-shadow: 0 10px 25px rgba(34, 139, 34, 0.3); }
+        .stat-card__info { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+        .stat-card__number { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700; color: var(--about-primary); line-height: 1; margin-bottom: 4px; display: block; }
+        .stat-card__label { font-size: 0.95rem; color: var(--about-text-light); font-weight: 500; display: block; text-align: left; }
+
+        .mission-section { padding: var(--spacing-5xl) 0; background: linear-gradient(135deg, var(--about-primary) 0%, var(--about-primary-dark) 100%); position: relative; overflow: hidden; }
+        .mission-section::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url('images/krupnyi-plan-zelenoi-travy.jpg'); background-size: cover; background-position: center; opacity: 0.1; mask-image: linear-gradient(to left, rgba(0,0,0,0.3), transparent); -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.3), transparent); }
+        .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4xl); align-items: center; position: relative; z-index: 1; }
+        .mission-content__title { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; color: #fff; margin-bottom: var(--spacing-xl); line-height: 1.3; }
+        .mission-content__text { font-size: 1.15rem; color: rgba(255, 255, 255, 0.9); line-height: 1.9; margin-bottom: var(--spacing-2xl); }
+        .mission-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--spacing-md); }
+        .mission-list li { display: flex; align-items: center; gap: var(--spacing-md); font-size: 1.05rem; color: rgba(255, 255, 255, 0.95); padding: var(--spacing-sm) 0; }
+        .mission-list li i { width: 32px; height: 32px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+        .mission-image { position: relative; }
+        .mission-image img { width: 100%; border-radius: 24px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3); }
+
+        /* Newsletter Section Styles for CTA */
+        .section--newsletter { padding: var(--spacing-4xl) 0; }
+        .newsletter { background: linear-gradient(135deg, #1a3a2a 0%, #2d5a4a 50%, #1a3a2a 100%); border-radius: 32px; padding: var(--spacing-3xl) var(--spacing-2xl); position: relative; overflow: hidden; }
+        .newsletter__leaf { position: absolute; color: rgba(255,255,255,0.06); font-size: 3rem; animation: floatLeaf 20s ease-in-out infinite; }
+        .newsletter__leaf--1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .newsletter__leaf--2 { bottom: 15%; right: 10%; animation-delay: -7s; font-size: 2.5rem; }
+        .newsletter__leaf--3 { top: 50%; right: 5%; animation-delay: -14s; font-size: 2rem; }
+        @keyframes floatLeaf { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 25% { transform: translate(10px, -15px) rotate(5deg); } 50% { transform: translate(-5px, 10px) rotate(-3deg); } 75% { transform: translate(8px, 5px) rotate(2deg); } }
+        .newsletter__glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background: radial-gradient(circle, rgba(102,187,106,0.15) 0%, transparent 70%); pointer-events: none; }
+        .newsletter__inner { display: flex; align-items: center; gap: var(--spacing-3xl); position: relative; z-index: 1; flex-wrap: wrap; }
+        .newsletter__visual { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-lg); }
+        .newsletter__icon-wrapper { position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; }
+        .newsletter__icon-ring { position: absolute; border-radius: 50%; border: 2px solid rgba(255,255,255,0.1); }
+        .newsletter__icon-ring--outer { width: 100%; height: 100%; animation: ringPulse 3s ease-in-out infinite; }
+        .newsletter__icon-ring--inner { width: 80%; height: 80%; animation: ringPulse 3s ease-in-out infinite 0.5s; }
+        @keyframes ringPulse { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.6; } }
+        .newsletter__icon { width: 80px; height: 80px; background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; }
+        .newsletter__discount { background: rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: var(--spacing-md) var(--spacing-lg); text-align: center; backdrop-filter: blur(10px); }
+        .newsletter__discount-value { display: block; font-family: var(--font-heading); font-size: 1.75rem; font-weight: 700; color: #66BB6A; line-height: 1; }
+        .newsletter__discount-label { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.8); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+        .newsletter__content { flex: 1; min-width: 300px; }
+        .newsletter__badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(102,187,106,0.2); border-radius: 50px; padding: 8px 16px; margin-bottom: var(--spacing-md); }
+        .newsletter__badge-icon { color: #66BB6A; }
+        .newsletter__badge-text { font-size: 0.85rem; font-weight: 600; color: #66BB6A; text-transform: uppercase; letter-spacing: 1px; }
+        .newsletter__title { font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: #fff; margin-bottom: var(--spacing-md); line-height: 1.3; }
+        .newsletter__title-highlight { color: #66BB6A; }
+        .newsletter__text { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: var(--spacing-lg); }
+        .newsletter__btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: linear-gradient(135deg, #43A047, #66BB6A); color: #fff; font-weight: 600; border-radius: 50px; border: none; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; }
+        .newsletter__btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(67,160,71,0.4); }
+        .newsletter__privacy { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: var(--spacing-md); }
+        @media (max-width: 768px) { .newsletter__inner { flex-direction: column; text-align: center; } .newsletter__content { text-align: center; } .newsletter__privacy { justify-content: center; } }
+
+        @media (max-width: 1024px) { .story-grid { grid-template-columns: 1fr; gap: var(--spacing-2xl); } .story-image { order: -1; } .mission-grid { grid-template-columns: 1fr; text-align: center; } .mission-image { order: -1; } .mission-list li { justify-content: center; } .stats-section { grid-template-columns: 1fr; max-width: 400px; } .stat-card { justify-content: flex-start; } }
+        @media (max-width: 992px) { .about-hero-section { min-height: 400px; height: 400px; margin-top: 80px; } }
+        @media (max-width: 768px) { .about-hero-section { min-height: 350px; height: auto; margin-top: 70px; padding: 60px 0; } .about-hero-section__content { padding: var(--spacing-2xl) var(--spacing-lg); } .story-section, .mission-section, .cta-section { padding: var(--spacing-4xl) 0; } .stats-section { grid-template-columns: 1fr; gap: var(--spacing-lg); max-width: 100%; } .stat-card { justify-content: center; } .stat-card__number { font-size: 2rem; } }
+        @media (max-width: 480px) { .about-hero-section__title { font-size: 2rem; } .story-card { padding: var(--spacing-lg); } .mission-content__title { font-size: 1.75rem; } }
+    </style>
+</head>
+<body>
+    <header class="header" id="header" role="banner">
+        <div class="header__top-bar">
+            <div class="header__top-container container">
+                <a href="index.html" class="header__logo" aria-label="AuraVerde - главная">
+                    <span class="header__logo-leaf-wrapper">
+                        <svg viewBox="0 0 100 100" class="header__logo-animated-leaf">
+                            <defs><linearGradient id="header-leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#A5D6A7"/><stop offset="30%" stop-color="#66BB6A"/><stop offset="70%" stop-color="#43A047"/><stop offset="100%" stop-color="#1B5E20"/></linearGradient></defs>
+                            <path d="M50 5 C15 25, 5 65, 50 95 C95 65, 85 25, 50 5" fill="url(#header-leaf-grad)"/>
+                            <path d="M50 20 Q50 55, 50 88" fill="none" stroke="#E8F5E9" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M50 35 Q35 40, 25 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M50 35 Q65 40, 75 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="header__logo-text"><span class="header__logo-aura">Aura</span><span class="header__logo-verde">Verde</span></span>
+                </a>
+                <div class="header__search-wrapper">
+                    <button class="header__search-btn" id="search-btn" aria-label="Поиск">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                        <span class="header__search-text">Поиск товаров...</span>
+                    </button>
+                </div>
+                <div class="header__actions">
+                    <a href="cart.html" class="header__cart-btn" aria-label="Корзина">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <span class="header__cart-count" id="cart-count">0</span>
+                    </a>
+                    <button class="header__toggle" id="nav-toggle" aria-label="Открыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav-bar">
+            <div class="header__nav-container container">
+                <nav class="header__nav" id="nav-menu" role="navigation" aria-label="Главное меню">
+                    <ul class="header__nav-list">
+                        <li><a href="index.html" class="header__nav-link">Главная</a></li>
+                        <li><a href="about.html" class="header__nav-link header__nav-link--active">О нас</a></li>
+                        <li><a href="catalog.html" class="header__nav-link">Каталог</a></li>
+                        <li><a href="blog.html" class="header__nav-link">Блог</a></li>
+                        <li><a href="delivery.html" class="header__nav-link">Доставка</a></li>
+                        <li><a href="contacts.html" class="header__nav-link">Контакты</a></li>
+                    </ul>
+                    <button class="header__nav-close" id="nav-close" aria-label="Закрыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="about-floating-shapes" aria-hidden="true">
+        <div class="about-floating-shape about-floating-shape--1"></div>
+        <div class="about-floating-shape about-floating-shape--2"></div>
+        <div class="about-floating-shape about-floating-shape--3"></div>
+        <div class="about-floating-shape about-floating-shape--4"></div>
+        <div class="about-floating-shape about-floating-shape--5"></div>
+    </div>
+    
+    <div class="floating-eco-icons" aria-hidden="true">
+        <span class="floating-eco-icon floating-eco-icon--1"><i class="fas fa-leaf"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--2"><i class="fas fa-seedling"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--3"><i class="fas fa-spa"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--4"><i class="fas fa-water"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--5"><i class="fas fa-wind"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--6"><i class="fas fa-tree"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--7"><i class="fas fa-recycle"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--8"><i class="fas fa-globe-americas"></i></span>
+    </div>
+
+    <main class="about-page-wrapper">
+        <section class="about-hero-section">
+            <div class="about-hero-section__bg">
+                <img src="images/krupnyi-plan-zelenoi-travy.jpg" alt="Зелёная трава — символ жизни и природы">
+            </div>
+            <div class="about-hero-section__overlay"></div>
+            <div class="about-hero-section__content">
+                <h1 class="about-hero-section__title about-hero-section__title--green">Наша история</h1>
+                <p class="about-hero-section__text">AuraVerde — это не просто бренд, это философия жизни в гармонии с природой. Мы создаём пространство, где забота о себе становится заботой о планете. Каждый продукт в нашем каталоге — результат строгого отбора, осознанного выбора и безграничной любви к окружающему миру. Присоединяйтесь к движению тех, кто выбирает будущее уже сегодня.</p>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="container">
+                <div class="story-section__header animate-on-scroll">
+                    <h2 class="story-section__title">Путь к <span class="story-section__title-accent">осознанности</span></h2>
+                    <div class="story-section__decor"></div>
+                </div>
+
+                <div class="story-grid">
+                    <div class="story-cards">
+                        <article class="story-card animate-on-scroll delay-1">
+                            <h3 class="story-card__title">Начало пути</h3>
+                            <p class="story-card__text">AuraVerde — это больше, чем просто магазин. Это движение за осознанное потребление, которое началось в 2020 году с простой идеи: сделать экологичные товары доступными каждому. Мы верили, что забота о планете может быть простой и приятной.</p>
+                        </article>
+                        <article class="story-card animate-on-scroll delay-2">
+                            <h3 class="story-card__title">Тщательный отбор</h3>
+                            <p class="story-card__text">Мы тщательно отбираем каждый продукт, проверяя сертификаты, изучая производство и убеждаясь в честности производителей. Наша команда лично посещает фермы и мастерские, чтобы гарантировать качество и этичность каждого товара в нашем каталоге.</p>
+                        </article>
+                    </div>
+                    <div class="story-image animate-on-scroll delay-3">
+                        <div class="story-image__decor-1"></div>
+                        <div class="story-image__decor-2"></div>
+                        <div class="story-image__wrapper">
+                            <img src="images/ludi-rabotausie-vmeste-v-tehnologiceskom-brende.jpg" alt="Команда AuraVerde">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-section animate-on-scroll">
+                    <div class="stat-card">
+                        <div class="stat-card__icon"><i class="fas fa-box-open"></i></div>
+                        <div class="stat-card__info">
+                            <span class="stat-card__number">500+</span>
+                            <span class="stat-card__label">Эко-товаров</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__icon"><i class="fas fa-handshake"></i></div>
+                        <div class="stat-card__info">
+                            <span class="stat-card__number">50+</span>
+                            <span class="stat-card__label">Партнёров</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-card__info">
+                            <span class="stat-card__number">10 000+</span>
+                            <span class="stat-card__label">Довольных клиентов</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-section" style="background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 30%, #e8f5e9 60%, #dcedc8 100%); padding: var(--spacing-5xl) 0; position: relative; overflow: hidden;">
+            <!-- Декоративные элементы -->
+            <div style="position: absolute; top: 10%; right: 5%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(76, 175, 80, 0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+            <div style="position: absolute; bottom: 15%; left: 3%; width: 180px; height: 180px; background: radial-gradient(circle, rgba(139, 195, 74, 0.06) 0%, transparent 70%); border-radius: 50%;"></div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background: radial-gradient(circle, rgba(165, 214, 167, 0.05) 0%, transparent 70%); border-radius: 50%;"></div>
+            
+            <div class="container" style="position: relative; z-index: 1;">
+                <div class="mission-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4xl); align-items: center;">
+                    <div class="mission-content animate-on-scroll" style="text-align: left;">
+                        <h2 class="mission-content__title" style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; color: #1B5E20; margin-bottom: var(--spacing-xl); line-height: 1.3;">Наша миссия</h2>
+                        <p class="mission-content__text" style="font-size: 1.15rem; color: #4a5a4a; line-height: 1.9; margin-bottom: var(--spacing-2xl);">Мы стремимся создать мир, где экологичный выбор — это норма, а не исключение. Каждый заказ через AuraVerde — это шаг к более чистой планете для будущих поколений.</p>
+                        <ul class="mission-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--spacing-md);">
+                            <li style="display: flex; align-items: center; gap: var(--spacing-md); font-size: 1.05rem; color: #2E4A2E; padding: var(--spacing-md) var(--spacing-lg); background: rgba(255, 255, 255, 0.7); border-radius: 12px; border-left: 4px solid #43A047; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.boxShadow='0 8px 25px rgba(46, 125, 50, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(46, 125, 50, 0.08)'">
+                                <i class="fas fa-check" style="width: 28px; height: 28px; background: linear-gradient(135deg, #43A047, #66BB6A); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: white; flex-shrink: 0;"></i>
+                                <span style="font-weight: 500;">Сокращение пластиковых отходов</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: var(--spacing-md); font-size: 1.05rem; color: #2E4A2E; padding: var(--spacing-md) var(--spacing-lg); background: rgba(255, 255, 255, 0.7); border-radius: 12px; border-left: 4px solid #66BB6A; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.boxShadow='0 8px 25px rgba(46, 125, 50, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(46, 125, 50, 0.08)'">
+                                <i class="fas fa-check" style="width: 28px; height: 28px; background: linear-gradient(135deg, #66BB6A, #8BC34A); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: white; flex-shrink: 0;"></i>
+                                <span style="font-weight: 500;">Поддержка местных и малых производителей</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: var(--spacing-md); font-size: 1.05rem; color: #2E4A2E; padding: var(--spacing-md) var(--spacing-lg); background: rgba(255, 255, 255, 0.7); border-radius: 12px; border-left: 4px solid #8BC34A; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.boxShadow='0 8px 25px rgba(46, 125, 50, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(46, 125, 50, 0.08)'">
+                                <i class="fas fa-check" style="width: 28px; height: 28px; background: linear-gradient(135deg, #8BC34A, #AED581); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: white; flex-shrink: 0;"></i>
+                                <span style="font-weight: 500;">Просвещение в области устойчивого развития</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: var(--spacing-md); font-size: 1.05rem; color: #2E4A2E; padding: var(--spacing-md) var(--spacing-lg); background: rgba(255, 255, 255, 0.7); border-radius: 12px; border-left: 4px solid #43A047; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.08); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(8px)'; this.style.boxShadow='0 8px 25px rgba(46, 125, 50, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(46, 125, 50, 0.08)'">
+                                <i class="fas fa-check" style="width: 28px; height: 28px; background: linear-gradient(135deg, #43A047, #66BB6A); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: white; flex-shrink: 0;"></i>
+                                <span style="font-weight: 500;">Прозрачность в цепочке поставок</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mission-image animate-on-scroll" style="position: relative;">
+                        <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(139, 195, 74, 0.15)); border-radius: 50%; z-index: -1;"></div>
+                        <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: linear-gradient(135deg, rgba(139, 195, 74, 0.15), rgba(165, 214, 167, 0.1)); border-radius: 50%; z-index: -1;"></div>
+                        <img src="images/green-arrow-made-plants-pointing-upward-vibrant-forest-setting_923607-22843.jpg" alt="Зелёная стрела роста" style="width: 100%; border-radius: 24px; box-shadow: 0 25px 60px rgba(46, 125, 50, 0.2);">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <style>
+            @media (max-width: 1024px) {
+                .mission-section .mission-grid { grid-template-columns: 1fr !important; text-align: center !important; }
+                .mission-section .mission-image { order: -1 !important; }
+                .mission-section .mission-list li { justify-content: center !important; }
+            }
+        </style>
+
+        <!-- CTA Section - About page specific with #2E7D32 background -->
+        <section class="section section--newsletter" style="padding: var(--spacing-4xl) 0;">
+            <div class="container">
+                <div class="newsletter" data-aos="fade-up" style="background: #2E7D32;">
+                    <!-- Декоративные элементы -->
+                    <div class="newsletter__leaf newsletter__leaf--1" style="color: rgba(255,255,255,0.08);"><i class="fas fa-heart"></i></div>
+                    <div class="newsletter__leaf newsletter__leaf--2" style="color: rgba(255,255,255,0.06);"><i class="fas fa-globe-americas"></i></div>
+                    <div class="newsletter__leaf newsletter__leaf--3" style="color: rgba(255,255,255,0.05);"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="newsletter__glow" style="background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);"></div>
+                    
+                    <div class="newsletter__inner" style="justify-content: center; text-align: center;">
+                        <!-- Левая часть с иконкой -->
+                        <div class="newsletter__visual">
+                            <div class="newsletter__icon-wrapper">
+                                <div class="newsletter__icon-ring newsletter__icon-ring--outer" style="border-color: rgba(255,255,255,0.15);"></div>
+                                <div class="newsletter__icon-ring newsletter__icon-ring--inner" style="border-color: rgba(255,255,255,0.1);"></div>
+                                <div class="newsletter__icon" style="background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08));">
+                                    <i class="fas fa-leaf" style="font-size: 2.5rem;"></i>
+                                </div>
+                            </div>
+                            <div class="newsletter__discount" style="background: rgba(255,255,255,0.15);">
+                                <span class="newsletter__discount-value" style="color: #A5D6A7;">2020</span>
+                                <span class="newsletter__discount-label" style="color: rgba(255,255,255,0.85);">год основания</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Правая часть с контентом -->
+                        <div class="newsletter__content" style="text-align: left;">
+                            <div class="newsletter__badge" style="background: rgba(255,255,255,0.15);">
+                                <span class="newsletter__badge-icon" style="color: #A5D6A7;"><i class="fas fa-star"></i></span>
+                                <span class="newsletter__badge-text" style="color: #A5D6A7;">Станьте частью движения</span>
+                            </div>
+                            <h2 class="newsletter__title">
+                                Вместе мы создаём <span class="newsletter__title-highlight" style="color: #A5D6A7;">устойчивое будущее</span>
+                            </h2>
+                            <p class="newsletter__text" style="color: rgba(255,255,255,0.9);">
+                                Каждая покупка в AuraVerde — это вклад в сохранение планеты. Присоединяйтесь к нашему сообществу осознанных потребителей
+                            </p>
+                            <a href="catalog.html" class="newsletter__btn" style="display: inline-flex; text-decoration: none; background: #1B5E20;">
+                                <span>Изучить каталог</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <p class="newsletter__privacy" style="color: rgba(255,255,255,0.75);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                                Более 10 000 довольных клиентов по всей стране
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-col footer-col-wide">
+                <h3 class="footer-logo"><i class="fas fa-leaf"></i> AuraVerde</h3>
+                <p class="footer-description">Экологически чистые товары для устойчивого будущего</p>
+                <div class="footer-social">
+                    <p class="social-title">МЫ В СОЦИАЛЬНЫХ СЕТЯХ</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="payment-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard">
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Навигация</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Информация</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="delivery.html">Доставка и оплата</a></li>
+                    <li><a href="blog.html">Эко-блог</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Поддержка</h4>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Помощь</a></li>
+                    <li><a href="delivery.html">Возврат товара</a></li>
+                    <li><a href="contacts.html">Контакты поддержки</a></li>
+                    <li><a href="delivery.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AuraVerde. Барба. Проект создан в рамках курсовой работы.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script src="js/data/products.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.animate-on-scroll').forEach(el => { observer.observe(el); });
+        });
+    </script>
+</body>
+</html>

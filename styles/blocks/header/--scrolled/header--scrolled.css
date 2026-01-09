@@ -1,0 +1,22 @@
+.header--scrolled .header__top-bar {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(93, 64, 55, 0.08);
+}
+
+.header--scrolled .header__nav-bar {
+  background: rgba(245, 245, 240, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+.header--scrolled .header__logo-leaf-wrapper {
+  width: 34px;
+  height: 34px;
+  margin-right: 6px;
+}
+
+.header--scrolled .header__logo-animated-leaf {
+  width: 34px;
+  height: 34px;
+}
+

@@ -1,0 +1,203 @@
+.search-modal__results {
+  display: grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: var(--spacing-lg);
+  padding-right: var(--spacing-sm);
+  scrollbar-width: none;
+  -ms-overflow-style: none
+}
+
+.search-modal__results::-webkit-scrollbar {
+  display: none
+}
+
+.search-modal__results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border)
+}
+
+.search-modal__results-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted)
+}
+
+.search-modal__results-count span {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary)
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 2px solid transparent
+}
+
+.search-result-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-light)
+}
+
+.search-result-item__image {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  overflow: hidden
+}
+
+.search-result-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.search-result-item__info {
+  flex: 1;
+  min-width: 0
+}
+
+.search-result-item__name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.search-result-item__category {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs)
+}
+
+.search-result-item__price {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary)
+}
+
+.search-result-item__eco {
+  color: var(--color-primary);
+  font-size: var(--font-size-xs)
+}
+
+.search-modal__not-found {
+  text-align: center;
+  padding: var(--spacing-md) var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-primary-light);
+  animation: fadeIn 0.3s ease-out
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px)
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+.search-not-found__icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-xs);
+  animation: searchPulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))
+}
+
+@keyframes searchPulse {
+  0%, 100% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.1)
+  }
+}
+
+.search-not-found__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: #FFFFFF;
+  margin-bottom: var(--spacing-xs);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
+}
+
+.search-not-found__text {
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  margin-bottom: var(--spacing-sm)
+}
+
+.search-not-found__text span {
+  font-weight: var(--font-weight-bold);
+  color: #A5D6A7
+}
+
+.search-not-found__promise {
+  font-size: 0.85rem;
+  color: #FFFFFF;
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0 auto var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  border-left: 3px solid #A5D6A7;
+  backdrop-filter: blur(5px)
+}
+
+@media (max-width: 576px) {
+  .search-modal__results {
+    grid-template-columns:1fr;
+    max-height: 250px
+  }
+
+  .search-modal__not-found {
+    padding: var(--spacing-sm)
+  }
+
+  .search-not-found__icon {
+    font-size: 1.5rem
+  }
+
+  .search-not-found__title {
+    font-size: 1rem
+  }
+
+  .search-not-found__text {
+    font-size: 0.8rem
+  }
+
+  .search-not-found__promise {
+    font-size: 0.75rem;
+    padding: var(--spacing-xs)
+  }
+}

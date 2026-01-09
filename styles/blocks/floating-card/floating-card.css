@@ -1,0 +1,55 @@
+.floating-card {
+  position: absolute;
+  background: var(--color-white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+  animation: float-card 3s ease-in-out infinite
+}
+
+.floating-card__icon {
+  font-size: 1.25rem
+}
+
+.floating-card__text {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap
+}
+
+.floating-card--1 {
+  top: 10%;
+  right: 0;
+  animation-delay: 0s
+}
+
+.floating-card--2 {
+  top: 50%;
+  left: -10%;
+  animation-delay: 0.5s
+}
+
+.floating-card--3 {
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 1s
+}
+
+@keyframes float-card {
+  0%, 100% {
+    transform: translateY(0)
+  }
+  50% {
+    transform: translateY(-10px)
+  }
+}
+
+@media (max-width: 576px) {
+  .floating-card {
+    display: none
+  }
+}

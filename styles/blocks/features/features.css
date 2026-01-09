@@ -1,0 +1,103 @@
+.features {
+  display: grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl)
+}
+
+.feature {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 220px
+}
+
+.feature:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg)
+}
+
+.feature__icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.feature__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain
+}
+
+.feature__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm)
+}
+
+.feature__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  line-height: var(--line-height-relaxed);
+  flex-grow: 1
+}
+
+.about__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0
+}
+
+.about__features .feature {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-md);
+  text-align: left;
+  padding: var(--spacing-md);
+  min-height: auto
+}
+
+.about__features .feature__icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(var(--color-primary-rgb), 0.1);
+  border-radius: var(--radius-lg);
+  flex-shrink: 0;
+  color: var(--color-primary);
+  margin: 0
+}
+
+.about__features .feature__content h4 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs)
+}
+
+.about__features .feature__content p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light)
+}
+
+@media (max-width: 1200px) {
+  .features {
+    grid-template-columns:repeat(2, 1fr)
+  }
+}
+
+@media (max-width: 576px) {
+  .features {
+    grid-template-columns:1fr
+  }
+}

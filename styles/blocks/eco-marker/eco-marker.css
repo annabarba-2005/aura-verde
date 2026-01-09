@@ -1,0 +1,99 @@
+.eco-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--color-bg);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  cursor: help;
+  transition: transform var(--transition-fast)
+}
+
+.eco-marker:hover {
+  transform: scale(1.1)
+}
+
+.product-card__markers {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm)
+}
+
+.product-card__carbon {
+  font-size: var(--font-size-xs);
+  color: var(--color-primary)
+}
+
+.modal__product-eco h4, .modal__product-certificates h4, .modal__product-markers h4, .modal__product-manufacturer h4 {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm)
+}
+
+.modal__product-eco-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm)
+}
+
+.modal__product-certificates-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm)
+}
+
+.modal__product-certificate {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(var(--color-primary-rgb), 0.1);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-full)
+}
+
+.modal__product-markers-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs)
+}
+
+.modal__product-marker {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary)
+}
+
+.modal__product-manufacturer-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap
+}
+
+.modal__product-manufacturer-info span:first-child {
+  font-weight: var(--font-weight-semibold)
+}
+
+.modal__product-manufacturer-info span:nth-child(2) {
+  color: var(--color-text-light)
+}
+
+.modal__product-carbon {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: rgba(var(--color-primary-rgb), 0.05);
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-lg) 0
+}
+
+.modal__product-carbon-icon {
+  font-size: 1.5rem
+}
+
+.highlight {
+  color: var(--color-primary)
+}

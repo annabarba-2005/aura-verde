@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка — AuraVerde | Экологичная доставка</title>
+    <meta name="description" content="Информация о доставке и способах оплаты в интернет-магазине AuraVerde. Экологичная доставка по ПМР, бесплатная доставка от 300 руб. ПМР, возврат товара.">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/free-icon-leaf-5806342.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/free-icon-leaf-5806342.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body class="delivery-page">
+    <div class="floating-eco-icons" aria-hidden="true">
+        <span class="floating-eco-icon floating-eco-icon--1"><i class="fas fa-truck"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--2"><i class="fas fa-box"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--3"><i class="fas fa-leaf"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--4"><i class="fas fa-bicycle"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--5"><i class="fas fa-recycle"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--6"><i class="fas fa-shipping-fast"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--7"><i class="fas fa-map-marker-alt"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--8"><i class="fas fa-globe-americas"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--9"><i class="fas fa-seedling"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--10"><i class="fas fa-hand-holding-heart"></i></span>
+    </div>
+    
+    <style>
+        .floating-eco-icon { position: absolute; color: var(--delivery-primary); opacity: 0.08; font-size: 2rem; }
+        .floating-eco-icon--1 { top: 12%; left: 5%; font-size: 2.5rem; animation: floatDelivery 25s ease-in-out infinite; }
+        .floating-eco-icon--2 { top: 20%; right: 8%; font-size: 2rem; animation: floatDelivery 28s ease-in-out infinite reverse; animation-delay: -3s; }
+        .floating-eco-icon--3 { top: 35%; left: 3%; font-size: 1.8rem; animation: floatDelivery 22s ease-in-out infinite; animation-delay: -8s; }
+        .floating-eco-icon--4 { top: 50%; right: 5%; font-size: 2.2rem; animation: floatDelivery 30s ease-in-out infinite reverse; animation-delay: -5s; }
+        .floating-eco-icon--5 { top: 65%; left: 8%; font-size: 1.6rem; animation: floatDelivery 26s ease-in-out infinite; animation-delay: -12s; }
+        .floating-eco-icon--6 { top: 75%; right: 12%; font-size: 2.3rem; animation: floatDelivery 24s ease-in-out infinite reverse; animation-delay: -7s; }
+        .floating-eco-icon--7 { top: 85%; left: 15%; font-size: 1.9rem; animation: floatDelivery 27s ease-in-out infinite; animation-delay: -15s; }
+        .floating-eco-icon--8 { top: 40%; left: 90%; font-size: 2.1rem; animation: floatDelivery 29s ease-in-out infinite reverse; animation-delay: -10s; }
+        .floating-eco-icon--9 { top: 25%; left: 85%; font-size: 1.7rem; animation: floatDelivery 23s ease-in-out infinite; animation-delay: -18s; }
+        .floating-eco-icon--10 { top: 60%; left: 92%; font-size: 2rem; animation: floatDelivery 31s ease-in-out infinite reverse; animation-delay: -20s; }
+        
+        @keyframes floatDelivery {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.05; }
+            25% { transform: translate(20px, -30px) rotate(8deg); opacity: 0.1; }
+            50% { transform: translate(-15px, 20px) rotate(-5deg); opacity: 0.07; }
+            75% { transform: translate(25px, 15px) rotate(5deg); opacity: 0.09; }
+        }
+    </style>
+
+    <header class="header" id="header" role="banner">
+        <div class="header__top-bar">
+            <div class="header__top-container container">
+                <a href="index.html" class="header__logo" aria-label="AuraVerde - главная">
+                    <span class="header__logo-leaf-wrapper">
+                        <svg viewBox="0 0 100 100" class="header__logo-animated-leaf">
+                            <defs>
+                                <linearGradient id="header-leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#A5D6A7"/><stop offset="30%" stop-color="#66BB6A"/><stop offset="70%" stop-color="#43A047"/><stop offset="100%" stop-color="#1B5E20"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M50 5 C15 25, 5 65, 50 95 C95 65, 85 25, 50 5" fill="url(#header-leaf-grad)"/>
+                            <path d="M50 20 Q50 55, 50 88" fill="none" stroke="#E8F5E9" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M50 35 Q35 40, 25 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M50 35 Q65 40, 75 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="header__logo-text"><span class="header__logo-aura">Aura</span><span class="header__logo-verde">Verde</span></span>
+                </a>
+                <div class="header__search-wrapper">
+                    <button class="header__search-btn" id="search-btn" aria-label="Поиск">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                        <span class="header__search-text">Поиск товаров...</span>
+                    </button>
+                </div>
+                <div class="header__actions">
+                    <a href="cart.html" class="header__cart-btn" aria-label="Корзина">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <span class="header__cart-count" id="cart-count">0</span>
+                    </a>
+                    <button class="header__toggle" id="nav-toggle" aria-label="Открыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav-bar">
+            <div class="header__nav-container container">
+                <nav class="header__nav" id="nav-menu" role="navigation" aria-label="Главное меню">
+                    <ul class="header__nav-list">
+                        <li><a href="index.html" class="header__nav-link">Главная</a></li>
+                        <li><a href="about.html" class="header__nav-link">О нас</a></li>
+                        <li><a href="catalog.html" class="header__nav-link">Каталог</a></li>
+                        <li><a href="blog.html" class="header__nav-link">Блог</a></li>
+                        <li><a href="delivery.html" class="header__nav-link header__nav-link--active">Доставка</a></li>
+                        <li><a href="contacts.html" class="header__nav-link">Контакты</a></li>
+                    </ul>
+                    <button class="header__nav-close" id="nav-close" aria-label="Закрыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="delivery-hero-section">
+            <div class="delivery-hero-section__bg">
+                <img src="images/green-eco-bus-road-with-forest-background_840989-5981.jpg" alt="Экологичная доставка" loading="eager">
+            </div>
+            <div class="delivery-hero-section__overlay"></div>
+            <div class="delivery-hero-section__content">
+                <h1 class="delivery-hero-section__title">Экологичная доставка</h1>
+                <p class="delivery-hero-section__subtitle">Доставляем ваши заказы с заботой о природе. Перерабатываемая упаковка, эко-курьеры на электротранспорте и программа возврата упаковки.</p>
+            </div>
+        </section>
+
+        <div class="section-divider section-divider--wave-1" aria-hidden="true">
+            <div class="section-divider__wave">
+                <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                    <path fill="rgba(102, 187, 106, 0.08)" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"/>
+                    <path fill="rgba(76, 175, 80, 0.05)" d="M0,50 C320,20 640,70 960,50 C1200,35 1360,55 1440,50 L1440,80 L0,80 Z"/>
+                </svg>
+            </div>
+        </div>
+
+        <section class="section section--padded-sm">
+            <div class="container">
+                <div class="delivery-info-card animate-on-scroll" style="background: linear-gradient(135deg, #2E7D32 0%, #388E3C 30%, #43A047 60%, #4CAF50 100%); border: none; padding: var(--spacing-3xl) var(--spacing-3xl); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+                    <div style="position: absolute; top: 50%; right: 10%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(139,195,74,0.15) 0%, transparent 70%); border-radius: 50%;"></div>
+                    
+                    <div class="delivery-info-card__header" style="margin-bottom: var(--spacing-2xl); justify-content: center; flex-direction: column; text-align: center; position: relative; z-index: 1;">
+                        <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.15); padding: 10px 24px; border-radius: 50px; margin-bottom: var(--spacing-lg); backdrop-filter: blur(10px);">
+                            <i class="fas fa-leaf" style="color: #A5D6A7;"></i>
+                            <span style="font-size: 0.9rem; font-weight: 600; color: #A5D6A7; text-transform: uppercase; letter-spacing: 1px;">Экологичный подход</span>
+                        </div>
+                        <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; color: #fff; text-shadow: 0 2px 15px rgba(0,0,0,0.2); margin-bottom: var(--spacing-md);">Наш подход к экологичной доставке</h2>
+                        <div style="width: 80px; height: 4px; background: linear-gradient(90deg, #A5D6A7, #81C784); border-radius: 2px; margin: 0 auto;"></div>
+                    </div>
+                    
+                    <div class="delivery-info-card__content" style="position: relative; z-index: 1;">
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-2xl);">
+                            <div style="background: rgba(255,255,255,0.12); border-radius: 20px; padding: var(--spacing-xl); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                                <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg);">
+                                    <i class="fas fa-box-open" style="font-size: 1.8rem; color: #fff;"></i>
+                                </div>
+                                <h3 style="color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: var(--spacing-md);">Эко-упаковка</h3>
+                                <p style="color: rgba(255,255,255,0.9); line-height: 1.8; font-size: 1rem;">
+                                    Все заказы упаковываются в <strong>перерабатываемые</strong> или биоразлагаемые материалы: крафт-бумагу, картон из вторсырья, бумажный скотч и древесную стружку. Мы полностью отказались от одноразового пластика с 2020 года.
+                                </p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.12); border-radius: 20px; padding: var(--spacing-xl); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.15);">
+                                <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg);">
+                                    <i class="fas fa-bicycle" style="font-size: 1.8rem; color: #fff;"></i>
+                                </div>
+                                <h3 style="color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: var(--spacing-md);">Зелёная доставка</h3>
+                                <p style="color: rgba(255,255,255,0.9); line-height: 1.8; font-size: 1rem;">
+                                    Сотрудничаем с <strong>эко-курьерскими службами</strong> — велосипеды, электросамокаты и электромобили. Выберите «зелёную доставку» — мы объединим заказы в один маршрут, чтобы минимизировать выбросы CO₂.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: center; gap: var(--spacing-2xl); margin-top: var(--spacing-2xl); flex-wrap: wrap;">
+                            <div style="text-align: center; padding: var(--spacing-lg) var(--spacing-xl); background: rgba(255,255,255,0.1); border-radius: 16px; backdrop-filter: blur(10px);">
+                                <span style="display: block; font-size: 2.5rem; font-weight: 800; color: #A5D6A7;">0%</span>
+                                <span style="font-size: 0.9rem; color: rgba(255,255,255,0.85);">пластика в упаковке</span>
+                            </div>
+                            <div style="text-align: center; padding: var(--spacing-lg) var(--spacing-xl); background: rgba(255,255,255,0.1); border-radius: 16px; backdrop-filter: blur(10px);">
+                                <span style="display: block; font-size: 2.5rem; font-weight: 800; color: #A5D6A7;">100%</span>
+                                <span style="font-size: 0.9rem; color: rgba(255,255,255,0.85);">перерабатываемые материалы</span>
+                            </div>
+                            <div style="text-align: center; padding: var(--spacing-lg) var(--spacing-xl); background: rgba(255,255,255,0.1); border-radius: 16px; backdrop-filter: blur(10px);">
+                                <span style="display: block; font-size: 2.5rem; font-weight: 800; color: #A5D6A7;">2020</span>
+                                <span style="font-size: 0.9rem; color: rgba(255,255,255,0.85);">год отказа от пластика</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            @media (max-width: 768px) {
+                .delivery-info-card div[style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+            }
+        </style>
+
+        <section class="section section--padded">
+            <div class="container">
+                <div class="delivery-section-header animate-on-scroll">
+                    <div class="delivery-section-header__icon" style="width: 80px; height: 80px;">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px;">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h2 class="delivery-section-header__title" style="font-size: clamp(2rem, 5vw, 3rem);">Путь вашего заказа</h2>
+                    <p class="delivery-section-header__subtitle" style="font-size: 1.2rem;">Отслеживайте каждый этап доставки</p>
+                    <div class="delivery-section-header__line"></div>
+                </div>
+                
+                <div class="delivery-timeline animate-on-scroll" style="padding: var(--spacing-4xl); border-radius: 28px;">
+                    <div class="delivery-timeline__track" style="padding: var(--spacing-2xl) 0;">
+                        <div class="delivery-timeline__step active" style="max-width: 160px;">
+                            <div class="delivery-timeline__step-icon" style="width: 80px; height: 80px;">
+                                <svg viewBox="0 0 24 24" style="width: 36px; height: 36px;"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                            </div>
+                            <span class="delivery-timeline__step-title" style="font-size: 1rem; margin-top: var(--spacing-md);">Заказ принят</span>
+                        </div>
+                        <div class="delivery-timeline__step active" style="max-width: 160px;">
+                            <div class="delivery-timeline__step-icon" style="width: 80px; height: 80px;">
+                                <svg viewBox="0 0 24 24" style="width: 36px; height: 36px;"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            </div>
+                            <span class="delivery-timeline__step-title" style="font-size: 1rem; margin-top: var(--spacing-md);">Упаковка</span>
+                        </div>
+                        <div class="delivery-timeline__step active" style="max-width: 160px;">
+                            <div class="delivery-timeline__step-icon" style="width: 80px; height: 80px;">
+                                <svg viewBox="0 0 24 24" style="width: 36px; height: 36px;"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                            </div>
+                            <span class="delivery-timeline__step-title" style="font-size: 1rem; margin-top: var(--spacing-md);">Отправка</span>
+                        </div>
+                        <div class="delivery-timeline__step" style="max-width: 160px;">
+                            <div class="delivery-timeline__step-icon" style="width: 80px; height: 80px;">
+                                <svg viewBox="0 0 24 24" style="width: 36px; height: 36px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <span class="delivery-timeline__step-title" style="font-size: 1rem; margin-top: var(--spacing-md);">В пути</span>
+                        </div>
+                        <div class="delivery-timeline__step" style="max-width: 160px;">
+                            <div class="delivery-timeline__step-icon" style="width: 80px; height: 80px;">
+                                <svg viewBox="0 0 24 24" style="width: 36px; height: 36px;"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </div>
+                            <span class="delivery-timeline__step-title" style="font-size: 1rem; margin-top: var(--spacing-md);">Доставлено</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .delivery-timeline__track::before { top: 55px !important; }
+            .delivery-timeline__track::after { top: 55px !important; }
+        </style>
+
+        <section class="section section--padded section--white-bg">
+            <div class="container">
+                <div class="delivery-section-header animate-on-scroll">
+                    <div class="delivery-section-header__icon" style="width: 80px; height: 80px;">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px;">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                    </div>
+                    <h2 class="delivery-section-header__title" style="font-size: clamp(2rem, 5vw, 3rem);">Способы доставки</h2>
+                    <p class="delivery-section-header__subtitle" style="font-size: 1.2rem;">Выберите удобный для вас вариант</p>
+                    <div class="delivery-section-header__line"></div>
+                </div>
+                
+                <div class="delivery-methods">
+                    <div class="delivery-method-card animate-on-scroll">
+                        <div class="delivery-method-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="5" cy="18" r="3"/>
+                                <circle cx="19" cy="18" r="3"/>
+                                <path d="M12 18V12l-4-4h6l2 4"/>
+                                <path d="M5 18l4-6h6"/>
+                                <rect x="10" y="5" width="5" height="4" rx="0.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="delivery-method-card__title">Эко-курьер по Тирасполю</h3>
+                        <p class="delivery-method-card__text">Доставка велокурьером или на электротранспорте по г. Тирасполь и Бендеры. Срок: 1-2 рабочих дня. Стоимость: 25 руб. ПМР, бесплатно от 300 руб. ПМР.</p>
+                        <span class="delivery-method-card__badge">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Нулевой углеродный след
+                        </span>
+                    </div>
+
+                    <div class="delivery-method-card animate-on-scroll">
+                        <div class="delivery-method-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 21h18"/>
+                                <path d="M5 21V7l7-4 7 4v14"/>
+                                <path d="M9 21v-6h6v6"/>
+                                <circle cx="12" cy="10" r="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="delivery-method-card__title">Пункты выдачи</h3>
+                        <p class="delivery-method-card__text">Пункты выдачи в городах ПМР: Тирасполь, Бендеры, Рыбница, Дубоссары. Срок: 2-5 рабочих дней. Стоимость: от 20 руб. ПМР, бесплатно от 300 руб. ПМР.</p>
+                        <span class="delivery-method-card__badge">
+                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            Удобное расположение
+                        </span>
+                    </div>
+
+                    <div class="delivery-method-card animate-on-scroll">
+                        <div class="delivery-method-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 10l9-7 9 7"/>
+                                <path d="M5 10v10a1 1 0 001 1h12a1 1 0 001-1V10"/>
+                                <path d="M12 21v-6"/>
+                                <path d="M9 15h6"/>
+                            </svg>
+                        </div>
+                        <h3 class="delivery-method-card__title">Курьер до двери</h3>
+                        <p class="delivery-method-card__text">Доставка курьером до двери по всей территории ПМР. Срок: 2-5 рабочих дней. Стоимость: от 35 руб. ПМР. Бесплатно от 500 руб. ПМР.</p>
+                        <span class="delivery-method-card__badge">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Удобное время
+                        </span>
+                    </div>
+
+                    <div class="delivery-method-card animate-on-scroll">
+                        <div class="delivery-method-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="M22 6l-10 7L2 6"/>
+                                <rect x="15" y="14" width="4" height="3" rx="0.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="delivery-method-card__title">Почта ПМР</h3>
+                        <p class="delivery-method-card__text">Доставка в отдалённые населённые пункты Почтой ПМР. Срок: 3-7 рабочих дней. Стоимость: от 30 руб. ПМР. Отслеживание на сайте.</p>
+                        <span class="delivery-method-card__badge">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                            По всей ПМР
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--padded">
+            <div class="container">
+                <div class="delivery-section-header animate-on-scroll">
+                    <div class="delivery-section-header__icon" style="width: 80px; height: 80px;">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px;">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <polyline points="9 12 11 14 15 10"></polyline>
+                        </svg>
+                    </div>
+                    <h2 class="delivery-section-header__title" style="font-size: clamp(2rem, 5vw, 3rem);">Возврат и гарантии</h2>
+                    <p class="delivery-section-header__subtitle" style="font-size: 1.2rem;">Гарантируем качество каждого товара</p>
+                    <div class="delivery-section-header__line"></div>
+                </div>
+                
+                <div class="guarantee-block animate-on-scroll">
+                    <div class="guarantee-block__icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <polyline points="9 12 11 14 15 10"/>
+                        </svg>
+                    </div>
+                    <h3 class="guarantee-block__title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        14 дней на возврат
+                    </h3>
+                    <p class="guarantee-block__text">Мы гарантируем качество каждого товара в нашем магазине. Если по каким-то причинам товар вам не подошёл или вы обнаружили дефект, мы готовы произвести обмен или возврат денежных средств. Для возврата товар должен сохранить товарный вид, упаковку и все ярлыки.</p>
+                    <p class="guarantee-block__text"><strong>Важно:</strong> Продукты питания и косметика возврату не подлежат, если упаковка была вскрыта (за исключением случаев выявления дефектов). При обнаружении брака мы произведём замену за наш счёт или вернём полную стоимость, включая доставку.</p>
+                    <p class="guarantee-block__text">Мы ценим каждого клиента и стремимся решать все вопросы максимально быстро и в вашу пользу. Наша цель — сделать вас довольным клиентом, который вернётся к нам снова.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--padded faq-section">
+            <div class="faq-bg-shapes" aria-hidden="true">
+                <div class="faq-bg-shape faq-bg-shape--circle-1"></div>
+                <div class="faq-bg-shape faq-bg-shape--circle-2"></div>
+                <div class="faq-bg-shape faq-bg-shape--triangle"></div>
+                <div class="faq-bg-shape faq-bg-shape--wave">
+                    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="width: 200%; height: 100%;">
+                        <path fill="rgba(102, 187, 106, 0.15)" d="M0,50 Q360,100 720,50 T1440,50 T2160,50 T2880,50 V100 H0 Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="faq-bg-grid"></div>
+            
+            <div class="container">
+                <div class="delivery-section-header animate-on-scroll">
+                    <div class="delivery-section-header__icon" style="width: 80px; height: 80px;">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h2 class="delivery-section-header__title" style="font-size: clamp(2rem, 5vw, 3rem);">Часто задаваемые вопросы</h2>
+                    <p class="delivery-section-header__subtitle" style="font-size: 1.2rem;">Ответы на популярные вопросы</p>
+                    <div class="delivery-section-header__line"></div>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-card animate-on-scroll">
+                        <h3 class="faq-card__title">Как узнать статус заказа?</h3>
+                        <p class="faq-card__text">После оформления заказа вы получите письмо с номером для отслеживания. Статус можно проверить на сайте транспортной компании или в личном кабинете. Также мы отправляем SMS-уведомления на каждом этапе доставки.</p>
+                    </div>
+                    <div class="faq-card animate-on-scroll">
+                        <h3 class="faq-card__title">Можно ли изменить адрес доставки?</h3>
+                        <p class="faq-card__text">Да, если заказ ещё не передан в службу доставки. Свяжитесь с нами по телефону или напишите в чат поддержки, и мы изменим адрес. После передачи заказа курьеру изменить адрес можно только через транспортную компанию.</p>
+                    </div>
+                    <div class="faq-card animate-on-scroll">
+                        <h3 class="faq-card__title">Как работает программа возврата упаковки?</h3>
+                        <p class="faq-card__text">Соберите использованные коробки и упаковочные материалы от наших заказов и принесите их в наш пункт выдачи в Тирасполе. За каждый возврат мы начислим 50 бонусных баллов (1 балл = 1 руб. ПМР). Баллы можно использовать для оплаты до 30% стоимости следующего заказа.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-col footer-col-wide">
+                <h3 class="footer-logo"><i class="fas fa-leaf"></i> AuraVerde</h3>
+                <p class="footer-description">Экологически чистые товары для устойчивого будущего</p>
+                <div class="footer-social">
+                    <p class="social-title">МЫ В СОЦИАЛЬНЫХ СЕТЯХ</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="payment-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard">
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Навигация</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Информация</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="delivery.html">Доставка и оплата</a></li>
+                    <li><a href="blog.html">Эко-блог</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Поддержка</h4>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Помощь</a></li>
+                    <li><a href="delivery.html">Возврат товара</a></li>
+                    <li><a href="contacts.html">Контакты поддержки</a></li>
+                    <li><a href="delivery.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AuraVerde. Барба. Проект создан в рамках курсовой работы.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script src="js/data/products.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => entry.target.classList.add('visible'), index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+            const timelineSteps = document.querySelectorAll('.delivery-timeline__step');
+            let stepIndex = 0;
+            const animateTimeline = () => {
+                if (stepIndex < timelineSteps.length) {
+                    setTimeout(() => {
+                        timelineSteps[stepIndex].classList.add('active');
+                        stepIndex++;
+                        animateTimeline();
+                    }, 600);
+                }
+            };
+            
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        timelineSteps.forEach(step => step.classList.remove('active'));
+                        stepIndex = 0;
+                        animateTimeline();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const timeline = document.querySelector('.delivery-timeline');
+            if (timeline) timelineObserver.observe(timeline);
+        });
+    </script>
+</body>
+</html>

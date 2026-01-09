@@ -1,0 +1,16 @@
+.product-card--horizontal {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.product-card--horizontal {
+  aspect-ratio: auto;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .product-card--horizontal {
+    grid-template-columns: 1fr;
+  }
+}
+

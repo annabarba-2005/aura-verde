@@ -1,0 +1,6 @@
+.btn--sm {
+  padding: 0.5rem 1rem;
+  min-height: 36px;
+  font-size: var(--font-size-xs);
+}
+

@@ -1,0 +1,121 @@
+.category-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-base);
+  height: 280px
+}
+
+.category-card:hover {
+  transform: translateY(-8px)
+}
+
+.category-card__bg {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary)
+}
+
+.category-card__bg--2 {
+  background: linear-gradient(135deg, #5c7c69 0%, #7a9e87 100%)
+}
+
+.category-card__bg--3 {
+  background: linear-gradient(135deg, #8b7355 0%, #a68b6a 100%)
+}
+
+.category-card__bg--4 {
+  background: linear-gradient(135deg, #c9a227 0%, #dbb84a 100%)
+}
+
+.category-card__bg--5 {
+  background: linear-gradient(135deg, #6b8e7a 0%, #8fb39e 100%)
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, .6) 0%, transparent 60%);
+  z-index: 1
+}
+
+.category-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-xl);
+  color: var(--color-white);
+  z-index: 2
+}
+
+.category-card__icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  display: block
+}
+
+.category-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs)
+}
+
+.category-card__count {
+  font-size: var(--font-size-sm);
+  opacity: .8;
+  margin-bottom: var(--spacing-md)
+}
+
+.category-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--transition-base)
+}
+
+.category-card:hover .category-card__link {
+  opacity: 1;
+  transform: translateY(0)
+}
+
+.category-card__link svg {
+  transition: transform var(--transition-fast)
+}
+
+.category-card__link:hover svg {
+  transform: translateX(4px)
+}
+
+.category-card--large {
+  height: 100%
+}
+
+.category-card--large .category-card__icon {
+  font-size: 3.5rem
+}
+
+.category-card--large .category-card__title {
+  font-size: var(--font-size-xl)
+}
+
+.category-card--wide {
+  height: 200px
+}
+
+@media (max-width: 768px) {
+  .category-card {
+    height: 200px
+  }
+
+  .category-card--large, .category-card--wide {
+    height: 200px
+  }
+}

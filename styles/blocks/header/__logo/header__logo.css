@@ -1,0 +1,132 @@
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  z-index: 10;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.header__logo:hover {
+  transform: scale(1.02);
+}
+
+.header__logo-leaf-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-right: 8px;
+}
+
+.header__logo-animated-leaf {
+  width: 42px;
+  height: 42px;
+  transform: rotate(-25deg);
+  filter: drop-shadow(0 4px 10px rgba(46, 125, 50, 0.5));
+  animation: header-leaf-sway 4s ease-in-out infinite;
+}
+
+@keyframes header-leaf-sway {
+  0%, 100% {
+    transform: rotate(-25deg) scale(1);
+    filter: drop-shadow(0 4px 10px rgba(46, 125, 50, 0.5));
+  }
+  25% {
+    transform: rotate(-30deg) scale(1.05);
+    filter: drop-shadow(0 5px 15px rgba(102, 187, 106, 0.6));
+  }
+  50% {
+    transform: rotate(-20deg) scale(1.02);
+    filter: drop-shadow(0 6px 18px rgba(46, 125, 50, 0.7));
+  }
+  75% {
+    transform: rotate(-28deg) scale(1.05);
+    filter: drop-shadow(0 5px 15px rgba(102, 187, 106, 0.6));
+  }
+}
+
+.header__logo:hover .header__logo-animated-leaf {
+  animation: header-leaf-bounce 0.8s ease-in-out;
+  filter: drop-shadow(0 8px 25px rgba(46, 125, 50, 0.8));
+}
+
+@keyframes header-leaf-bounce {
+  0% {
+    transform: rotate(-25deg) scale(1);
+  }
+  20% {
+    transform: rotate(-15deg) scale(1.15) translateY(-5px);
+  }
+  40% {
+    transform: rotate(-30deg) scale(1.1) translateY(0);
+  }
+  60% {
+    transform: rotate(-20deg) scale(1.12) translateY(-3px);
+  }
+  80% {
+    transform: rotate(-27deg) scale(1.05) translateY(0);
+  }
+  100% {
+    transform: rotate(-25deg) scale(1);
+  }
+}
+
+.header__logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+}
+
+.header__logo-aura {
+  background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 1px 2px rgba(27, 94, 32, 0.3));
+}
+
+.header__logo-verde {
+  background: linear-gradient(135deg, #43A047 0%, #66BB6A 50%, #81C784 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 2px rgba(102, 187, 106, 0.3));
+  animation: logo-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes logo-shimmer {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 1px 2px rgba(102, 187, 106, 0.3));
+  }
+  50% {
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 8px rgba(102, 187, 106, 0.6));
+  }
+}
+
+@media (max-width: 576px) {
+  .header__logo-text {
+    font-size: 1.4rem;
+  }
+
+  .header__logo-leaf-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header__logo-animated-leaf {
+    width: 36px;
+    height: 36px;
+  }
+}
+

@@ -1,0 +1,22 @@
+.product-card {
+  position: relative;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-2xl); /* 20px по ТЗ */
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+@media (max-width: 992px) {
+  .product-card {
+    border-radius: var(--radius-xl);
+  }
+}

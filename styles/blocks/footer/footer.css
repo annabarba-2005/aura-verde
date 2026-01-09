@@ -1,0 +1,203 @@
+/* ===== НОВЫЙ ФУТЕР AuraVerde ===== */
+.site-footer {
+  background: #5D4037;
+  color: #fff;
+  padding: 1.5rem 0 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-col-wide {
+  flex: 2;
+  min-width: 300px;
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  color: #D7CCC8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-logo i {
+  color: #A5D6A7;
+}
+
+.footer-description {
+  color: #E8F5E9;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footer-social {
+  margin-bottom: 2rem;
+}
+
+.social-title {
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  color: #D7CCC8;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.social-links a:hover {
+  background: #8D6E63;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(141, 110, 99, 0.4);
+}
+
+.payment-icons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.payment-icons img {
+  height: 32px;
+  width: auto;
+  background: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.payment-icons img:hover {
+  transform: scale(1.05);
+}
+
+.footer-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 1.25rem;
+  color: #D7CCC8;
+  border-bottom: 2px solid #8D6E63;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #E8F5E9;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  color: #BCAAA4;
+  padding-left: 8px;
+}
+
+.footer-bottom {
+  background: #4E342E;
+  text-align: center;
+  padding: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #BCAAA4;
+  font-size: 0.9rem;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .footer-container {
+    gap: 2.5rem;
+  }
+
+  .footer-col-wide {
+    flex: 100%;
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .footer-col,
+  .footer-col-wide {
+    min-width: 100%;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+  }
+
+  .payment-icons {
+    justify-content: flex-start;
+  }
+
+  .footer-title {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 2rem 0 0;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-logo {
+    font-size: 1.75rem;
+  }
+}

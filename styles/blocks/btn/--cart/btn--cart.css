@@ -1,0 +1,21 @@
+.btn--cart {
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
+  padding: 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25);
+}
+
+.btn--cart:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.35);
+}
+
+.btn--cart:active {
+  transform: scale(1.02);
+}
+

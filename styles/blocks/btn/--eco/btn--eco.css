@@ -1,0 +1,19 @@
+.btn--eco {
+  background: linear-gradient(
+    135deg,
+    #66BB6A 0%,
+    #4CAF50 50%,
+    #2E7D32 100%
+  );
+  color: var(--color-white);
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4),
+  inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn--eco:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.5),
+  inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+

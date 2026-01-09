@@ -1,0 +1,38 @@
+.about-mission__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap: var(--spacing-md)
+}
+
+.about-mission__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text)
+}
+
+.about-mission__list li::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--gradient-eco);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  flex-shrink: 0
+}
+
+@media (max-width: 768px) {
+  .about-mission__list {
+    grid-template-columns:1fr
+  }
+}

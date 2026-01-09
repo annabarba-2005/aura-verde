@@ -1,0 +1,13 @@
+.btn--xl {
+  padding: 1.25rem 2.5rem;
+  min-height: 64px;
+  font-size: var(--font-size-md);
+}
+
+@media (max-width: 768px) {
+  .btn--xl {
+    padding: 1rem 2rem;
+    min-height: 52px;
+  }
+}
+

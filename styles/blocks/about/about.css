@@ -1,0 +1,18 @@
+.section--about {
+  position: relative;
+  overflow: hidden
+}
+
+.section--about .organic-blob {
+  z-index: 0
+}
+
+.section--about .container {
+  position: relative;
+  z-index: 1
+}
+
+
+
+
+

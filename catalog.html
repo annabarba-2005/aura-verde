@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товаров — AuraVerde | Экологически чистые товары</title>
+    <meta name="description" content="Каталог экологически чистых товаров AuraVerde: органические продукты питания, натуральная косметика, эко-бытовая химия, товары для дома и одежда.">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/free-icon-leaf-5806342.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/free-icon-leaf-5806342.png">
+    <link rel="shortcut icon" type="image/png" href="images/free-icon-leaf-5806342.png">
+    <link rel="apple-touch-icon" href="images/free-icon-leaf-5806342.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    <div class="floating-leaves" aria-hidden="true">
+        <span class="floating-leaf floating-leaf--1"><i class="fas fa-leaf"></i></span>
+        <span class="floating-leaf floating-leaf--2"><i class="fas fa-seedling"></i></span>
+        <span class="floating-leaf floating-leaf--3"><i class="fas fa-leaf"></i></span>
+        <span class="floating-leaf floating-leaf--4"><i class="fas fa-seedling"></i></span>
+        <span class="floating-leaf floating-leaf--5"><i class="fas fa-leaf"></i></span>
+    </div>
+
+    <header class="header" id="header" role="banner">
+        <div class="header__top-bar">
+            <div class="header__top-container container">
+                <a href="index.html" class="header__logo" aria-label="AuraVerde - главная">
+                    <span class="header__logo-leaf-wrapper">
+                        <svg viewBox="0 0 100 100" class="header__logo-animated-leaf">
+                            <defs>
+                                <linearGradient id="header-leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#A5D6A7"/><stop offset="30%" stop-color="#66BB6A"/><stop offset="70%" stop-color="#43A047"/><stop offset="100%" stop-color="#1B5E20"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M50 5 C15 25, 5 65, 50 95 C95 65, 85 25, 50 5" fill="url(#header-leaf-grad)"/>
+                            <path d="M50 20 Q50 55, 50 88" fill="none" stroke="#E8F5E9" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M50 35 Q35 40, 25 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M50 35 Q65 40, 75 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="header__logo-text"><span class="header__logo-aura">Aura</span><span class="header__logo-verde">Verde</span></span>
+                </a>
+                <div class="header__search-wrapper">
+                    <button class="header__search-btn" id="search-btn" aria-label="Поиск">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                        <span class="header__search-text">Поиск товаров...</span>
+                    </button>
+                </div>
+                <div class="header__actions">
+                    <a href="cart.html" class="header__cart-btn" aria-label="Корзина">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <span class="header__cart-count" id="cart-count">0</span>
+                    </a>
+                    <button class="header__toggle" id="nav-toggle" aria-label="Открыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav-bar">
+            <div class="header__nav-container container">
+                <nav class="header__nav" id="nav-menu" role="navigation" aria-label="Главное меню">
+                    <ul class="header__nav-list">
+                        <li><a href="index.html" class="header__nav-link">Главная</a></li>
+                        <li><a href="about.html" class="header__nav-link">О нас</a></li>
+                        <li><a href="catalog.html" class="header__nav-link header__nav-link--active">Каталог</a></li>
+                        <li><a href="blog.html" class="header__nav-link">Блог</a></li>
+                        <li><a href="delivery.html" class="header__nav-link">Доставка</a></li>
+                        <li><a href="contacts.html" class="header__nav-link">Контакты</a></li>
+                    </ul>
+                    <button class="header__nav-close" id="nav-close" aria-label="Закрыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-inner">
+            <div class="hero-inner__bg">
+                <img src="images/many-green-folders-isolated-white_392895-585784.jpg" alt="Экологичные товары" loading="lazy" style="opacity: 0.6; filter: brightness(0.9) saturate(1.1);">
+            </div>
+            <div class="hero-inner__overlay" style="background: linear-gradient(180deg, rgba(27, 94, 32, 0.65) 0%, rgba(46, 125, 50, 0.55) 50%, rgba(27, 94, 32, 0.6) 100%);"></div>
+            <div class="hero-inner__content">
+                <h1 class="hero-inner__title" style="color: #ffffff; text-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);">
+                    <span style="position: relative; display: inline-block;">
+                        Каталог экологичных товаров
+                        <span style="position: absolute; bottom: -5px; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #66BB6A, #A5D6A7, #66BB6A); border-radius: 2px;"></span>
+                    </span>
+                </h1>
+                <p class="hero-inner__subtitle" style="color: rgba(255, 255, 255, 0.95); text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+                    Более <span style="font-weight: 700; font-size: 1.5rem; color: #A5D6A7;">35</span> тщательно отобранных товаров для здорового и экологичного образа жизни
+                </p>
+            </div>
+        </section>
+
+        <section class="section section--catalog" id="catalog" style="padding-top: var(--spacing-lg);">
+            <div class="container">
+                <div class="filter animate-in" id="filter" style="margin-bottom: var(--spacing-xl); padding: var(--spacing-lg); background: white; border-radius: var(--radius-xl); box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                    <div class="filter__group filter__group--categories" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: var(--spacing-md);">
+                        <button class="filter__btn filter__btn--active" data-category="all" style="padding: 12px 24px; border-radius: 25px; font-weight: 700; transition: all 0.3s ease;">
+                            Все товары
+                        </button>
+                        <button class="filter__btn" data-category="food" style="padding: 12px 24px; border-radius: 25px; font-weight: 700; transition: all 0.3s ease;">
+                            Продукты
+                        </button>
+                        <button class="filter__btn" data-category="cosmetics" style="padding: 12px 24px; border-radius: 25px; font-weight: 700; transition: all 0.3s ease;">
+                            Косметика
+                        </button>
+                        <button class="filter__btn" data-category="household" style="padding: 12px 24px; border-radius: 25px; font-weight: 700; transition: all 0.3s ease;">
+                            Бытовая химия
+                        </button>
+                        <button class="filter__btn" data-category="home" style="padding: 12px 24px; border-radius: 25px; font-weight: 700; transition: all 0.3s ease;">
+                            Для дома
+                        </button>
+                        <button class="filter__btn" data-category="clothes" style="padding: 12px 24px; border-radius: 25px; font-weight: 700; transition: all 0.3s ease;">
+                            Одежда
+                        </button>
+                    </div>
+                    
+                    <div class="filter__group filter__group--sort" style="display: flex; justify-content: center;">
+                        <select class="filter__select" id="sort-select" aria-label="Сортировка" style="padding: 10px 20px; border-radius: 20px; border: 2px solid rgba(46, 125, 50, 0.2); font-weight: 500;">
+                            <option value="default">По умолчанию</option>
+                            <option value="price-asc">Цена: по возрастанию</option>
+                            <option value="price-desc">Цена: по убыванию</option>
+                            <option value="rating">По рейтингу</option>
+                            <option value="eco">По эко-рейтингу</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="catalog__grid" id="products-grid">
+                </div>
+
+                <div class="catalog__actions" style="text-align: center; margin-top: var(--spacing-2xl);">
+                    <button class="btn btn--outline" id="load-more-btn" style="display: none;">
+                        Показать ещё
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-info-section" style="padding: var(--spacing-5xl) 0; background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 25%, #e0e0e0 50%, #eeeeee 75%, #f5f5f5 100%); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(158, 158, 158, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+            <div style="position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(117, 117, 117, 0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(189, 189, 189, 0.08) 0%, transparent 70%); border-radius: 50%;"></div>
+            <div class="floating-eco-icons" aria-hidden="true" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; overflow: hidden;">
+                <span style="position: absolute; top: 15%; left: 8%; font-size: 1.5rem; color: rgba(46, 125, 50, 0.15); animation: floatIcon 20s ease-in-out infinite;"><i class="fas fa-leaf"></i></span>
+                <span style="position: absolute; top: 70%; right: 12%; font-size: 2rem; color: rgba(76, 175, 80, 0.12); animation: floatIcon 25s ease-in-out infinite reverse;"><i class="fas fa-seedling"></i></span>
+                <span style="position: absolute; bottom: 20%; left: 15%; font-size: 1.8rem; color: rgba(67, 160, 71, 0.1); animation: floatIcon 22s ease-in-out infinite;"><i class="fas fa-recycle"></i></span>
+            </div>
+            
+            <div class="container" style="position: relative; z-index: 1;">
+                <div style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                    <span style="display: inline-flex; align-items: center; gap: 8px; background: rgba(46, 125, 50, 0.15); padding: 10px 24px; border-radius: 50px; color: #2E7D32; font-weight: 600; font-size: 0.9rem; margin-bottom: var(--spacing-md);">
+                        <i class="fas fa-award"></i> Наши стандарты
+                    </span>
+                    <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: #333; margin-bottom: var(--spacing-md);">
+                        Как мы отбираем товары
+                    </h2>
+                    <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                        Строгие критерии качества для вашего здоровья и планеты
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-xl); margin-bottom: var(--spacing-3xl);">
+                    <div style="background: linear-gradient(135deg, #2E7D32 0%, #43A047 100%); border-radius: 24px; padding: var(--spacing-2xl); box-shadow: 0 15px 40px rgba(46, 125, 50, 0.25); transition: all 0.4s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 60px rgba(46, 125, 50, 0.35)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 40px rgba(46, 125, 50, 0.25)'">
+                        <div style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg); backdrop-filter: blur(10px);">
+                            <i class="fas fa-certificate" style="font-size: 2rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: white; font-size: 1.3rem; font-weight: 700; margin-bottom: var(--spacing-md);">Проверка сертификатов</h3>
+                        <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.7; font-size: 0.95rem;">
+                            Мы тщательно изучаем каждого производителя: проверяем наличие экологических сертификатов, анализируем состав продукции.
+                        </p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #388E3C 0%, #66BB6A 100%); border-radius: 24px; padding: var(--spacing-2xl); box-shadow: 0 15px 40px rgba(46, 125, 50, 0.25); transition: all 0.4s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 60px rgba(46, 125, 50, 0.35)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 40px rgba(46, 125, 50, 0.25)'">
+                        <div style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg); backdrop-filter: blur(10px);">
+                            <i class="fas fa-box-open" style="font-size: 2rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: white; font-size: 1.3rem; font-weight: 700; margin-bottom: var(--spacing-md);">Эко-упаковка</h3>
+                        <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.7; font-size: 0.95rem;">
+                            Особое внимание уделяем упаковке — предпочтение отдаём товарам в биоразлагаемой, перерабатываемой или многоразовой упаковке.
+                        </p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #43A047 0%, #8BC34A 100%); border-radius: 24px; padding: var(--spacing-2xl); box-shadow: 0 15px 40px rgba(46, 125, 50, 0.25); transition: all 0.4s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 60px rgba(46, 125, 50, 0.35)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 40px rgba(46, 125, 50, 0.25)'">
+                        <div style="width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg); backdrop-filter: blur(10px);">
+                            <i class="fas fa-chart-line" style="font-size: 2rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: white; font-size: 1.3rem; font-weight: 700; margin-bottom: var(--spacing-md);">Углеродный след</h3>
+                        <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.7; font-size: 0.95rem;">
+                            Мы рассчитываем углеродный след для каждого продукта, чтобы вы могли сделать по-настоящему осознанный выбор.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.95); border-radius: 24px; padding: var(--spacing-3xl); box-shadow: 0 20px 60px rgba(46, 125, 50, 0.1); border: 1px solid rgba(46, 125, 50, 0.1);">
+                    <p style="text-align: justify; line-height: 1.9; font-size: 1.1rem; color: #333; margin-bottom: var(--spacing-lg);">
+                        <strong style="color: #2E7D32;">Каждый товар в нашем магазине</strong> сопровождается подробной информацией: полный состав, экологические маркировки, данные о производителе и его практиках в области устойчивого развития. Наша уникальная система эко-рейтинга поможет быстро оценить экологичность товара по пятибалльной шкале.
+                    </p>
+                    <p style="text-align: justify; line-height: 1.9; font-size: 1.1rem; color: #333; margin: 0;">
+                        <strong style="color: #2E7D32;">Ассортимент магазина включает пять основных категорий:</strong> органические продукты питания (мёд, масла, чай, суперфуды, сладости), натуральная косметика и средства ухода (шампуни, кремы, дезодоранты, мыло), экологичная бытовая химия (средства для стирки, мытья посуды и уборки), товары для дома (бамбуковые изделия, многоразовые мешочки, термокружки) и экологичная одежда (футболки, джинсы, худи из органических материалов).
+                    </p>
+                </div>
+            </div>
+        </section>
+        <style>
+            @keyframes floatIcon {
+                0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                25% { transform: translate(15px, -20px) rotate(10deg); }
+                50% { transform: translate(-10px, 15px) rotate(-5deg); }
+                75% { transform: translate(20px, 10px) rotate(5deg); }
+            }
+            @media (max-width: 1024px) {
+                .catalog-info-section div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+            }
+            @media (max-width: 768px) {
+                .catalog-info-section div[style*="grid-template-columns: repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
+            }
+            @media (max-width: 480px) {
+                .catalog-info-section div[style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr !important; }
+            }
+        </style>
+
+    </main>
+
+    <aside class="cart" id="cart-sidebar" aria-label="Корзина">
+        <div class="cart__header">
+            <h2 class="cart__title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                Корзина
+            </h2>
+            <button class="cart__close" id="cart-close" aria-label="Закрыть корзину">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="cart__items" id="cart-items"></div>
+        <div class="cart__footer" id="cart-footer" style="display: none;">
+            <div class="cart__eco-impact" id="cart-eco-impact"></div>
+            <div class="cart__total">
+                <span>Итого:</span>
+                <span class="cart__total-price" id="cart-total">0 руб.</span>
+            </div>
+            <button class="btn btn--primary btn--full" id="checkout-btn">
+                Оформить заказ
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-col footer-col-wide">
+                <h3 class="footer-logo"><i class="fas fa-leaf"></i> AuraVerde</h3>
+                <p class="footer-description">Экологически чистые товары для устойчивого будущего</p>
+                <div class="footer-social">
+                    <p class="social-title">МЫ В СОЦИАЛЬНЫХ СЕТЯХ</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="payment-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard">
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Навигация</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Информация</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="delivery.html">Доставка и оплата</a></li>
+                    <li><a href="blog.html">Эко-блог</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Поддержка</h4>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Помощь</a></li>
+                    <li><a href="delivery.html">Возврат товара</a></li>
+                    <li><a href="contacts.html">Контакты поддержки</a></li>
+                    <li><a href="delivery.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AuraVerde. Барба. Проект создан в рамках курсовой работы.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <div class="modal" id="quick-view-modal" role="dialog" aria-labelledby="quick-view-title" aria-modal="true">
+        <div class="modal__backdrop" id="quick-view-backdrop"></div>
+        <div class="modal__content modal__content--product">
+            <button class="modal__close" id="quick-view-close" aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal__product">
+                <div class="modal__product-image" id="quick-view-image">🍯</div>
+                <div class="modal__product-info">
+                    <span class="modal__product-category" id="quick-view-category">Категория</span>
+                    <h2 class="modal__product-title" id="quick-view-title">Название товара</h2>
+                    <div class="modal__product-price" id="quick-view-price">0 руб.</div>
+                    <p class="modal__product-description" id="quick-view-description">Описание товара</p>
+                    
+                    <div class="modal__product-eco">
+                        <h4>Эко-рейтинг</h4>
+                        <div class="modal__product-eco-rating" id="quick-view-eco-rating"></div>
+                    </div>
+
+                    <div class="modal__product-cert-icons">
+                        <h4>Сертификаты качества</h4>
+                        <div class="modal__cert-icons-list" id="quick-view-cert-icons"></div>
+                    </div>
+                    
+                    <div class="modal__product-certificates">
+                        <h4>Сертификаты</h4>
+                        <div class="modal__product-certificates-list" id="quick-view-certificates"></div>
+                    </div>
+                    
+                    <div class="modal__product-markers">
+                        <h4>Эко-маркеры</h4>
+                        <div class="modal__product-markers-list" id="quick-view-markers"></div>
+                    </div>
+                    
+                    <div class="modal__product-manufacturer">
+                        <h4>Производитель</h4>
+                        <div class="modal__product-manufacturer-info">
+                            <span id="quick-view-manufacturer-name">Название</span>
+                            <span id="quick-view-manufacturer-country">Страна</span>
+                            <button class="btn btn--sm btn--outline" id="show-manufacturer">Подробнее</button>
+                        </div>
+                    </div>
+                    
+                    <div class="modal__product-carbon">
+                        <span class="modal__product-carbon-icon">🌱</span>
+                        <span>Углеродный след: <strong id="quick-view-carbon">0 кг CO₂</strong></span>
+                    </div>
+                    
+                    <div class="modal__product-actions">
+                        <button class="btn btn--primary btn--lg" id="quick-view-add-cart">
+                            В корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="manufacturer-modal" role="dialog" aria-labelledby="manufacturer-name" aria-modal="true">
+        <div class="modal__backdrop" id="manufacturer-backdrop"></div>
+        <div class="modal__content modal__content--manufacturer">
+            <button class="modal__close" id="manufacturer-close" aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal__manufacturer">
+                <div class="modal__manufacturer-header">
+                    <div class="modal__manufacturer-logo">🌿</div>
+                    <div class="modal__manufacturer-info">
+                        <h2 class="modal__manufacturer-name" id="manufacturer-name">Название</h2>
+                        <span class="modal__manufacturer-country" id="manufacturer-country">Страна</span>
+                    </div>
+                </div>
+                <p class="modal__manufacturer-description" id="manufacturer-description">Описание производителя</p>
+                <div class="modal__manufacturer-practices">
+                    <h4>Экологические практики</h4>
+                    <ul id="manufacturer-practices"></ul>
+                </div>
+                <a href="#" class="modal__manufacturer-website-btn" id="manufacturer-website" target="_blank" rel="noopener">
+                    Перейти на сайт
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .product-card {
+            animation-duration: 0.3s !important;
+            transition: all 0.3s ease !important;
+        }
+        .product-card.animate-in,
+        .product-card.aos-animate {
+            animation-duration: 0.3s !important;
+        }
+        [data-aos] {
+            transition-duration: 0.3s !important;
+        }
+        .catalog__grid .product-card:nth-child(n) {
+            animation-delay: 0s !important;
+            transition-delay: 0s !important;
+        }
+        /* Более быстрый fade-up для товаров */
+        @keyframes fastFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .catalog__grid .product-card {
+            animation: fastFadeUp 0.3s ease forwards;
+        }
+    </style>
+
+    <div class="toast" id="toast" role="alert" aria-live="polite">
+        <span class="toast__icon"><i class="fas fa-check"></i></span>
+        <span class="toast__message" id="toast-message">Сообщение</span>
+    </div>
+
+    <div class="modal" id="checkout-modal" role="dialog" aria-labelledby="checkout-title" aria-modal="true">
+        <div class="modal__backdrop" id="checkout-backdrop"></div>
+        <div class="modal__content modal__content--checkout">
+            <button class="modal__close" id="checkout-close" aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="checkout">
+                <h2 class="checkout__title" id="checkout-title"><i class="fas fa-shopping-bag"></i> Оформление заказа</h2>
+                
+                <form class="checkout__form" id="checkout-form">
+                    <div class="checkout__section">
+                        <h3 class="checkout__section-title"><i class="fas fa-user"></i> Контактные данные</h3>
+                        <div class="checkout__field">
+                            <label for="checkout-name">Имя *</label>
+                            <input type="text" id="checkout-name" name="name" required placeholder="Введите ваше имя">
+                            <span class="checkout__error"></span>
+                        </div>
+                        <div class="checkout__field">
+                            <label for="checkout-email">Email *</label>
+                            <input type="email" id="checkout-email" name="email" required placeholder="your@email.com">
+                            <span class="checkout__error"></span>
+                        </div>
+                        <div class="checkout__field">
+                            <label for="checkout-phone">Телефон *</label>
+                            <input type="tel" id="checkout-phone" name="phone" required placeholder="+373 XXX XXXXX">
+                            <span class="checkout__error"></span>
+                        </div>
+                        <div class="checkout__field">
+                            <label for="checkout-address">Адрес доставки *</label>
+                            <textarea id="checkout-address" name="address" required placeholder="Город, улица, дом, квартира"></textarea>
+                            <span class="checkout__error"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout__section">
+                        <h3 class="checkout__section-title"><i class="fas fa-truck"></i> Способ доставки</h3>
+                        <div class="checkout__delivery-options">
+                            <label class="checkout__delivery-option checkout__delivery-option--selected">
+                                <input type="radio" name="delivery" value="bike" checked>
+                                <div class="checkout__delivery-icon"><i class="fas fa-bicycle"></i></div>
+                                <div class="checkout__delivery-info">
+                                    <span class="checkout__delivery-name">Велокурьер</span>
+                                    <span class="checkout__delivery-desc">Бесплатно, -5% к углеродному следу</span>
+                                </div>
+                                <span class="checkout__delivery-price">0 руб.</span>
+                            </label>
+                            <label class="checkout__delivery-option">
+                                <input type="radio" name="delivery" value="electric">
+                                <div class="checkout__delivery-icon"><i class="fas fa-car"></i></div>
+                                <div class="checkout__delivery-info">
+                                    <span class="checkout__delivery-name">Электромобиль</span>
+                                    <span class="checkout__delivery-desc">Стандартный углеродный след</span>
+                                </div>
+                                <span class="checkout__delivery-price">5 руб.</span>
+                            </label>
+                            <label class="checkout__delivery-option">
+                                <input type="radio" name="delivery" value="standard">
+                                <div class="checkout__delivery-icon"><i class="fas fa-shipping-fast"></i></div>
+                                <div class="checkout__delivery-info">
+                                    <span class="checkout__delivery-name">Обычная доставка</span>
+                                    <span class="checkout__delivery-desc">+10% к углеродному следу</span>
+                                </div>
+                                <span class="checkout__delivery-price">10 руб.</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout__section">
+                        <h3 class="checkout__section-title"><i class="fas fa-receipt"></i> Ваш заказ</h3>
+                        <div class="checkout__summary-items" id="checkout-items"></div>
+                        <div class="checkout__summary-row">
+                            <span>Подытог:</span>
+                            <span id="checkout-subtotal">0 руб. ПМР</span>
+                        </div>
+                        <div class="checkout__summary-row" id="checkout-discount-row" style="display: none;">
+                            <span>Скидка:</span>
+                            <span id="checkout-discount" style="color: #f44336;">0 руб. ПМР</span>
+                        </div>
+                        <div class="checkout__summary-row">
+                            <span>Доставка:</span>
+                            <span id="checkout-delivery">Бесплатно</span>
+                        </div>
+                        <div class="checkout__summary-row checkout__summary-row--carbon">
+                            <span><i class="fas fa-seedling"></i> Углеродный след:</span>
+                            <span id="checkout-carbon">0.00 кг CO₂</span>
+                        </div>
+                        <div class="checkout__summary-row checkout__summary-row--total">
+                            <span>Итого:</span>
+                            <span id="checkout-total">0 руб. ПМР</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="checkout__submit-btn">
+                        <i class="fas fa-check"></i> Оформить заказ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="success-modal" role="dialog" aria-modal="true">
+        <div class="modal__backdrop" id="success-backdrop"></div>
+        <div class="modal__content modal__content--success">
+            <div class="success-content">
+                <div class="success-content__icon"><i class="fas fa-check"></i></div>
+                <h2 class="success-content__title">Спасибо за заказ!</h2>
+                <p class="success-content__order">Заказ <strong id="order-number">№ECO-12345</strong> оформлен</p>
+                <div class="success-content__details">
+                    <div class="success-content__row">
+                        <span>Сумма заказа:</span>
+                        <span id="order-total">0 руб. ПМР</span>
+                    </div>
+                    <div class="success-content__row">
+                        <span>Углеродный след:</span>
+                        <span id="order-carbon">0.00 кг CO₂</span>
+                    </div>
+                    <div class="success-content__row success-content__row--highlight">
+                        <span><i class="fas fa-leaf"></i> Вы сэкономили:</span>
+                        <span id="saved-carbon">0.00 кг CO₂</span>
+                    </div>
+                </div>
+                <p class="success-content__message">Мы свяжемся с вами для подтверждения заказа</p>
+                <button class="success-content__btn" id="success-close-btn">Отлично!</button>
+                <button class="success-content__btn success-content__btn--outline" id="continue-shopping-btn">Продолжить покупки</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="carbon-modal" role="dialog" aria-labelledby="carbon-title" aria-modal="true">
+        <div class="modal__backdrop" id="carbon-backdrop"></div>
+        <div class="modal__content modal__content--carbon">
+            <button class="modal__close" id="carbon-close" aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="carbon-calculator">
+                <h2 class="carbon-calculator__title" id="carbon-title"><i class="fas fa-chart-pie"></i> Калькулятор углеродного следа</h2>
+                <div class="carbon-calculator__chart">
+                    <canvas id="carbon-chart" width="250" height="250"></canvas>
+                    <div class="carbon-calculator__total">
+                        <span class="carbon-calculator__total-value" id="carbon-total">0.00</span>
+                        <span class="carbon-calculator__total-unit">кг CO₂</span>
+                    </div>
+                </div>
+                <div class="carbon-calculator__legend" id="carbon-legend"></div>
+                <div class="carbon-calculator__compare">
+                    <h4>Сравнение с обычной корзиной</h4>
+                    <div class="carbon-calculator__bar">
+                        <div class="carbon-calculator__bar-label">
+                            <span><i class="fas fa-seedling"></i> Ваш эко-заказ</span>
+                            <span id="eco-value">0 кг</span>
+                        </div>
+                        <div class="carbon-calculator__bar-track">
+                            <div class="carbon-calculator__bar-fill carbon-calculator__bar-fill--eco" id="eco-bar"></div>
+                        </div>
+                    </div>
+                    <div class="carbon-calculator__bar">
+                        <div class="carbon-calculator__bar-label">
+                            <span><i class="fas fa-shopping-cart"></i> Обычная корзина</span>
+                            <span id="regular-value">0 кг</span>
+                        </div>
+                        <div class="carbon-calculator__bar-track">
+                            <div class="carbon-calculator__bar-fill carbon-calculator__bar-fill--regular"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carbon-calculator__savings">
+                    <span class="carbon-calculator__savings-icon"><i class="fas fa-globe-europe"></i></span>
+                    <div>
+                        <div class="carbon-calculator__savings-title">Вы экономите <strong id="carbon-savings">0 кг CO₂</strong></div>
+                        <div class="carbon-calculator__savings-percent">Это на <strong id="savings-percent">0%</strong> меньше!</div>
+                    </div>
+                </div>
+                <div class="carbon-calculator__tips">
+                    <h4><i class="fas fa-lightbulb"></i> Советы по снижению следа</h4>
+                    <ul id="carbon-tips"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: white;
+            padding: 16px 30px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 40px rgba(67, 160, 71, 0.4);
+            z-index: 1100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            font-weight: 600;
+        }
+
+        .toast--visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .toast__icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-card__manufacturer-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(76, 175, 80, 0.15));
+            border: 1px solid rgba(46, 125, 50, 0.2);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #2E7D32;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 8px 0;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .product-card__manufacturer-btn:hover {
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(67, 160, 71, 0.3);
+        }
+
+        .product-card__manufacturer-btn i {
+            font-size: 0.9rem;
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal--active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal__content {
+            position: relative;
+            background: #fff;
+            border-radius: 24px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal--active .modal__content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal__close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal__close:hover {
+            background: rgba(0, 0, 0, 0.15);
+            transform: rotate(90deg);
+        }
+
+        .modal__content--checkout {
+            width: 95%;
+            max-width: 700px;
+            padding: 0;
+        }
+
+        .checkout {
+            padding: 40px;
+        }
+
+        .checkout__title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checkout__title i {
+            color: #43A047;
+        }
+
+        .checkout__section {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .checkout__section:last-of-type {
+            border-bottom: none;
+        }
+
+        .checkout__section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkout__section-title i {
+            color: #43A047;
+            width: 24px;
+        }
+
+        .checkout__field {
+            margin-bottom: 18px;
+        }
+
+        .checkout__field label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .checkout__field input,
+        .checkout__field textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .checkout__field input:focus,
+        .checkout__field textarea:focus {
+            outline: none;
+            border-color: #43A047;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.1);
+        }
+
+        .checkout__field textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .checkout__field input.checkout__input--error,
+        .checkout__field textarea.checkout__input--error {
+            border-color: #f44336;
+        }
+
+        .checkout__error {
+            display: block;
+            color: #f44336;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            min-height: 20px;
+        }
+
+        .checkout__delivery-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkout__delivery-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .checkout__delivery-option:hover {
+            border-color: rgba(67, 160, 71, 0.3);
+            background: #fff;
+        }
+
+        .checkout__delivery-option--selected {
+            border-color: #43A047;
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.08), rgba(102, 187, 106, 0.12));
+        }
+
+        .checkout__delivery-option input {
+            display: none;
+        }
+
+        .checkout__delivery-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .checkout__delivery-info {
+            flex: 1;
+        }
+
+        .checkout__delivery-name {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .checkout__delivery-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .checkout__delivery-price {
+            font-weight: 700;
+            color: #43A047;
+            font-size: 1.1rem;
+        }
+
+        .checkout__summary-items {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding-right: 10px;
+        }
+
+        .checkout__summary-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .checkout__summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkout__summary-item-image {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(102, 187, 106, 0.2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .checkout__summary-item-info {
+            flex: 1;
+        }
+
+        .checkout__summary-item-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .checkout__summary-item-qty {
+            font-size: 0.85rem;
+            color: #666;
+            margin-left: 5px;
+        }
+
+        .checkout__summary-item-price {
+            font-weight: 600;
+            color: #43A047;
+        }
+
+        .checkout__summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .checkout__summary-row--carbon {
+            color: #43A047;
+            font-weight: 500;
+        }
+
+        .checkout__summary-row--total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1B5E20;
+            padding-top: 15px;
+            margin-top: 10px;
+            border-top: 2px solid rgba(67, 160, 71, 0.2);
+        }
+
+        .checkout__submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .checkout__submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(67, 160, 71, 0.4);
+        }
+
+        .modal__content--success {
+            width: 95%;
+            max-width: 450px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .success-content__icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            animation: successPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes successPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 160, 71, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(67, 160, 71, 0); }
+        }
+
+        .success-content__title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 10px;
+        }
+
+        .success-content__order {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .success-content__order strong {
+            color: #43A047;
+        }
+
+        .success-content__details {
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.08), rgba(102, 187, 106, 0.12));
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .success-content__row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .success-content__row--highlight {
+            color: #2E7D32;
+            font-weight: 600;
+            padding-top: 12px;
+            margin-top: 8px;
+            border-top: 1px solid rgba(67, 160, 71, 0.2);
+        }
+
+        .success-content__message {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .success-content__btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+
+        .success-content__btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(67, 160, 71, 0.4);
+        }
+
+        .success-content__btn--outline {
+            background: transparent;
+            border: 2px solid #43A047;
+            color: #43A047;
+        }
+
+        .success-content__btn--outline:hover {
+            background: rgba(67, 160, 71, 0.1);
+            box-shadow: none;
+        }
+
+        .modal__content--carbon {
+            width: 95%;
+            max-width: 600px;
+            padding: 40px;
+        }
+
+        .carbon-calculator__title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .carbon-calculator__title i {
+            color: #43A047;
+        }
+
+        .carbon-calculator__chart {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .carbon-calculator__total {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .carbon-calculator__total-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1B5E20;
+        }
+
+        .carbon-calculator__total-unit {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .carbon-calculator__legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .carbon-chart__legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .carbon-chart__legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .carbon-chart__legend-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .carbon-chart__legend-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .carbon-chart__legend-value {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .carbon-calculator__compare {
+            background: #f5f5f5;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .carbon-calculator__compare h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .carbon-calculator__bar {
+            margin-bottom: 15px;
+        }
+
+        .carbon-calculator__bar:last-child {
+            margin-bottom: 0;
+        }
+
+        .carbon-calculator__bar-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .carbon-calculator__bar-track {
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .carbon-calculator__bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .carbon-calculator__bar-fill--eco {
+            background: linear-gradient(90deg, #43A047, #8BC34A);
+        }
+
+        .carbon-calculator__bar-fill--regular {
+            background: linear-gradient(90deg, #ff9800, #f44336);
+            width: 100%;
+        }
+
+        .carbon-calculator__savings {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .carbon-calculator__savings-icon {
+            font-size: 2.5rem;
+            color: #2E7D32;
+        }
+
+        .carbon-calculator__savings-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #2E7D32;
+            margin-bottom: 4px;
+        }
+
+        .carbon-calculator__savings-percent {
+            font-size: 0.95rem;
+            color: #558B2F;
+        }
+
+        .carbon-calculator__tips {
+            background: #FFF8E1;
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .carbon-calculator__tips h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #F57F17;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .carbon-calculator__tips ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .carbon-calculator__tips li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .carbon-calculator__tips li i {
+            color: #43A047;
+            margin-top: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .checkout { padding: 25px; }
+            .checkout__title { font-size: 1.5rem; }
+            .modal__content--success { padding: 35px 25px; }
+            .modal__content--carbon { padding: 25px; }
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/data/products.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+

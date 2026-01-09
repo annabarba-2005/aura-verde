@@ -1,0 +1,87 @@
+.product-card__content {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--spacing-xs);
+}
+
+.product-card__category {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-secondary);
+}
+
+.product-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: var(--spacing-sm) 0;
+  line-height: var(--line-height-tight);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card__eco-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.product-card__markers {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Рейтинг звёзды */
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.product-card__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.product-card__star {
+  color: var(--color-bg-alt);
+  font-size: var(--font-size-sm);
+}
+
+.product-card__star--filled {
+  color: #FFB300;
+}
+
+.product-card__rating-count {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .product-card__content {
+    padding: var(--spacing-md);
+  }
+}
+

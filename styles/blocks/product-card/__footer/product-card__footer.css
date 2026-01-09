@@ -1,0 +1,49 @@
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border-light);
+  margin-top: auto;
+}
+
+.product-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+}
+
+.product-card__price-old {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.product-card__price-current {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+/* Углеродный след */
+.product-card__carbon {
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.product-card__carbon-icon {
+  font-size: 0.875rem;
+}
+
+@media (max-width: 576px) {
+  .product-card__footer {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+  }
+}
+

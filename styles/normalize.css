@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%
+}
+
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #F9F5F0 0%, #F0F4E8 25%, #E8F0E0 50%, #D8E8D0 75%, #C8E0C0 100%);
+  background-size: 400% 400%;
+  animation: gradient-wave 20s ease infinite;
+  min-height: 100vh
+}
+
+@keyframes gradient-wave {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+.floating-leaves, .background-icons, .animated-background {
+  display: none !important
+}
+
+body.no-scroll {
+  overflow: hidden
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+ul, ol {
+  list-style: none
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield
+}
+
+img, video {
+  height: auto;
+  max-width: 100%
+}
+
+button, [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: button;
+  appearance: button
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary, #2E7D32);
+  outline-offset: 2px
+}
+
+:focus:not(:focus-visible) {
+  outline: none
+}
+
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s
+}

@@ -1,0 +1,205 @@
+.eco-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background: linear-gradient(135deg, rgba(46, 125, 50, .12) 0%, rgba(102, 187, 106, .15) 50%, rgba(46, 125, 50, .1) 100%);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(46, 125, 50, .2);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden
+}
+
+.eco-counter::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(102, 187, 106, .15) 0%, transparent 70%);
+  border-radius: 60% 40% 70% 30%/40% 60% 30% 70%;
+  pointer-events: none
+}
+
+.eco-counter__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  border-radius: var(--radius-full);
+  font-size: 1.75rem;
+  color: var(--color-white);
+  box-shadow: 0 4px 16px rgba(46, 125, 50, .3);
+  animation: eco-icon-pulse 3s ease-in-out infinite;
+  position: relative;
+  z-index: 1
+}
+
+@keyframes eco-icon-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 16px rgba(46, 125, 50, .3)
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(46, 125, 50, .4)
+  }
+}
+
+.eco-counter__content {
+  text-align: left;
+  position: relative;
+  z-index: 1
+}
+
+.eco-counter__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: .05em
+}
+
+.eco-counter__value {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-xs)
+}
+
+.eco-counter__number {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: 1
+}
+
+.eco-counter__unit {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary)
+}
+
+.eco-counter__subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-xs)
+}
+
+.eco-counter__leaves {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm)
+}
+
+.eco-counter__leaf {
+  font-size: 1rem;
+  animation: eco-leaf-float 4s ease-in-out infinite
+}
+
+.eco-counter__leaf:nth-child(2) {
+  animation-delay: .3s
+}
+
+.eco-counter__leaf:nth-child(3) {
+  animation-delay: .6s
+}
+
+.eco-counter__leaf:nth-child(4) {
+  animation-delay: .9s
+}
+
+.eco-counter__leaf:nth-child(5) {
+  animation-delay: 1.2s
+}
+
+@keyframes eco-leaf-float {
+  0%, 100% {
+    transform: rotate(-5deg) translateY(0);
+    opacity: .8
+  }
+  50% {
+    transform: rotate(5deg) translateY(-3px);
+    opacity: 1
+  }
+}
+
+.eco-counter--large {
+  padding: var(--spacing-xl) var(--spacing-2xl)
+}
+
+.eco-counter--large .eco-counter__icon {
+  width: 72px;
+  height: 72px;
+  font-size: 2.25rem
+}
+
+.eco-counter--large .eco-counter__number {
+  font-size: var(--font-size-3xl)
+}
+
+.eco-counter--compact {
+  padding: var(--spacing-md) var(--spacing-lg);
+  gap: var(--spacing-sm)
+}
+
+.eco-counter--compact .eco-counter__icon {
+  width: 44px;
+  height: 44px;
+  font-size: 1.25rem
+}
+
+.eco-counter--compact .eco-counter__number {
+  font-size: var(--font-size-xl)
+}
+
+.eco-counter--dark {
+  background: linear-gradient(135deg, rgba(46, 125, 50, .9) 0%, rgba(27, 94, 32, .95) 100%);
+  border-color: transparent;
+  color: var(--color-white)
+}
+
+.eco-counter--dark .eco-counter__label, .eco-counter--dark .eco-counter__number, .eco-counter--dark .eco-counter__unit {
+  color: var(--color-white)
+}
+
+.eco-counter--dark .eco-counter__icon {
+  background: rgba(255, 255, 255, .2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .2)
+}
+
+@media (max-width: 768px) {
+  .eco-counter {
+    padding: var(--spacing-md) var(--spacing-lg)
+  }
+
+  .eco-counter__icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem
+  }
+
+  .eco-counter__number {
+    font-size: var(--font-size-xl)
+  }
+}
+
+@media (max-width: 576px) {
+  .eco-counter {
+    width: 100%;
+    justify-content: center
+  }
+
+  .eco-counter__number {
+    font-size: var(--font-size-lg)
+  }
+
+  .eco-counter::before {
+    display: none
+  }
+}

@@ -1,0 +1,15 @@
+.about-mission {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  margin-top: var(--spacing-3xl);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--color-primary-light)
+}
+
+
+
+
+
+
+

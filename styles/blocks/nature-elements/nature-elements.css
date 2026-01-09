@@ -1,0 +1,693 @@
+.floating-leaves {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0
+}
+
+.floating-leaf {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: .15;
+  animation: floatLeaf 15s ease-in-out infinite;
+  filter: blur(.5px)
+}
+
+.floating-leaf--1 {
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+  animation-duration: 18s
+}
+
+.floating-leaf--2 {
+  top: 20%;
+  right: 10%;
+  animation-delay: -3s;
+  animation-duration: 20s;
+  font-size: 1.2rem
+}
+
+.floating-leaf--3 {
+  top: 40%;
+  left: 15%;
+  animation-delay: -6s;
+  animation-duration: 16s
+}
+
+.floating-leaf--4 {
+  top: 60%;
+  right: 5%;
+  animation-delay: -9s;
+  animation-duration: 22s;
+  font-size: 1.8rem
+}
+
+.floating-leaf--5 {
+  top: 80%;
+  left: 8%;
+  animation-delay: -12s;
+  animation-duration: 19s
+}
+
+@keyframes floatLeaf {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg)
+  }
+  25% {
+    transform: translate(30px, -20px) rotate(10deg)
+  }
+  50% {
+    transform: translate(10px, 20px) rotate(-5deg)
+  }
+  75% {
+    transform: translate(-20px, -10px) rotate(15deg)
+  }
+}
+
+.eco-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: currentColor
+}
+
+.eco-icon--sm {
+  width: 16px;
+  height: 16px
+}
+
+.eco-icon--md {
+  width: 24px;
+  height: 24px
+}
+
+.eco-icon--lg {
+  width: 32px;
+  height: 32px
+}
+
+.eco-icon--xl {
+  width: 48px;
+  height: 48px
+}
+
+.eco-icon--primary {
+  color: var(--color-primary)
+}
+
+.eco-icon--secondary {
+  color: var(--color-secondary)
+}
+
+.eco-icon--accent {
+  color: var(--color-accent)
+}
+
+.eco-icon--organic {
+  color: var(--color-organic)
+}
+
+.eco-icon--vegan {
+  color: var(--color-vegan)
+}
+
+.eco-icon--fairtrade {
+  color: var(--color-fairtrade)
+}
+
+.eco-icon--plastic-free {
+  color: var(--color-plastic-free)
+}
+
+.eco-icon--local {
+  color: var(--color-local)
+}
+
+.eco-icon--cruelty-free {
+  color: var(--color-cruelty-free)
+}
+
+.pattern-leaves {
+  background-image: var(--texture-leaves);
+  background-repeat: repeat
+}
+
+.pattern-organic {
+  background-image: var(--texture-organic);
+  background-repeat: repeat
+}
+
+.pattern-dots {
+  background-image: var(--texture-dots);
+  background-size: 20px 20px
+}
+
+.pattern-waves {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q25 0 50 10 T100 10' fill='none' stroke='%232E7D32' stroke-opacity='0.05' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat
+}
+
+.pattern-hexagons {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='52' viewBox='0 0 60 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='30,2 55,15 55,37 30,50 5,37 5,15' fill='none' stroke='%232E7D32' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: repeat
+}
+
+.pattern-branches {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L40 40 M40 20 L25 10 M40 20 L55 10 M40 35 L30 25 M40 35 L50 25' fill='none' stroke='%235D4037' stroke-opacity='0.04' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat
+}
+
+.organic-blob {
+  position: absolute;
+  border-radius: 60% 40% 50% 70%/50% 60% 40% 60%;
+  background: var(--gradient-eco);
+  opacity: .1;
+  animation: morphBlob 10s ease-in-out infinite
+}
+
+.organic-blob--1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  animation-delay: 0s
+}
+
+.organic-blob--2 {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  left: -50px;
+  animation-delay: -5s;
+  animation-duration: 12s
+}
+
+@keyframes morphBlob {
+  0%, 100% {
+    border-radius: 60% 40% 50% 70%/50% 60% 40% 60%;
+    transform: rotate(0deg) scale(1)
+  }
+  25% {
+    border-radius: 40% 60% 70% 50%/60% 40% 60% 50%
+  }
+  50% {
+    border-radius: 50% 50% 40% 60%/40% 50% 70% 60%;
+    transform: rotate(10deg) scale(1.05)
+  }
+  75% {
+    border-radius: 70% 40% 60% 50%/50% 70% 50% 40%
+  }
+}
+
+.leaf-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-2xl) 0
+}
+
+.leaf-divider__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  opacity: .3
+}
+
+.leaf-divider__icon {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  animation: rotateLeaf 4s ease-in-out infinite
+}
+
+@keyframes rotateLeaf {
+  0%, 100% {
+    transform: rotate(-5deg)
+  }
+  50% {
+    transform: rotate(5deg)
+  }
+}
+
+.eco-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast)
+}
+
+.eco-badge:hover {
+  transform: scale(1.05)
+}
+
+.eco-badge--organic {
+  background: rgba(76, 175, 80, .15);
+  color: var(--color-organic);
+  border: 1px solid rgba(76, 175, 80, .25)
+}
+
+.eco-badge--vegan {
+  background: rgba(139, 195, 74, .15);
+  color: #558B2F;
+  border: 1px solid rgba(139, 195, 74, .25)
+}
+
+.eco-badge--fairtrade {
+  background: rgba(255, 152, 0, .15);
+  color: #E65100;
+  border: 1px solid rgba(255, 152, 0, .25)
+}
+
+.eco-badge--plastic-free {
+  background: rgba(3, 169, 244, .15);
+  color: #0277BD;
+  border: 1px solid rgba(3, 169, 244, .25)
+}
+
+.eco-badge--local {
+  background: rgba(156, 39, 176, .15);
+  color: #7B1FA2;
+  border: 1px solid rgba(156, 39, 176, .25)
+}
+
+.eco-badge--cruelty-free {
+  background: rgba(233, 30, 99, .15);
+  color: #C2185B;
+  border: 1px solid rgba(233, 30, 99, .25)
+}
+
+.eco-badge--recycled {
+  background: rgba(46, 125, 50, .15);
+  color: var(--color-primary);
+  border: 1px solid rgba(46, 125, 50, .25)
+}
+
+.eco-stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xl);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--transition-base)
+}
+
+.eco-stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-eco);
+  opacity: 0;
+  transition: opacity var(--transition-base)
+}
+
+.eco-stat:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg)
+}
+
+.eco-stat:hover::before {
+  opacity: 1
+}
+
+.eco-stat__icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md)
+}
+
+.eco-stat__number {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs)
+}
+
+.eco-stat__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  text-align: center
+}
+
+.nature-card {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm)
+}
+
+.nature-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(102, 187, 106, .1) 0%, transparent 70%);
+  pointer-events: none
+}
+
+.nature-card__content {
+  position: relative;
+  z-index: 1;
+  padding: var(--spacing-xl)
+}
+
+.eco-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm)
+}
+
+.eco-progress__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.eco-progress__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs)
+}
+
+.eco-progress__value {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary)
+}
+
+.eco-progress__bar {
+  height: 8px;
+  background: var(--color-bg);
+  border-radius: var(--radius-full);
+  overflow: hidden
+}
+
+.eco-progress__fill {
+  height: 100%;
+  background: var(--gradient-eco);
+  border-radius: var(--radius-full);
+  transition: width 1s ease-out;
+  position: relative
+}
+
+.eco-progress__fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .3), transparent);
+  animation: shimmer 2s ease-in-out infinite
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%)
+  }
+  100% {
+    transform: translateX(100%)
+  }
+}
+
+.leaf-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px
+}
+
+.leaf-rating__leaf {
+  font-size: 1rem;
+  opacity: .2;
+  transition: all var(--transition-fast);
+  cursor: default
+}
+
+.leaf-rating__leaf--filled {
+  opacity: 1;
+  animation: leafPop .3s ease-out
+}
+
+.leaf-rating__leaf--half {
+  opacity: .6
+}
+
+@keyframes leafPop {
+  0% {
+    transform: scale(.5)
+  }
+  50% {
+    transform: scale(1.2)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
+.leaf-rating__value {
+  margin-left: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary)
+}
+
+.eco-tooltip {
+  position: relative;
+  display: inline-flex
+}
+
+.eco-tooltip__trigger {
+  cursor: help
+}
+
+.eco-tooltip__content {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-secondary);
+  color: var(--color-white);
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  z-index: var(--z-tooltip)
+}
+
+.eco-tooltip__content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--color-secondary)
+}
+
+.eco-tooltip:hover .eco-tooltip__content {
+  opacity: 1;
+  visibility: visible
+}
+
+.sustainability-meter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, rgba(46, 125, 50, .05) 0%, rgba(102, 187, 106, .1) 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(46, 125, 50, .15)
+}
+
+.sustainability-meter__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm)
+}
+
+.sustainability-meter__icon {
+  font-size: 1.5rem
+}
+
+.sustainability-meter__title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text)
+}
+
+.sustainability-meter__gauge {
+  display: flex;
+  gap: 4px
+}
+
+.sustainability-meter__segment {
+  flex: 1;
+  height: 8px;
+  background: var(--color-bg);
+  border-radius: var(--radius-xs);
+  transition: background var(--transition-base)
+}
+
+.sustainability-meter__segment--active {
+  background: var(--gradient-eco)
+}
+
+.sustainability-meter__segment--low {
+  background: #ffcdd2
+}
+
+.sustainability-meter__segment--medium {
+  background: #fff9c4
+}
+
+.sustainability-meter__segment--high {
+  background: #c8e6c9
+}
+
+.sustainability-meter__label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  text-align: center
+}
+
+.growing-plant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm)
+}
+
+.growing-plant__pot {
+  width: 60px;
+  height: 40px;
+  background: var(--color-secondary);
+  border-radius: 0 0 50% 50%;
+  position: relative
+}
+
+.growing-plant__stem {
+  width: 4px;
+  height: 0;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: growStem 2s ease-out forwards
+}
+
+.growing-plant__leaves {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  opacity: 0;
+  animation: growLeaves 1s ease-out 1.5s forwards
+}
+
+@keyframes growStem {
+  to {
+    height: 60px
+  }
+}
+
+@keyframes growLeaves {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px)
+  }
+}
+
+.eco-impact {
+  display: grid;
+  grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--gradient-nature);
+  border-radius: var(--radius-xl)
+}
+
+.eco-impact__item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm)
+}
+
+.eco-impact__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-xs)
+}
+
+.eco-impact__data {
+  display: flex;
+  flex-direction: column
+}
+
+.eco-impact__value {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: 1
+}
+
+.eco-impact__label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light)
+}
+
+@media (max-width: 768px) {
+  .floating-leaves {
+    display: none
+  }
+
+  .organic-blob {
+    display: none
+  }
+
+  .eco-impact {
+    grid-template-columns:repeat(2, 1fr)
+  }
+}
+
+@media (max-width: 576px) {
+  .eco-impact {
+    grid-template-columns:1fr
+  }
+
+  .leaf-divider {
+    margin: var(--spacing-xl) 0
+  }
+}

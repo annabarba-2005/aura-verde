@@ -1,0 +1,54 @@
+.product-card__badges {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  z-index: 10;
+}
+
+.product-card__badge {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(4px);
+}
+
+.product-card__badge--new {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-white);
+}
+
+.product-card__badge--eco {
+  background: rgba(46, 125, 50, 0.15);
+  color: var(--color-primary);
+  border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.product-card__badge--local {
+  background: rgba(156, 39, 176, 0.15);
+  color: #7B1FA2;
+  border: 1px solid rgba(156, 39, 176, 0.2);
+}
+
+.product-card__badge--fairtrade {
+  background: rgba(255, 152, 0, 0.15);
+  color: #E65100;
+  border: 1px solid rgba(255, 152, 0, 0.2);
+}
+
+.product-card__badge--sale {
+  background: linear-gradient(135deg, #EF5350 0%, #E53935 100%);
+  color: var(--color-white);
+}
+
+.product-card__badge--plastic-free {
+  background: rgba(3, 169, 244, 0.15);
+  color: #0277BD;
+  border: 1px solid rgba(3, 169, 244, 0.2);
+}
+

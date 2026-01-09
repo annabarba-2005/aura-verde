@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — AuraVerde | Свяжитесь с нами</title>
+    <meta name="description" content="Контактная информация интернет-магазина AuraVerde. Телефон, email, адрес офиса и пункта выдачи. Служба поддержки работает ежедневно.">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/free-icon-leaf-5806342.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/free-icon-leaf-5806342.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body class="contacts-page">
+    <div class="floating-leaves" aria-hidden="true">
+        <span class="floating-leaf floating-leaf--1"><i class="fas fa-leaf"></i></span>
+        <span class="floating-leaf floating-leaf--2"><i class="fas fa-seedling"></i></span>
+        <span class="floating-leaf floating-leaf--3"><i class="fas fa-leaf"></i></span>
+        <span class="floating-leaf floating-leaf--4"><i class="fas fa-seedling"></i></span>
+        <span class="floating-leaf floating-leaf--5"><i class="fas fa-leaf"></i></span>
+    </div>
+
+    <div class="floating-eco-icons" aria-hidden="true">
+        <span class="floating-eco-icon floating-eco-icon--1"><i class="fas fa-envelope"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--2"><i class="fas fa-comments"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--3"><i class="fas fa-leaf"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--4"><i class="fas fa-map-marker-alt"></i></span>
+        <span class="floating-eco-icon floating-eco-icon--5"><i class="fas fa-phone"></i></span>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <div class="header__top-bar">
+            <div class="header__top-container container">
+                <a href="index.html" class="header__logo" aria-label="AuraVerde - главная">
+                    <span class="header__logo-leaf-wrapper">
+                        <svg viewBox="0 0 100 100" class="header__logo-animated-leaf">
+                            <defs>
+                                <linearGradient id="header-leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#A5D6A7"/><stop offset="30%" stop-color="#66BB6A"/><stop offset="70%" stop-color="#43A047"/><stop offset="100%" stop-color="#1B5E20"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M50 5 C15 25, 5 65, 50 95 C95 65, 85 25, 50 5" fill="url(#header-leaf-grad)"/>
+                            <path d="M50 20 Q50 55, 50 88" fill="none" stroke="#E8F5E9" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M50 35 Q35 40, 25 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M50 35 Q65 40, 75 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="header__logo-text"><span class="header__logo-aura">Aura</span><span class="header__logo-verde">Verde</span></span>
+                </a>
+                <div class="header__search-wrapper">
+                    <button class="header__search-btn" id="search-btn" aria-label="Поиск">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                        <span class="header__search-text">Поиск товаров...</span>
+                    </button>
+                </div>
+                <div class="header__actions">
+                    <a href="cart.html" class="header__cart-btn" aria-label="Корзина">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <span class="header__cart-count" id="cart-count">0</span>
+                    </a>
+                    <button class="header__toggle" id="nav-toggle" aria-label="Открыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav-bar">
+            <div class="header__nav-container container">
+                <nav class="header__nav" id="nav-menu" role="navigation" aria-label="Главное меню">
+                    <ul class="header__nav-list">
+                        <li><a href="index.html" class="header__nav-link">Главная</a></li>
+                        <li><a href="about.html" class="header__nav-link">О нас</a></li>
+                        <li><a href="catalog.html" class="header__nav-link">Каталог</a></li>
+                        <li><a href="blog.html" class="header__nav-link">Блог</a></li>
+                        <li><a href="delivery.html" class="header__nav-link">Доставка</a></li>
+                        <li><a href="contacts.html" class="header__nav-link header__nav-link--active">Контакты</a></li>
+                    </ul>
+                    <button class="header__nav-close" id="nav-close" aria-label="Закрыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="contacts-hero-section">
+            <div class="contacts-hero-section__bg">
+                <img src="images/green-phone-with-green-screen-that-says-p-it_1306097-2516.jpg" alt="Контакты AuraVerde" loading="eager" style="opacity: 0.75; filter: brightness(1.1) saturate(1.15);">
+            </div>
+            <div class="contacts-hero-section__overlay"></div>
+            <div class="contacts-hero-section__content">
+                <h1 class="contacts-hero-section__title">Свяжитесь с нами</h1>
+                <p class="contacts-hero-section__subtitle">Мы всегда рады помочь вам с выбором экологичных товаров, ответить на вопросы о доставке и принять ваши предложения по улучшению сервиса.</p>
+            </div>
+        </section>
+
+        <!-- О поддержке -->
+        <section class="section section--padded-top">
+            <div class="container">
+                <div class="support-card-new animate-on-scroll">
+                    <div class="support-card-new__glow"></div>
+                    <div class="support-card-new__header">
+                        <div class="support-card-new__icon-wrapper">
+                            <div class="support-card-new__icon-ring"></div>
+                            <div class="support-card-new__icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                        </div>
+                        <div class="support-card-new__header-content">
+                            <span class="support-card-new__badge"><i class="fas fa-clock"></i> Ежедневно 9:00 — 21:00</span>
+                            <h2 class="support-card-new__title">Служба поддержки</h2>
+                            <p class="support-card-new__subtitle">Мы всегда на связи и готовы помочь</p>
+                        </div>
+                    </div>
+                    <div class="support-card-new__body">
+                        <div class="support-card-new__features">
+                            <div class="support-feature">
+                                <div class="support-feature__icon"><i class="fas fa-bolt"></i></div>
+                                <div class="support-feature__content">
+                                    <h4>Быстрые ответы</h4>
+                                    <p>Отвечаем на все обращения в течение часа в рабочее время</p>
+                                </div>
+                            </div>
+                            <div class="support-feature">
+                                <div class="support-feature__icon"><i class="fas fa-user-tie"></i></div>
+                                <div class="support-feature__content">
+                                    <h4>Персональные консультации</h4>
+                                    <p>Помогаем с выбором товаров и отвечаем на вопросы о составе</p>
+                                </div>
+                            </div>
+                            <div class="support-feature">
+                                <div class="support-feature__icon"><i class="fas fa-comments"></i></div>
+                                <div class="support-feature__content">
+                                    <h4>Любой удобный канал</h4>
+                                    <p>Телефон, email, Telegram, WhatsApp — выбирайте</p>
+                                </div>
+                            </div>
+                            <div class="support-feature">
+                                <div class="support-feature__icon"><i class="fas fa-lightbulb"></i></div>
+                                <div class="support-feature__content">
+                                    <h4>Ваши идеи важны</h4>
+                                    <p>Внимательно читаем каждое предложение по улучшению</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="support-card-new__cta">
+                            <p><i class="fas fa-leaf"></i> Мы ведём социальные сети с полезным контентом об экологичном образе жизни</p>
+                            <div class="support-card-new__socials">
+                                <a href="#" class="support-social-btn"><i class="fab fa-telegram"></i></a>
+                                <a href="#" class="support-social-btn"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" class="support-social-btn"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="support-social-btn"><i class="fab fa-vk"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Grid -->
+        <section class="section section--padded section--white-bg">
+            <div class="container">
+                <div class="contacts-section-header animate-on-scroll">
+                    <div class="contacts-section-header__icon">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="contacts-section-header__title">Как с нами связаться</h2>
+                    <p class="contacts-section-header__subtitle">Выберите удобный способ</p>
+                    <div class="contacts-section-header__line"></div>
+                </div>
+                
+                <div class="contacts-grid">
+                    <div class="contact-cards">
+                        <div class="contact-card animate-on-scroll">
+                            <div class="contact-card__icon">
+                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            </div>
+                            <div class="contact-card__content">
+                                <h4>Телефон</h4>
+                                <p><a href="tel:+373712798">+373 (7) 12798</a></p>
+                                <p class="contact-card__meta">Ежедневно с 9:00 до 21:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card animate-on-scroll">
+                            <div class="contact-card__icon">
+                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div class="contact-card__content">
+                                <h4>Email</h4>
+                                <p><a href="mailto:annbarba75@gmail.com">annbarba75@gmail.com</a></p>
+                                <p class="contact-card__meta">Ответим в течение часа</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card animate-on-scroll">
+                            <div class="contact-card__icon">
+                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            </div>
+                            <div class="contact-card__content">
+                                <h4>Мессенджеры</h4>
+                                <p>Telegram: <a href="https://t.me/auraverde">@auraverde</a></p>
+                                <p>WhatsApp: <a href="https://wa.me/373712798">+373 (7) 12798</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card animate-on-scroll">
+                            <div class="contact-card__icon">
+                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </div>
+                            <div class="contact-card__content">
+                                <h4>Адрес офиса и пункта выдачи</h4>
+                                <p>г. Тирасполь, ул. Одесская, 52</p>
+                                <p class="contact-card__meta">Пн-Сб: 10:00-20:00, Вс: 11:00-18:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card animate-on-scroll">
+                            <div class="contact-card__icon">
+                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            </div>
+                            <div class="contact-card__content">
+                                <h4>Социальные сети</h4>
+                                <div class="contact-card__social">
+                                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                                    <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+                                    <a href="#"><i class="fab fa-vk"></i> VK</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper animate-on-scroll">
+                        <h3 class="contact-form-wrapper__title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                            Напишите нам
+                        </h3>
+                        <form id="contact-form" novalidate>
+                            <div class="contact-form__group">
+                                <label class="contact-form__label" for="contact-name">Ваше имя <span>*</span></label>
+                                <input type="text" class="contact-form__input" id="contact-name" name="name" placeholder="Как к вам обращаться?" required>
+                            </div>
+                            <div class="contact-form__group">
+                                <label class="contact-form__label" for="contact-email">Email <span>*</span></label>
+                                <input type="email" class="contact-form__input" id="contact-email" name="email" placeholder="example@mail.ru" required>
+                            </div>
+                            <div class="contact-form__group">
+                                <label class="contact-form__label" for="contact-phone">Телефон</label>
+                                <input type="tel" class="contact-form__input" id="contact-phone" name="phone" placeholder="+373 (___) ___-__-__">
+                            </div>
+                            <div class="contact-form__group">
+                                <label class="contact-form__label" for="contact-subject">Тема обращения</label>
+                                <select class="contact-form__input contact-form__select" id="contact-subject" name="subject">
+                                    <option value="">Выберите тему</option>
+                                    <option value="order">Вопрос по заказу</option>
+                                    <option value="product">Вопрос о товаре</option>
+                                    <option value="delivery">Доставка</option>
+                                    <option value="return">Возврат</option>
+                                    <option value="cooperation">Сотрудничество</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            <div class="contact-form__group">
+                                <label class="contact-form__label" for="contact-message">Сообщение <span>*</span></label>
+                                <textarea class="contact-form__input contact-form__input--textarea" id="contact-message" name="message" rows="5" placeholder="Опишите ваш вопрос или предложение..." required></textarea>
+                            </div>
+                            <label class="contact-form__checkbox">
+                                <input type="checkbox" id="contact-consent" name="consent" required>
+                                <span class="contact-form__checkbox-text">Я согласен на <a href="#">обработку персональных данных</a> и принимаю условия <a href="#">политики конфиденциальности</a></span>
+                            </label>
+                            <button type="submit" class="contact-form__submit">Отправить сообщение <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--padded" style="background: linear-gradient(180deg, rgba(232, 245, 233, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);">
+            <div class="container">
+                <div class="contacts-section-header animate-on-scroll">
+                    <div class="contacts-section-header__icon" style="background: linear-gradient(135deg, #2E7D32, #66BB6A);">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h2 class="contacts-section-header__title">Почему выбирают нас</h2>
+                    <p class="contacts-section-header__subtitle">Преимущества сотрудничества с AuraVerde</p>
+                    <div class="contacts-section-header__line"></div>
+                </div>
+                
+                <div class="why-us-grid">
+                    <div class="why-us-card animate-on-scroll">
+                        <div class="why-us-card__number">01</div>
+                        <div class="why-us-card__icon"><i class="fas fa-certificate"></i></div>
+                        <h3 class="why-us-card__title">Сертифицированные товары</h3>
+                        <p class="why-us-card__text">Каждый продукт проходит строгую проверку на соответствие экологическим стандартам</p>
+                    </div>
+                    <div class="why-us-card animate-on-scroll">
+                        <div class="why-us-card__number">02</div>
+                        <div class="why-us-card__icon"><i class="fas fa-shipping-fast"></i></div>
+                        <h3 class="why-us-card__title">Эко-доставка</h3>
+                        <p class="why-us-card__text">Доставляем на велосипедах и электромобилях, используем биоразлагаемую упаковку</p>
+                    </div>
+                    <div class="why-us-card animate-on-scroll">
+                        <div class="why-us-card__number">03</div>
+                        <div class="why-us-card__icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h3 class="why-us-card__title">Забота о клиентах</h3>
+                        <p class="why-us-card__text">Индивидуальный подход, консультации и помощь в подборе товаров</p>
+                    </div>
+                    <div class="why-us-card animate-on-scroll">
+                        <div class="why-us-card__number">04</div>
+                        <div class="why-us-card__icon"><i class="fas fa-sync-alt"></i></div>
+                        <h3 class="why-us-card__title">Простой возврат</h3>
+                        <p class="why-us-card__text">14 дней на возврат товара без объяснения причин с полным возмещением</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--padded">
+            <div class="container">
+                <div class="contacts-section-header animate-on-scroll">
+                    <div class="contacts-section-header__icon" style="background: linear-gradient(135deg, #43A047, #81C784);">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <h2 class="contacts-section-header__title">Частые вопросы</h2>
+                    <p class="contacts-section-header__subtitle">Ответы на популярные вопросы</p>
+                    <div class="contacts-section-header__line"></div>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-item__question">
+                            <span class="faq-item__icon"><i class="fas fa-truck"></i></span>
+                            <h4>Как осуществляется доставка?</h4>
+                            <span class="faq-item__toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-item__answer">
+                            <p>Мы доставляем заказы по всей территории региона. Доступны варианты: самовывоз из пункта выдачи, курьерская доставка на велосипедах и электромобилях, а также почтовая доставка. Все заказы упаковываются в экологичные материалы.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-item__question">
+                            <span class="faq-item__icon"><i class="fas fa-undo-alt"></i></span>
+                            <h4>Как вернуть товар?</h4>
+                            <span class="faq-item__toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-item__answer">
+                            <p>Вы можете вернуть товар в течение 14 дней с момента получения. Для этого свяжитесь с нашей службой поддержки, и мы организуем бесплатный возврат. Деньги вернутся в течение 3-5 рабочих дней.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-item__question">
+                            <span class="faq-item__icon"><i class="fas fa-credit-card"></i></span>
+                            <h4>Какие способы оплаты доступны?</h4>
+                            <span class="faq-item__toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-item__answer">
+                            <p>Принимаем оплату банковскими картами Visa и MasterCard, наличными при получении, а также через электронные кошельки. Все онлайн-платежи защищены SSL-шифрованием.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-item__question">
+                            <span class="faq-item__icon"><i class="fas fa-leaf"></i></span>
+                            <h4>Как проверяется экологичность товаров?</h4>
+                            <span class="faq-item__toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-item__answer">
+                            <p>Мы тщательно изучаем каждого производителя: проверяем сертификаты, анализируем состав, оцениваем упаковку и условия производства. Только товары, соответствующие нашим строгим критериям, попадают в каталог.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--padded" style="background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%); position: relative; overflow: hidden;">
+            <div class="stats-bg-decoration"></div>
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="contact-promise animate-on-scroll">
+                    <div class="contact-promise__icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h2 class="contact-promise__title">Наши обещания вам</h2>
+                    <p class="contact-promise__subtitle">Мы гарантируем качество на каждом этапе</p>
+                    <div class="contact-promise__grid">
+                        <div class="promise-card">
+                            <div class="promise-card__icon"><i class="fas fa-stopwatch"></i></div>
+                            <h4 class="promise-card__title">Ответ за 1 час</h4>
+                            <p class="promise-card__text">Отвечаем на все обращения максимально быстро в рабочее время</p>
+                        </div>
+                        <div class="promise-card">
+                            <div class="promise-card__icon"><i class="fas fa-shield-alt"></i></div>
+                            <h4 class="promise-card__title">100% гарантия</h4>
+                            <p class="promise-card__text">Гарантируем качество каждого товара или вернём деньги</p>
+                        </div>
+                        <div class="promise-card">
+                            <div class="promise-card__icon"><i class="fas fa-truck"></i></div>
+                            <h4 class="promise-card__title">Эко-доставка</h4>
+                            <p class="promise-card__text">Доставляем без вреда планете на электротранспорте</p>
+                        </div>
+                        <div class="promise-card">
+                            <div class="promise-card__icon"><i class="fas fa-heart"></i></div>
+                            <h4 class="promise-card__title">Личный подход</h4>
+                            <p class="promise-card__text">Каждый клиент для нас особенный, помогаем с выбором</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--padded-lg">
+            <div class="container">
+                <div class="contacts-section-header animate-on-scroll">
+                    <div class="contacts-section-header__icon">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <h2 class="contacts-section-header__title">Как нас найти</h2>
+                    <p class="contacts-section-header__subtitle">г. Тирасполь, ул. Одесская, 52</p>
+                    <div class="contacts-section-header__line"></div>
+                </div>
+                
+                <div class="map-wrapper animate-on-scroll">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4f01118f6015003e9168b2ac4239f16fe8c90416b14ef33b15b1de8fe4a8d74d&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+                
+                <div class="map-info-cards">
+                    <div class="map-info-card animate-on-scroll">
+                        <div class="map-info-card__icon">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle></svg>
+                        </div>
+                        <div><h4>На автомобиле</h4><p>Бесплатная парковка рядом</p></div>
+                    </div>
+                    <div class="map-info-card animate-on-scroll">
+                        <div class="map-info-card__icon">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"></path><path d="M15 6v6"></path><path d="M2 12h19.6"></path><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path><circle cx="7" cy="18" r="2"></circle><circle cx="15" cy="18" r="2"></circle></svg>
+                        </div>
+                        <div><h4>Общественный транспорт</h4><p>5 минут от центра города</p></div>
+                    </div>
+                    <div class="map-info-card animate-on-scroll">
+                        <div class="map-info-card__icon">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div><h4>Часы работы</h4><p>Пн-Сб: 10:00-20:00</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-col footer-col-wide">
+                <h3 class="footer-logo"><i class="fas fa-leaf"></i> AuraVerde</h3>
+                <p class="footer-description">Экологически чистые товары для устойчивого будущего</p>
+                <div class="footer-social">
+                    <p class="social-title">МЫ В СОЦИАЛЬНЫХ СЕТЯХ</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="payment-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard">
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Навигация</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Информация</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="delivery.html">Доставка и оплата</a></li>
+                    <li><a href="blog.html">Эко-блог</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Поддержка</h4>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Помощь</a></li>
+                    <li><a href="delivery.html">Возврат товара</a></li>
+                    <li><a href="contacts.html">Контакты поддержки</a></li>
+                    <li><a href="delivery.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AuraVerde. Барба. Проект создан в рамках курсовой работы.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script src="js/data/products.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => entry.target.classList.add('visible'), index * 80);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-item__question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('contact-name');
+                const email = document.getElementById('contact-email');
+                const message = document.getElementById('contact-message');
+                const consent = document.getElementById('contact-consent');
+                const submitBtn = form.querySelector('.contact-form__submit');
+                let isValid = true;
+                
+                if (!name.value.trim()) { name.style.borderColor = '#e53935'; isValid = false; } else { name.style.borderColor = '#66BB6A'; }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.style.borderColor = '#e53935'; isValid = false; } else { email.style.borderColor = '#66BB6A'; }
+                if (!message.value.trim()) { message.style.borderColor = '#e53935'; isValid = false; } else { message.style.borderColor = '#66BB6A'; }
+                if (!consent.checked) { consent.parentElement.style.color = '#e53935'; isValid = false; } else { consent.parentElement.style.color = ''; }
+                
+                if (isValid) {
+                    submitBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Сообщение отправлено!';
+                    submitBtn.style.background = '#66BB6A';
+                    submitBtn.disabled = true;
+                    setTimeout(() => { form.reset(); submitBtn.innerHTML = 'Отправить сообщение <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>'; submitBtn.style.background = ''; submitBtn.disabled = false; name.style.borderColor = ''; email.style.borderColor = ''; message.style.borderColor = ''; }, 3000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

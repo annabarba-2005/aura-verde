@@ -1,0 +1,208 @@
+[data-aos], .section__header, .product-card, .blog-card, .feature, .review-card, .testimonial-card, .category-card, .eco-counter, .about-story, .about-mission, .contact-form, .contact-info, .contact__info, .footer__column, .newsletter, .filter, .leaf-divider, .hero__content, .hero__slider {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .25s ease, transform .25s ease
+}
+
+[data-aos].aos-animate, .section__header.animate-in, .product-card.animate-in, .blog-card.animate-in, .feature.animate-in, .review-card.animate-in, .testimonial-card.animate-in, .category-card.animate-in, .eco-counter.animate-in, .about-story.animate-in, .about-mission.animate-in, .contact-form.animate-in, .contact-info.animate-in, .contact__info.animate-in, .footer__column.animate-in, .newsletter.animate-in, .filter.animate-in, .leaf-divider.animate-in, .hero__content.animate-in, .hero__slider.animate-in {
+  opacity: 1;
+  transform: translateY(0)
+}
+
+[data-aos-delay="25"] {
+  transition-delay: .025s
+}
+
+[data-aos-delay="50"] {
+  transition-delay: .05s
+}
+
+[data-aos-delay="100"] {
+  transition-delay: .1s
+}
+
+[data-aos-delay="200"] {
+  transition-delay: .2s
+}
+
+[data-aos-delay="300"] {
+  transition-delay: .3s
+}
+
+[data-aos-delay="400"] {
+  transition-delay: .4s
+}
+
+[data-aos-delay="500"] {
+  transition-delay: .5s
+}
+
+[data-aos-delay="600"] {
+  transition-delay: .6s
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg)
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg)
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: .8
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0)
+  }
+  50% {
+    transform: translateY(-10px)
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px)
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px)
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(.9)
+  }
+  to {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0)
+  }
+  25% {
+    transform: translateX(-5px)
+  }
+  75% {
+    transform: translateX(5px)
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(76, 175, 80, .3)
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(76, 175, 80, .6)
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%)
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+@keyframes textShimmer {
+  0% {
+    background-position: -200% center
+  }
+  100% {
+    background-position: 200% center
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite
+}
+
+.animate-bounce {
+  animation: bounce 1s ease-in-out infinite
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite
+}
+
+.animate-fade-in {
+  animation: fadeInUp .5s ease forwards
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important
+  }
+}

@@ -1,0 +1,127 @@
+.our-history {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  margin: var(--spacing-xl) auto;
+  max-width: 1200px;
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.1);
+}
+
+.history-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--spacing-3xl);
+}
+
+.history-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.history-text p {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.7;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.history-stats {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--spacing-3xl);
+  margin-top: var(--spacing-xl);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+.stat-label {
+  font-size: var(--font-size-base);
+  color: var(--color-text-light);
+}
+
+.history-mission {
+  flex: 1;
+  min-width: 300px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  color: var(--color-white);
+}
+
+.history-mission__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-white);
+}
+
+.history-mission__text {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.95;
+}
+
+.history-mission__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history-mission__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.history-mission__list li:last-child {
+  border-bottom: none;
+}
+
+.history-mission__list li i {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .history-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .history-stats {
+    justify-content: center;
+    gap: var(--spacing-xl);
+  }
+
+  .history-mission__list li {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-history {
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin: var(--spacing-md);
+    border-radius: 15px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+}
+

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эко-блог — AuraVerde | Статьи об экологичном образе жизни</title>
+    <meta name="description" content="Блог AuraVerde: полезные статьи об экологичном образе жизни, советы по осознанному потреблению, обзоры эко-сертификатов и маркировок.">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/free-icon-leaf-5806342.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/free-icon-leaf-5806342.png">
+    <link rel="shortcut icon" type="image/png" href="images/free-icon-leaf-5806342.png">
+    <link rel="apple-touch-icon" href="images/free-icon-leaf-5806342.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles/index.css">
+    <style>
+        /* Blog Page Unique Background */
+        .blog-page {
+            background: linear-gradient(-45deg, #EFEBE9, #C8E6C9, #EFEBE9, #66BB6A, #E8F5E9);
+            background-size: 400% 400%;
+            animation: blogGradient 20s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes blogGradient {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Blog Hero Header */
+        .blog-hero-header {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            min-height: 500px;
+            margin-top: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .blog-hero-header__bg {
+            position: absolute;
+            inset: 0;
+            background: url('images/organic-brand-logo-displayed-eco-friendly-device-with-natural-materials-earthy-tones_994764-145851.jpg') center/cover no-repeat;
+            opacity: 0.8;
+        }
+        .blog-hero-header__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(30, 60, 40, 0.55) 0%, rgba(20, 50, 35, 0.65) 100%);
+        }
+        .blog-hero-header__content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 40px 20px;
+        }
+        .blog-hero-header__title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            letter-spacing: -1px;
+        }
+        .blog-hero-header__title span {
+            display: inline-block;
+            background: linear-gradient(135deg, #A5D6A7 0%, #66BB6A 50%, #43A047 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .blog-hero-header__subtitle {
+            font-size: clamp(1rem, 2vw, 1.35rem);
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Blog Grid - Uniform Cards */
+        .blog-grid-section {
+            padding: 80px 0;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        @media (max-width: 992px) {
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .blog-hero-header { height: auto; min-height: 350px; margin-top: 70px; padding: 60px 0; }
+        }
+
+        /* Uniform Article Card */
+        .article-card {
+            background: rgba(255, 255, 255, 0.95);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(46, 125, 50, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(46, 125, 50, 0.2);
+        }
+        .article-card__image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        .article-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .article-card:hover .article-card__image img {
+            transform: scale(1.1);
+        }
+        .article-card__category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1B5E20 100%);
+            color: #fff;
+            padding: 8px 16px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .article-card__body {
+            padding: 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-card__date {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .article-card__date i {
+            color: var(--color-primary);
+        }
+        .article-card__title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 14px;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+        .article-card:hover .article-card__title {
+            color: var(--color-primary);
+        }
+        .article-card__excerpt {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+        .article-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .article-card__link:hover {
+            gap: 16px;
+            color: #1B5E20;
+        }
+        .article-card__link svg {
+            transition: transform 0.3s ease;
+        }
+        .article-card__link:hover svg {
+            transform: translateX(5px);
+        }
+
+        /* Newsletter Section Styles */
+        .section--newsletter {
+            padding: var(--spacing-4xl) 0;
+        }
+
+        /* Larger Modal Windows */
+        #article-modal .modal__content--article {
+            max-width: 950px;
+            width: 95%;
+            max-height: 92vh;
+            overflow-y: auto;
+            padding: 50px 60px;
+            background: #fff;
+            border-radius: 0;
+            position: relative;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.3);
+        }
+        #article-modal .modal__backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: -1;
+        }
+        #article-modal.modal--active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+        #article-modal .modal__close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.06);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        #article-modal .modal__close:hover {
+            background: var(--color-primary);
+            color: #fff;
+        }
+        .article__image {
+            margin-bottom: 30px;
+            overflow: hidden;
+            max-height: 450px;
+        }
+        .article__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .article__title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 28px;
+            line-height: 1.3;
+        }
+        .article__meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 24px;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+        .article__meta #article-category {
+            background: rgba(46, 125, 50, 0.12);
+            color: var(--color-primary);
+            padding: 6px 16px;
+            font-weight: 600;
+        }
+        .article__content {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--color-text-light);
+        }
+        .article__content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin: 35px 0 18px;
+        }
+        .article__content p {
+            margin-bottom: 22px;
+        }
+        .article__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(0, 0, 0, 0.08);
+        }
+        .article__tags .tag {
+            display: inline-block;
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--color-primary);
+            padding: 8px 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            #article-modal .modal__content--article {
+                padding: 30px 25px;
+                max-height: 95vh;
+            }
+            .article__title {
+                font-size: 1.5rem;
+            }
+            .article__content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="blog-page">
+    <!-- Header -->
+    <header class="header" id="header" role="banner">
+        <div class="header__top-bar">
+            <div class="header__top-container container">
+                <a href="index.html" class="header__logo" aria-label="AuraVerde - главная">
+                    <span class="header__logo-leaf-wrapper">
+                        <svg viewBox="0 0 100 100" class="header__logo-animated-leaf">
+                            <defs>
+                                <linearGradient id="header-leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#A5D6A7"/><stop offset="30%" stop-color="#66BB6A"/><stop offset="70%" stop-color="#43A047"/><stop offset="100%" stop-color="#1B5E20"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M50 5 C15 25, 5 65, 50 95 C95 65, 85 25, 50 5" fill="url(#header-leaf-grad)"/>
+                            <path d="M50 20 Q50 55, 50 88" fill="none" stroke="#E8F5E9" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M50 35 Q35 40, 25 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M50 35 Q65 40, 75 50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="header__logo-text"><span class="header__logo-aura">Aura</span><span class="header__logo-verde">Verde</span></span>
+                </a>
+                <div class="header__search-wrapper">
+                    <button class="header__search-btn" id="search-btn" aria-label="Поиск">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                        <span class="header__search-text">Поиск товаров...</span>
+                    </button>
+                </div>
+                <div class="header__actions">
+                    <a href="cart.html" class="header__cart-btn" aria-label="Корзина">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <span class="header__cart-count" id="cart-count">0</span>
+                    </a>
+                    <button class="header__toggle" id="nav-toggle" aria-label="Открыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav-bar">
+            <div class="header__nav-container container">
+                <nav class="header__nav" id="nav-menu" role="navigation" aria-label="Главное меню">
+                    <ul class="header__nav-list">
+                        <li><a href="index.html" class="header__nav-link">Главная</a></li>
+                        <li><a href="about.html" class="header__nav-link">О нас</a></li>
+                        <li><a href="catalog.html" class="header__nav-link">Каталог</a></li>
+                        <li><a href="blog.html" class="header__nav-link header__nav-link--active">Блог</a></li>
+                        <li><a href="delivery.html" class="header__nav-link">Доставка</a></li>
+                        <li><a href="contacts.html" class="header__nav-link">Контакты</a></li>
+                    </ul>
+                    <button class="header__nav-close" id="nav-close" aria-label="Закрыть меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Header with Background Image -->
+        <section class="blog-hero-header">
+            <div class="blog-hero-header__bg"></div>
+            <div class="blog-hero-header__overlay"></div>
+            <div class="blog-hero-header__content">
+                <h1 class="blog-hero-header__title">Эко-<span>блог</span></h1>
+                <p class="blog-hero-header__subtitle">Полезные статьи об экологичном образе жизни, советы по осознанному потреблению и устойчивому развитию</p>
+            </div>
+        </section>
+
+        <section class="blog-grid-section">
+            <div class="container">
+                <div class="blog-grid">
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="images/young-woman-preparing-food-kitchen.jpg" alt="Как уменьшить углеродный след на кухне" loading="lazy">
+                            <span class="article-card__category">Советы</span>
+                        </div>
+                        <div class="article-card__body">
+                            <span class="article-card__date">
+                                <i class="far fa-calendar-alt"></i> 15 ноября 2024
+                            </span>
+                            <h2 class="article-card__title">Как уменьшить углеродный след на кухне</h2>
+                            <p class="article-card__excerpt">Практические советы по снижению экологического воздействия ваших кулинарных привычек. Узнайте, как простые изменения могут помочь планете.</p>
+                            <a href="#" class="article-card__link blog-card__link" data-id="1">
+                                Читать статью
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="images/stock-photo-fair-trade-products-1295760448.jpg" alt="Что такое Fair Trade" loading="lazy">
+                            <span class="article-card__category">Образование</span>
+                        </div>
+                        <div class="article-card__body">
+                            <span class="article-card__date">
+                                <i class="far fa-calendar-alt"></i> 10 ноября 2024
+                            </span>
+                            <h3 class="article-card__title">Что такое Fair Trade и почему это важно</h3>
+                            <p class="article-card__excerpt">Разбираемся в сертификации справедливой торговли и её влиянии на жизнь фермеров по всему миру.</p>
+                            <a href="#" class="article-card__link blog-card__link" data-id="2">
+                                Читать статью
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="images/world-food-ball-filled-surrounded-by-food-world-food-day.jpg" alt="Органические продукты" loading="lazy">
+                            <span class="article-card__category">Здоровье</span>
+                        </div>
+                        <div class="article-card__body">
+                            <span class="article-card__date">
+                                <i class="far fa-calendar-alt"></i> 5 ноября 2024
+                            </span>
+                            <h3 class="article-card__title">Органические продукты: стоит ли переплачивать</h3>
+                            <p class="article-card__excerpt">Анализируем реальные преимущества органических продуктов для здоровья и окружающей среды.</p>
+                            <a href="#" class="article-card__link blog-card__link" data-id="3">
+                                Читать статью
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="images/ecological-notebook-frame.jpg" alt="Zero Waste образ жизни" loading="lazy">
+                            <span class="article-card__category">Образ жизни</span>
+                        </div>
+                        <div class="article-card__body">
+                            <span class="article-card__date">
+                                <i class="far fa-calendar-alt"></i> 28 октября 2024
+                            </span>
+                            <h3 class="article-card__title">Zero Waste образ жизни: с чего начать</h3>
+                            <p class="article-card__excerpt">Пошаговое руководство для тех, кто хочет сократить количество отходов и жить осознаннее.</p>
+                            <a href="#" class="article-card__link blog-card__link" data-id="4">
+                                Читать статью
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="images/pexels-mart-production-8450361.jpg" alt="Эко-маркировка" loading="lazy">
+                            <span class="article-card__category">Образование</span>
+                        </div>
+                        <div class="article-card__body">
+                            <span class="article-card__date">
+                                <i class="far fa-calendar-alt"></i> 20 октября 2024
+                            </span>
+                            <h3 class="article-card__title">Как читать эко-маркировку на товарах</h3>
+                            <p class="article-card__excerpt">Путеводитель по экологическим сертификатам и маркировкам. Учимся отличать реальные знаки от гринвошинга.</p>
+                            <a href="#" class="article-card__link blog-card__link" data-id="5">
+                                Читать статью
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="images/zerowaste.jpg" alt="Биоразлагаемая упаковка" loading="lazy">
+                            <span class="article-card__category">Экология</span>
+                        </div>
+                        <div class="article-card__body">
+                            <span class="article-card__date">
+                                <i class="far fa-calendar-alt"></i> 15 октября 2024
+                            </span>
+                            <h3 class="article-card__title">Биоразлагаемая упаковка: мифы и реальность</h3>
+                            <p class="article-card__excerpt">Разбираемся, действительно ли «био» упаковка лучше обычного пластика и как правильно её утилизировать.</p>
+                            <a href="#" class="article-card__link blog-card__link" data-id="6">
+                                Читать статью
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="images/dreamy-aesthetic-cosmetic-product-with-fresh-background.jpg" alt="Экологичная косметика" loading="lazy">
+                            <span class="article-card__category">Красота</span>
+                        </div>
+                        <div class="article-card__body">
+                            <span class="article-card__date">
+                                <i class="far fa-calendar-alt"></i> 10 октября 2024
+                            </span>
+                            <h3 class="article-card__title">Экологичная косметика: на что обращать внимание</h3>
+                            <p class="article-card__excerpt">Как выбрать действительно безопасную и экологичную косметику. Разбираем составы и сертификаты.</p>
+                            <a href="#" class="article-card__link blog-card__link" data-id="7">
+                                Читать статью
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="images/realisticnaa-kapla-vody-s-ekosistemoi.jpg" alt="Домашняя экология" loading="lazy">
+                            <span class="article-card__category">Для дома</span>
+                        </div>
+                        <div class="article-card__body">
+                            <span class="article-card__date">
+                                <i class="far fa-calendar-alt"></i> 5 октября 2024
+                            </span>
+                            <h3 class="article-card__title">Экологичный дом: 15 простых шагов к устойчивости</h3>
+                            <p class="article-card__excerpt">Превращаем дом в экологичное пространство. Практические советы по снижению потребления ресурсов и отходов.</p>
+                            <a href="#" class="article-card__link blog-card__link" data-id="8">
+                                Читать статью
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-card__image">
+                            <img src="images/igrivaa-bogemnaa-zensina-poziruet-v-stil-noi-spal-ne-s-potrasausim-inter-erom-pal-mami-i-makrame.jpg" alt="Устойчивая мода" loading="lazy">
+                            <span class="article-card__category">Мода</span>
+                        </div>
+                        <div class="article-card__body">
+                            <span class="article-card__date">
+                                <i class="far fa-calendar-alt"></i> 1 октября 2024
+                            </span>
+                            <h3 class="article-card__title">Устойчивая мода: как одеваться экологично</h3>
+                            <p class="article-card__excerpt">Гид по экологичной моде: от выбора материалов до капсульного гардероба. Как быть стильным без вреда планете.</p>
+                            <a href="#" class="article-card__link blog-card__link" data-id="9">
+                                Читать статью
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section - Blog specific -->
+        <section class="section section--newsletter" style="padding: var(--spacing-4xl) 0;">
+            <div class="container">
+                <div class="newsletter" style="background: #2E7D32; border-radius: 32px; padding: var(--spacing-3xl) var(--spacing-2xl); position: relative; overflow: hidden;">
+                    <!-- Декоративные элементы -->
+                    <div style="position: absolute; color: rgba(255,255,255,0.08); font-size: 3rem; top: 10%; left: 5%; animation: floatLeafBlog 20s ease-in-out infinite;"><i class="fas fa-book-open"></i></div>
+                    <div style="position: absolute; color: rgba(255,255,255,0.06); font-size: 2.5rem; bottom: 15%; right: 10%; animation: floatLeafBlog 20s ease-in-out infinite reverse;"><i class="fas fa-pen-fancy"></i></div>
+                    <div style="position: absolute; color: rgba(255,255,255,0.05); font-size: 2rem; top: 50%; right: 5%; animation: floatLeafBlog 25s ease-in-out infinite;"><i class="fas fa-lightbulb"></i></div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); pointer-events: none;"></div>
+                    
+                    <div style="display: flex; align-items: center; gap: var(--spacing-3xl); position: relative; z-index: 1; flex-wrap: wrap;">
+                        <!-- Левая часть с иконкой -->
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: var(--spacing-lg);">
+                            <div style="position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+                                <div style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid rgba(255,255,255,0.15); animation: ringPulseBlog 3s ease-in-out infinite;"></div>
+                                <div style="position: absolute; width: 80%; height: 80%; border-radius: 50%; border: 2px solid rgba(255,255,255,0.1); animation: ringPulseBlog 3s ease-in-out infinite 0.5s;"></div>
+                                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;">
+                                    <i class="fas fa-newspaper" style="font-size: 2.5rem;"></i>
+                                </div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.15); border-radius: 16px; padding: var(--spacing-md) var(--spacing-lg); text-align: center; backdrop-filter: blur(10px);">
+                                <span style="display: block; font-family: var(--font-heading); font-size: 1.75rem; font-weight: 700; color: #A5D6A7; line-height: 1;">50+</span>
+                                <span style="display: block; font-size: 0.8rem; color: rgba(255,255,255,0.85); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;">статей в блоге</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Правая часть с контентом -->
+                        <div style="flex: 1; min-width: 300px;">
+                            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.15); border-radius: 50px; padding: 8px 16px; margin-bottom: var(--spacing-md);">
+                                <span style="color: #A5D6A7;"><i class="fas fa-bell"></i></span>
+                                <span style="font-size: 0.85rem; font-weight: 600; color: #A5D6A7; text-transform: uppercase; letter-spacing: 1px;">Будьте в курсе</span>
+                            </div>
+                            <h2 style="font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: #fff; margin-bottom: var(--spacing-md); line-height: 1.3;">
+                                Узнавайте первыми о <span style="color: #A5D6A7;">новых публикациях</span>
+                            </h2>
+                            <p style="font-size: 1rem; color: rgba(255,255,255,0.9); line-height: 1.7; margin-bottom: var(--spacing-lg);">
+                                Подпишитесь на наш блог и получайте свежие статьи об экологии, обзоры товаров и полезные советы прямо на вашу почту
+                            </p>
+                            <form id="newsletter-form-blog" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 200px; position: relative;">
+                                    <svg style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #2E7D32;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="4"/>
+                                        <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/>
+                                    </svg>
+                                    <input type="email" placeholder="Введите ваш email" required style="width: 100%; padding: 16px 16px 16px 48px; border: none; border-radius: 50px; font-size: 1rem; background: #fff;">
+                                </div>
+                                <button type="submit" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: #1B5E20; color: #fff; font-weight: 600; border-radius: 50px; border: none; cursor: pointer; transition: all 0.3s ease; font-size: 1rem;">
+                                    <span>Подписаться</span>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </form>
+                            <p style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-top: var(--spacing-md);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                                Только полезный контент. Отписка в любой момент.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <style>
+            @keyframes floatLeafBlog {
+                0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                25% { transform: translate(10px, -15px) rotate(5deg); }
+                50% { transform: translate(-5px, 10px) rotate(-3deg); }
+                75% { transform: translate(8px, 5px) rotate(2deg); }
+            }
+            @keyframes ringPulseBlog {
+                0%, 100% { transform: scale(1); opacity: 0.3; }
+                50% { transform: scale(1.1); opacity: 0.6; }
+            }
+            @media (max-width: 768px) {
+                .section--newsletter .newsletter > div:first-child { flex-direction: column; text-align: center; }
+                .section--newsletter .newsletter > div:first-child > div:last-child { text-align: center; }
+            }
+        </style>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-col footer-col-wide">
+                <h3 class="footer-logo"><i class="fas fa-leaf"></i> AuraVerde</h3>
+                <p class="footer-description">Экологически чистые товары для устойчивого будущего</p>
+                <div class="footer-social">
+                    <p class="social-title">МЫ В СОЦИАЛЬНЫХ СЕТЯХ</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="payment-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard">
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Навигация</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="delivery.html">Доставка</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Информация</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="delivery.html">Доставка и оплата</a></li>
+                    <li><a href="blog.html">Эко-блог</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Поддержка</h4>
+                <ul class="footer-links">
+                    <li><a href="contacts.html">Помощь</a></li>
+                    <li><a href="delivery.html">Возврат товара</a></li>
+                    <li><a href="contacts.html">Контакты поддержки</a></li>
+                    <li><a href="delivery.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AuraVerde. Барба. Проект создан в рамках курсовой работы.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Article Modal -->
+    <div class="modal" id="article-modal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content modal__content--article">
+            <button class="modal__close" id="article-modal-close" aria-label="Закрыть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <article class="article">
+                <div class="article__image" id="article-image" style="display: none;">
+                    <img src="" alt="">
+                </div>
+                <div class="article__meta">
+                    <span id="article-category"></span>
+                    <span id="article-date"></span>
+                </div>
+                <h1 class="article__title" id="article-title"></h1>
+                <div class="article__content" id="article-content"></div>
+                <div class="article__tags" id="article-tags"></div>
+            </article>
+        </div>
+    </div>
+
+    <script src="js/data/products.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

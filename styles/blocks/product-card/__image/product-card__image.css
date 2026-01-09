@@ -1,0 +1,103 @@
+.product-card__image {
+  position: relative;
+  height: 100%;
+  min-height: 350px;
+  aspect-ratio: auto;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    rgba(102, 187, 106, 0.05) 100%
+  );
+}
+
+.product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform var(--transition-slow);
+  transform: scale(1.05);
+}
+
+.product-card:hover .product-card__img {
+  transform: scale(1.15);
+}
+
+@media (min-width: 1440px) {
+  .product-card__image {
+    height: 380px;
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 992px) {
+  .product-card__image {
+    height: 300px;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card__image {
+    height: 280px;
+    min-height: 280px;
+  }
+}
+
+.product-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    rgba(102, 187, 106, 0.08) 50%,
+    rgba(46, 125, 50, 0.05) 100%
+  );
+  font-size: 4rem;
+  transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-card__placeholder {
+  transform: scale(1.1);
+}
+
+.product-card__quick-view {
+  position: absolute;
+  bottom: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--color-white);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: all var(--transition-base);
+  border: none;
+  cursor: pointer;
+}
+
+.product-card:hover .product-card__quick-view {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.product-card__quick-view:hover {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-white);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+}
+
+@media (max-width: 576px) {
+  .product-card__placeholder {
+    font-size: 3rem;
+    height: 280px;
+  }
+}
+
