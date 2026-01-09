@@ -2,10 +2,7 @@
   position: relative;
   width: 100%;
   min-height: auto;
-  padding-top: 120px; /* Header height: top bar + nav bar */
-  margin-top: 64px; /* Gap between nav bar and hero - increased by 5mm (~19px) */
-  padding-left: var(--spacing-lg); /* Reduced side padding - wider banner */
-  padding-right: var(--spacing-lg);
+  margin-top: 24px;
   background: transparent;
   overflow: visible;
 }
@@ -47,10 +44,6 @@
   object-position: center;
 }
 
-/* ==========================================================================
-   OVERLAY — полупрозрачный тёмный слой для читаемости текста
-   ТЗ: rgba(0,0,0,0.4) overlay
-   ========================================================================== */
 .hero-slider__overlay {
   position: absolute;
   inset: 0;
@@ -59,7 +52,6 @@
   z-index: 1;
 }
 
-/* Дополнительный градиент для глубины */
 .hero-slider__overlay::before {
   content: '';
   position: absolute;
@@ -468,11 +460,6 @@
 
 /* Extra large desktops (>1600px) */
 @media (min-width: 1600px) {
-  .hero-slider {
-    padding-left: var(--spacing-xl);
-    padding-right: var(--spacing-xl);
-    margin-top: 50px;
-  }
 
   .hero-slider__container {
     height: calc(65vh + 68px); /* Larger on big screens +1cm */
@@ -492,10 +479,6 @@
 
 /* Large desktops (1400px - 1600px) */
 @media (max-width: 1599px) and (min-width: 1400px) {
-  .hero-slider {
-    padding-left: var(--spacing-lg);
-    padding-right: var(--spacing-lg);
-  }
 
   .hero-slider__container {
     height: calc(60vh + 63px); /* +1cm */
@@ -511,10 +494,6 @@
 
 /* Medium desktops (1024px - 1400px) */
 @media (max-width: 1399px) and (min-width: 1025px) {
-  .hero-slider {
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
-  }
 
   .hero-slider__container {
     height: calc(58vh + 58px); /* +1cm */
@@ -527,10 +506,7 @@
 /* Tablets (768px - 1024px) */
 @media (max-width: 1024px) {
   .hero-slider {
-    padding-top: 100px;
     margin-top: 30px;
-    padding-left: var(--spacing-sm);
-    padding-right: var(--spacing-sm);
   }
 
   .hero-slider__container {
@@ -577,10 +553,7 @@
 /* Small tablets and large phones (576px - 768px) */
 @media (max-width: 768px) {
   .hero-slider {
-    padding-top: 80px;
     margin-top: 25px;
-    padding-left: var(--spacing-xs);
-    padding-right: var(--spacing-xs);
   }
 
   .hero-slider__container {
@@ -685,8 +658,7 @@
 /* Mobile phones (<576px) */
 @media (max-width: 576px) {
   .hero-slider {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-inline: 4px;
     margin-top: 15px;
   }
 

@@ -180,11 +180,6 @@ em, i {
   text-align: right;
 }
 
-ul, ol {
-  margin-bottom: var(--spacing-md);
-  padding-left: var(--spacing-lg);
-}
-
 li {
   margin-bottom: var(--spacing-xs);
 }
@@ -734,7 +729,6 @@ blockquote cite {
 .stat-card {
   flex: 1;
   min-width: 150px;
-  height: 120px;
   padding: 20px 15px;
   display: flex;
   flex-direction: column;

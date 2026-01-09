@@ -8,16 +8,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-lg);
+  gap: 4px;
 }
 
 @media (min-width: 1280px) {
   .header__top-bar {
     padding: 12px 0;
-  }
-
-  .header__top-container {
-    gap: var(--spacing-xl);
   }
 }
 
@@ -26,18 +22,15 @@
     padding: 8px 0;
   }
 
-  .header__top-container {
-    gap: var(--spacing-md);
-  }
 }
 
 @media (max-width: 768px) {
-  .header__top-bar {
-    padding: 6px 0;
+  .header__top-container {
+    padding: 0;
   }
 
-  .header__top-container {
-    gap: var(--spacing-sm);
+  .header__top-bar {
+    padding: 6px 0;
   }
 }
 
