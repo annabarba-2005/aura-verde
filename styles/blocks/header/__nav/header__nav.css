@@ -123,9 +123,6 @@
 }
 
 @media (max-width: 992px) {
-  .header__nav-bar {
-    display: none;
-  }
 
   .header__nav-container {
     max-width: none;
@@ -136,7 +133,7 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 85%;
+    width: 80%;
     max-width: 400px;
     height: 100vh;
     background: var(--color-white);
@@ -160,6 +157,7 @@
 
   .header__nav--open {
     right: 0;
+    z-index: var(--z-modal);
   }
 
   .header__nav-list {
@@ -196,7 +194,6 @@
 /* Mobile (max 768px) */
 @media (max-width: 768px) {
   .header__nav {
-    width: 100%;
     max-width: none;
   }
 

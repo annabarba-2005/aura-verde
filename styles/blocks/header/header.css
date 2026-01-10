@@ -3,6 +3,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: var(--z-fixed);
+  z-index: var(--z-notification);
   transition: all var(--transition-base);
 }
