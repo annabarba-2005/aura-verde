@@ -1,0 +1,6 @@
+.blog-card__content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex: 1
+}

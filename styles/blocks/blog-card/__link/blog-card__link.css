@@ -1,0 +1,22 @@
+.blog-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    transition: all var(--transition-fast)
+}
+
+.blog-card__link:hover {
+    color: var(--color-primary-dark);
+    gap: var(--spacing-sm)
+}
+
+.blog-card__link svg {
+    transition: transform var(--transition-fast)
+}
+
+.blog-card__link:hover svg {
+    transform: translateX(4px)
+}

@@ -1,0 +1,15 @@
+.blog__notice-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+    .blog__notice-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+}

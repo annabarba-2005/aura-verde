@@ -4,14 +4,6 @@
   gap: var(--spacing-md);
 }
 
-.btn-group--center {
-  justify-content: center;
-}
-
-.btn-group--vertical {
-  flex-direction: column;
-}
-
 @media (max-width: 576px) {
   .btn-group {
     flex-direction: column;

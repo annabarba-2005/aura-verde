@@ -1,0 +1,30 @@
+.blog__notice-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: var(--color-white);
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    .blog__notice-icon {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+@keyframes iconPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.2);
+    }
+}

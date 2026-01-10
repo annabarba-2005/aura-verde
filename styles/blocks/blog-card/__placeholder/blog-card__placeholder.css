@@ -1,0 +1,15 @@
+.blog-card__placeholder {
+    font-size: 4rem;
+    transition: transform var(--transition-base)
+}
+
+.blog-card:hover .blog-card__placeholder {
+    transform: scale(1.1)
+}
+
+@media (max-width: 576px) {
+
+    .blog-card__placeholder {
+        font-size: 3rem
+    }
+}

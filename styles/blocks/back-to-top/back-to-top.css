@@ -18,12 +18,6 @@
   z-index: var(--z-fixed)
 }
 
-.back-to-top--visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0)
-}
-
 .back-to-top:hover {
   background: var(--color-primary-dark);
   transform: translateY(-4px)

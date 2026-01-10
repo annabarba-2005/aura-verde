@@ -9,15 +9,3 @@
   text-align: center;
   box-shadow: var(--shadow-lg)
 }
-
-.about__experience-number {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold)
-}
-
-.about__experience-text {
-  font-size: var(--font-size-xs);
-  opacity: .9
-}

@@ -1,0 +1,35 @@
+.blog__notice {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    background: linear-gradient(
+            135deg,
+            var(--color-primary) 0%,
+            #1B5E20 50%,
+            var(--color-accent) 100%
+    );
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(46, 125, 50, 0.3);
+    opacity: 0;
+    animation: blogNoticeFadeIn 0.8s ease 0.8s forwards;
+}
+
+@keyframes blogNoticeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .blog__notice {
+        padding: var(--spacing-lg);
+    }
+}

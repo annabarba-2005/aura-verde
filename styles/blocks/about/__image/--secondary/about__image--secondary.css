@@ -1,0 +1,18 @@
+.about__image--secondary {
+    position: absolute;
+    width: 55%;
+    aspect-ratio: 1;
+    bottom: -30px;
+    right: -30px;
+    border: 6px solid var(--color-bg)
+}
+
+@media (max-width: 576px) {
+    .about__image--secondary {
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        margin-top: var(--spacing-lg)
+    }
+}

@@ -1,0 +1,6 @@
+.about__experience-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold)
+}
