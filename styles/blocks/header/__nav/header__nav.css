@@ -73,7 +73,7 @@
 
 .header__nav-link:hover::after,
 .header__nav-link--active::after {
-  width: 80%;
+  width: 100%;
 }
 
 .header__nav-close {

@@ -207,11 +207,10 @@
 
         /* Larger Modal Windows */
         #article-modal .modal__content--article {
-            max-width: 950px;
-            width: 95%;
-            max-height: 92vh;
+            width: 100%;
+            height: 100%;
             overflow-y: auto;
-            padding: 50px 60px;
+            padding: 16px;
             background: #fff;
             border-radius: 0;
             position: relative;
@@ -219,17 +218,18 @@
         }
         #article-modal .modal__backdrop {
             position: fixed;
-            inset: 0;
+
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(5px);
             z-index: -1;
         }
         #article-modal.modal--active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: start;
             position: fixed;
-            inset: 0;
             z-index: 1000;
             padding: 20px;
         }
@@ -318,7 +318,6 @@
         @media (max-width: 768px) {
             #article-modal .modal__content--article {
                 padding: 0;
-                max-height: 95vh;
             }
             .article__title {
                 font-size: 1.5rem;
@@ -729,7 +728,6 @@
 
     <!-- Article Modal -->
     <div class="modal" id="article-modal">
-        <div class="modal__backdrop"></div>
         <div class="modal__content modal__content--article">
             <button class="modal__close" id="article-modal-close" aria-label="Закрыть">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -750,6 +748,7 @@
                 <div class="article__tags" id="article-tags"></div>
             </article>
         </div>
+        <div class="modal__backdrop"></div>
     </div>
 
     <script src="js/data/products.js"></script>

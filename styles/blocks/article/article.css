@@ -161,4 +161,7 @@
   .article__title {
     font-size: var(--font-size-xl)
   }
+  .article {
+    max-width: 300px;
+  }
 }
