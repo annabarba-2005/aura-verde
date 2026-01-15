@@ -729,6 +729,331 @@
             .cart-empty__text { font-size: 1rem; }
             .cart-empty__btn { padding: 14px 28px; font-size: 1rem; }
         }
+        .checkout-modal, .order-success-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .checkout-modal--active, .order-success-modal--active {
+            display: flex;
+        }
+        .checkout-modal__backdrop, .order-success-modal__backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+        .checkout-modal__content {
+            position: relative;
+            background: #fff;
+            border-radius: 24px;
+            width: 95%;
+            max-width: 650px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+        .checkout-modal__close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .checkout-modal__close:hover {
+            background: rgba(0, 0, 0, 0.15);
+            transform: rotate(90deg);
+        }
+        .checkout-modal__body {
+            padding: 40px;
+        }
+        .checkout-modal__title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .checkout-modal__title i { color: #43A047; }
+        .checkout-modal__section {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .checkout-modal__section:last-of-type { border-bottom: none; }
+        .checkout-modal__section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checkout-modal__section h3 i { color: #43A047; }
+        .checkout-modal__field {
+            margin-bottom: 18px;
+        }
+        .checkout-modal__field label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .checkout-modal__field input,
+        .checkout-modal__field textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        .checkout-modal__field input:focus,
+        .checkout-modal__field textarea:focus {
+            outline: none;
+            border-color: #43A047;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.1);
+        }
+        .checkout-modal__field textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .checkout-modal__delivery-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .checkout-modal__delivery-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        .checkout-modal__delivery-option:hover {
+            border-color: rgba(67, 160, 71, 0.3);
+            background: #fff;
+        }
+        .checkout-modal__delivery-option--active {
+            border-color: #43A047;
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.08), rgba(102, 187, 106, 0.12));
+        }
+        .checkout-modal__delivery-option input { display: none; }
+        .checkout-modal__delivery-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .checkout-modal__delivery-info { flex: 1; }
+        .checkout-modal__delivery-name {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .checkout-modal__delivery-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .checkout-modal__delivery-price {
+            font-weight: 700;
+            color: #43A047;
+            font-size: 1.1rem;
+        }
+        .checkout-modal__items {
+            max-height: 150px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+        .checkout-modal__item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .checkout-modal__item:last-child { border-bottom: none; }
+        .checkout-modal__item-img {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(102, 187, 106, 0.2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            overflow: hidden;
+        }
+        .checkout-modal__item-info { flex: 1; }
+        .checkout-modal__item-name { font-weight: 600; color: #333; font-size: 0.9rem; }
+        .checkout-modal__item-qty { font-size: 0.8rem; color: #666; }
+        .checkout-modal__item-price { font-weight: 600; color: #43A047; }
+        .checkout-modal__row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        .checkout-modal__row--carbon { color: #43A047; font-weight: 500; }
+        .checkout-modal__row--total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1B5E20;
+            padding-top: 15px;
+            margin-top: 10px;
+            border-top: 2px solid rgba(67, 160, 71, 0.2);
+        }
+        .checkout-modal__submit {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .checkout-modal__submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(67, 160, 71, 0.4);
+        }
+
+        /* Order Success Modal */
+        .order-success-modal__content {
+            position: relative;
+            background: #fff;
+            border-radius: 24px;
+            width: 95%;
+            max-width: 420px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+        .order-success-modal__icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            animation: successPulse 2s ease-in-out infinite;
+        }
+        @keyframes successPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 160, 71, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(67, 160, 71, 0); }
+        }
+        .order-success-modal__content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1B5E20;
+            margin-bottom: 10px;
+        }
+        .order-success-modal__order {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .order-success-modal__order strong { color: #43A047; }
+        .order-success-modal__details {
+            background: linear-gradient(135deg, rgba(67, 160, 71, 0.08), rgba(102, 187, 106, 0.12));
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .order-success-modal__row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        .order-success-modal__row--highlight {
+            color: #2E7D32;
+            font-weight: 600;
+            padding-top: 12px;
+            margin-top: 8px;
+            border-top: 1px solid rgba(67, 160, 71, 0.2);
+        }
+        .order-success-modal__message {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+        .order-success-modal__btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #43A047, #66BB6A);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+        .order-success-modal__btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(67, 160, 71, 0.4);
+        }
+        .order-success-modal__link {
+            display: block;
+            color: #43A047;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .order-success-modal__link:hover { text-decoration: underline; }
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: scale(0.9) translateY(-20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .checkout-modal__body { padding: 25px; }
+            .checkout-modal__title { font-size: 1.5rem; }
+            .order-success-modal__content { padding: 35px 25px; }
+        }
     </style>
 </head>
 <body>
@@ -1152,335 +1477,6 @@
             <a href="catalog.html" class="order-success-modal__link">Продолжить покупки</a>
         </div>
     </div>
-
-    <style>
-        /* Checkout Modal Styles */
-        .checkout-modal, .order-success-modal {
-            position: fixed;
-            inset: 0;
-            z-index: 1100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-        .checkout-modal--active, .order-success-modal--active {
-            display: flex;
-        }
-        .checkout-modal__backdrop, .order-success-modal__backdrop {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-        }
-        .checkout-modal__content {
-            position: relative;
-            background: #fff;
-            border-radius: 24px;
-            width: 95%;
-            max-width: 650px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
-            animation: modalSlideIn 0.3s ease;
-        }
-        .checkout-modal__close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 40px;
-            height: 40px;
-            border: none;
-            background: rgba(0, 0, 0, 0.08);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-        .checkout-modal__close:hover {
-            background: rgba(0, 0, 0, 0.15);
-            transform: rotate(90deg);
-        }
-        .checkout-modal__body {
-            padding: 40px;
-        }
-        .checkout-modal__title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #1B5E20;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .checkout-modal__title i { color: #43A047; }
-        .checkout-modal__section {
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
-        .checkout-modal__section:last-of-type { border-bottom: none; }
-        .checkout-modal__section h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .checkout-modal__section h3 i { color: #43A047; }
-        .checkout-modal__field {
-            margin-bottom: 18px;
-        }
-        .checkout-modal__field label {
-            display: block;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-        .checkout-modal__field input,
-        .checkout-modal__field textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 2px solid rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: #fafafa;
-        }
-        .checkout-modal__field input:focus,
-        .checkout-modal__field textarea:focus {
-            outline: none;
-            border-color: #43A047;
-            background: #fff;
-            box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.1);
-        }
-        .checkout-modal__field textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-        .checkout-modal__delivery-options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .checkout-modal__delivery-option {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 18px 20px;
-            border: 2px solid rgba(0, 0, 0, 0.1);
-            border-radius: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #fafafa;
-        }
-        .checkout-modal__delivery-option:hover {
-            border-color: rgba(67, 160, 71, 0.3);
-            background: #fff;
-        }
-        .checkout-modal__delivery-option--active {
-            border-color: #43A047;
-            background: linear-gradient(135deg, rgba(67, 160, 71, 0.08), rgba(102, 187, 106, 0.12));
-        }
-        .checkout-modal__delivery-option input { display: none; }
-        .checkout-modal__delivery-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #43A047, #66BB6A);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-        .checkout-modal__delivery-info { flex: 1; }
-        .checkout-modal__delivery-name {
-            display: block;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 4px;
-        }
-        .checkout-modal__delivery-desc {
-            display: block;
-            font-size: 0.85rem;
-            color: #666;
-        }
-        .checkout-modal__delivery-price {
-            font-weight: 700;
-            color: #43A047;
-            font-size: 1.1rem;
-        }
-        .checkout-modal__items {
-            max-height: 150px;
-            overflow-y: auto;
-            margin-bottom: 15px;
-        }
-        .checkout-modal__item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .checkout-modal__item:last-child { border-bottom: none; }
-        .checkout-modal__item-img {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(102, 187, 106, 0.2));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            overflow: hidden;
-        }
-        .checkout-modal__item-info { flex: 1; }
-        .checkout-modal__item-name { font-weight: 600; color: #333; font-size: 0.9rem; }
-        .checkout-modal__item-qty { font-size: 0.8rem; color: #666; }
-        .checkout-modal__item-price { font-weight: 600; color: #43A047; }
-        .checkout-modal__row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            font-size: 0.95rem;
-            color: #555;
-        }
-        .checkout-modal__row--carbon { color: #43A047; font-weight: 500; }
-        .checkout-modal__row--total {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1B5E20;
-            padding-top: 15px;
-            margin-top: 10px;
-            border-top: 2px solid rgba(67, 160, 71, 0.2);
-        }
-        .checkout-modal__submit {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #43A047, #66BB6A);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .checkout-modal__submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(67, 160, 71, 0.4);
-        }
-
-        /* Order Success Modal */
-        .order-success-modal__content {
-            position: relative;
-            background: #fff;
-            border-radius: 24px;
-            width: 95%;
-            max-width: 420px;
-            padding: 50px 40px;
-            text-align: center;
-            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
-            animation: modalSlideIn 0.3s ease;
-        }
-        .order-success-modal__icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #43A047, #66BB6A);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2.5rem;
-            color: white;
-            animation: successPulse 2s ease-in-out infinite;
-        }
-        @keyframes successPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(67, 160, 71, 0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(67, 160, 71, 0); }
-        }
-        .order-success-modal__content h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1B5E20;
-            margin-bottom: 10px;
-        }
-        .order-success-modal__order {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 25px;
-        }
-        .order-success-modal__order strong { color: #43A047; }
-        .order-success-modal__details {
-            background: linear-gradient(135deg, rgba(67, 160, 71, 0.08), rgba(102, 187, 106, 0.12));
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .order-success-modal__row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            font-size: 0.95rem;
-            color: #555;
-        }
-        .order-success-modal__row--highlight {
-            color: #2E7D32;
-            font-weight: 600;
-            padding-top: 12px;
-            margin-top: 8px;
-            border-top: 1px solid rgba(67, 160, 71, 0.2);
-        }
-        .order-success-modal__message {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-        }
-        .order-success-modal__btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #43A047, #66BB6A);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 12px;
-        }
-        .order-success-modal__btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(67, 160, 71, 0.4);
-        }
-        .order-success-modal__link {
-            display: block;
-            color: #43A047;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .order-success-modal__link:hover { text-decoration: underline; }
-        @keyframes modalSlideIn {
-            from { opacity: 0; transform: scale(0.9) translateY(-20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        @media (max-width: 768px) {
-            .checkout-modal__body { padding: 25px; }
-            .checkout-modal__title { font-size: 1.5rem; }
-            .order-success-modal__content { padding: 35px 25px; }
-        }
-    </style>
 
     <script defer src="js/data/products.js"></script>
     <script>

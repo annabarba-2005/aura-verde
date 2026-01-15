@@ -158,6 +158,11 @@
         @media (max-width: 768px) { .newsletter__inner { flex-direction: column; text-align: center; } .newsletter__content { text-align: center; } .newsletter__privacy { justify-content: center; } }
 
         @media (max-width: 1024px) { .story-grid { grid-template-columns: 1fr; gap: var(--spacing-2xl); } .story-image { order: -1; } .mission-grid { grid-template-columns: 1fr; text-align: center; } .mission-image { order: -1; } .mission-list li { justify-content: center; } .stats-section { grid-template-columns: 1fr; max-width: 400px; } .stat-card { justify-content: flex-start; } }
+        @media (max-width: 1024px) {
+            .mission-section .mission-grid { grid-template-columns: 1fr !important; text-align: center !important; }
+            .mission-section .mission-image { order: -1 !important; }
+            .mission-section .mission-list li { justify-content: center !important; }
+        }
         @media (max-width: 992px) { .about-hero-section { min-height: 400px; height: 400px; } }
         @media (max-width: 768px) { .about-hero-section { min-height: 350px; height: auto; } .about-hero-section__content { padding: var(--spacing-2xl) var(--spacing-lg); } .story-section, .mission-section, .cta-section { padding: var(--spacing-xl) 0; } .stats-section { grid-template-columns: 1fr; gap: var(--spacing-lg); max-width: 100%; } .stat-card { justify-content: center; } .stat-card__number { font-size: 2rem; } }
         @media (max-width: 480px) { .about-hero-section__title { font-size: 2rem; } .story-card { padding: var(--spacing-lg); } .mission-content__title { font-size: 1.75rem; } }
@@ -337,13 +342,6 @@
                 </div>
             </div>
         </section>
-        <style>
-            @media (max-width: 1024px) {
-                .mission-section .mission-grid { grid-template-columns: 1fr !important; text-align: center !important; }
-                .mission-section .mission-image { order: -1 !important; }
-                .mission-section .mission-list li { justify-content: center !important; }
-            }
-        </style>
 
         <!-- CTA Section - About page specific with #2E7D32 background -->
         <section class="section section--newsletter" style="padding: var(--spacing-4xl) 0;">
