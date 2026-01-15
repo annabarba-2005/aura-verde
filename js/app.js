@@ -537,8 +537,6 @@ function openQuickView(productId) {
     
     $('#quick-view-certificates').innerHTML = product.certificates.map(cert => `<span class="modal__product-certificate"><i class="fas fa-check"></i> ${cert}</span>`).join('');
     $('#quick-view-markers').innerHTML = product.ecoMarkers.map(m => { const labels = { organic: 'Органический', vegan: 'Веганский', fairtrade: 'Fair Trade', plasticFree: 'Без пластика', local: 'Местное производство', crueltyFree: 'Не тестируется на животных' }; return `<span class="modal__product-marker"><i class="fas fa-check"></i> ${labels[m] || m}</span>`; }).join('');
-    $('#quick-view-manufacturer-name').textContent = product.manufacturer.name;
-    $('#quick-view-manufacturer-country').textContent = product.manufacturer.country;
     $('#quick-view-carbon').textContent = `${calculateProductCarbon(product).toFixed(3)} кг CO₂`;
     modal.classList.add('modal--active');
     document.body.classList.add('no-scroll');
