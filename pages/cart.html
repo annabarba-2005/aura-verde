@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корзина — AuraVerde | Ваши покупки</title>
     <meta name="description" content="Корзина интернет-магазина AuraVerde. Оформите заказ экологически чистых товаров.">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/free-icon-leaf-5806342.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/free-icon-leaf-5806342.png">
-    <link rel="shortcut icon" type="image/png" href="images/free-icon-leaf-5806342.png">
-    <link rel="apple-touch-icon" href="images/free-icon-leaf-5806342.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/free-icon-leaf-5806342.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/free-icon-leaf-5806342.png">
+    <link rel="shortcut icon" type="image/png" href="../images/free-icon-leaf-5806342.png">
+    <link rel="apple-touch-icon" href="../images/free-icon-leaf-5806342.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="../styles/index.css">
     <style>
         .cart-page {
             padding-top: 120px;
@@ -1055,6 +1055,73 @@
             .order-success-modal__content { padding: 35px 25px; }
         }
     </style>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "AuraVerde",
+            "url": "https://aura-verde.ru",
+            "logo": "https://aura-verde.ru/images/logo.png",
+            "description": "Интернет-магазин экологически чистых товаров для устойчивого потребления",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "ул. Одесская, 52",
+                "addressLocality": "Тирасполь",
+                "addressCountry": "MD"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+373-7-12798",
+                "contactType": "customer service",
+                "availableLanguage": "Russian"
+            },
+            "sameAs": [
+                "https://instagram.com/auraverde",
+                "https://t.me/auraverde",
+                "https://vk.com/auraverde"
+            ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "AuraVerde",
+            "url": "https://aura-verde.ru",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://aura-verde.ru/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Store",
+            "name": "AuraVerde",
+            "description": "Интернет-магазин экологически чистых товаров",
+            "url": "https://aura-verde.ru",
+            "priceRange": "руб. ПМР",
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "09:00",
+                "closes": "21:00"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Экологически чистые товары",
+                "itemListElement": [
+                    {"@type": "OfferCatalog", "name": "Продукты питания"},
+                    {"@type": "OfferCatalog", "name": "Косметика и уход"},
+                    {"@type": "OfferCatalog", "name": "Бытовая химия"},
+                    {"@type": "OfferCatalog", "name": "Товары для дома"},
+                    {"@type": "OfferCatalog", "name": "Одежда"}
+                ]
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="floating-leaves" aria-hidden="true">
@@ -1076,7 +1143,7 @@
     <header class="header" id="header" role="banner">
         <div class="header__top-bar">
             <div class="header__top-container container">
-                <a href="index.html" class="header__logo" aria-label="AuraVerde - главная">
+                <a href="../index.html" class="header__logo" aria-label="AuraVerde - главная">
                     <span class="header__logo-leaf-wrapper">
                         <svg viewBox="0 0 100 100" class="header__logo-animated-leaf">
                             <defs>
@@ -1092,12 +1159,13 @@
                     </span>
                     <span class="header__logo-text"><span class="header__logo-aura">Aura</span><span class="header__logo-verde">Verde</span></span>
                 </a>
-                <div class="header__search-wrapper">
+                <!--<div class="header__search-wrapper">
                     <button class="header__search-btn" id="search-btn" aria-label="Поиск">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
                         <span class="header__search-text">Поиск товаров...</span>
                     </button>
                 </div>
+                -->
                 <div class="header__actions">
                     <a href="cart.html" class="header__cart-btn header__cart-btn--active" aria-label="Корзина">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
@@ -1113,7 +1181,7 @@
             <div class="header__nav-container container">
                 <nav class="header__nav" id="nav-menu" role="navigation" aria-label="Главное меню">
                     <ul class="header__nav-list">
-                        <li><a href="index.html" class="header__nav-link">Главная</a></li>
+                        <li><a href="../index.html" class="header__nav-link">Главная</a></li>
                         <li><a href="about.html" class="header__nav-link">О нас</a></li>
                         <li><a href="catalog.html" class="header__nav-link">Каталог</a></li>
                         <li><a href="blog.html" class="header__nav-link">Блог</a></li>
@@ -1218,7 +1286,7 @@
             <div class="footer-col">
                 <h4 class="footer-title">Навигация</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="../index.html">Главная</a></li>
                     <li><a href="about.html">О нас</a></li>
                     <li><a href="catalog.html">Каталог</a></li>
                     <li><a href="blog.html">Блог</a></li>
@@ -1477,8 +1545,45 @@
             <a href="catalog.html" class="order-success-modal__link">Продолжить покупки</a>
         </div>
     </div>
+    <div class="search-modal" id="search-modal" role="dialog" aria-label="Поиск">
+        <div class="search-modal__content">
+            <button class="search-modal__close" id="search-close" aria-label="Закрыть поиск">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="search-modal__input-wrapper">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="search" class="search-modal__input" placeholder="Поиск экологичных товаров..." id="search-input" aria-label="Поиск">
+            </div>
+            <div class="search-modal__suggestions">
+                <span class="suggestion-tag">Органическая косметика</span>
+                <span class="suggestion-tag">Без пластика</span>
+                <span class="suggestion-tag">Fair Trade</span>
+                <span class="suggestion-tag">Местное производство</span>
+            </div>
 
-    <script defer src="js/data/products.js"></script>
+            <div class="search-modal__results" id="search-results">
+            </div>
+
+            <div class="search-modal__not-found" id="search-not-found" style="display: none;">
+                <div class="search-not-found__icon">🔍</div>
+                <h3 class="search-not-found__title">Товар не найден</h3>
+                <p class="search-not-found__text">
+                    К сожалению, товара «<span id="search-query-text"></span>» нет в нашем каталоге.
+                </p>
+                <p class="search-not-found__promise">
+                    Мы ценим ваш интерес к экологичным товарам! Ваш запрос будет передан нашей команде
+                    для рассмотрения возможности добавления этого товара в ассортимент в будущем.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script defer src="../scripts/data/products.js"></script>
     <script>
         const CATEGORIES = { food: 'Продукты питания', cosmetics: 'Косметика', household: 'Бытовая химия', home: 'Для дома', clothes: 'Одежда' };
         const getCategoryName = cat => CATEGORIES[cat] || cat;
@@ -1664,7 +1769,7 @@
                 const image = item.image || product?.image;
                 const category = getCategoryName(item.category || product?.category || 'Товар');
                 const imgHtml = image 
-                    ? `<img src="images/${image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:15px;">`
+                    ? `<img src="../images/${image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:15px;">`
                     : emoji;
                 
                 html += `

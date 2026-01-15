@@ -158,7 +158,6 @@ function initSearch() {
                 const ecoRating = '<i class="fas fa-leaf" style="color:var(--color-primary);margin-right:2px;"></i>'.repeat(ecoRatingCount);
                 const categoryNames = { 'food': 'Продукты питания', 'cosmetics': 'Косметика', 'household': 'Бытовая химия', 'home': 'Товары для дома', 'clothes': 'Одежда' };
                 return `<div class="search-result-item" data-product-id="${product.id}">
-                    <div class="search-result-item__image">${product.image && (product.image.endsWith('.png') || product.image.endsWith('.jpg') || product.image.endsWith('.jpeg')) ? `<img src="images/${product.image}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">` : '<i class="fas fa-seedling" style="font-size:2rem;color:var(--color-primary);"></i>'}</div>
                     <div class="search-result-item__info">
                         <div class="search-result-item__name">${product.name}</div>
                         <div class="search-result-item__category">${categoryNames[product.category] || product.category}</div>
@@ -269,7 +268,7 @@ function updateCart() {
         if (cartCarbon) cartCarbon.style.display = 'none';
     } else {
         cartItems.innerHTML = cart.map(item => `<div class="cart__item" data-id="${item.id}">
-            <div class="cart__item-image">${item.image && (item.image.endsWith('.png') || item.image.endsWith('.jpg') || item.image.endsWith('.jpeg')) ? `<img src="images/${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">` : item.emoji}</div>
+            <div class="cart__item-image">${item.image && (item.image.endsWith('.png') || item.image.endsWith('.jpg') || item.image.endsWith('.jpeg')) ? `<img src="../images/${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">` : item.emoji}</div>
             <div class="cart__item-info">
                 <h4 class="cart__item-name">${item.name}</h4>
                 <span class="cart__item-price">${formatPrice(item.price)} руб. ПМР ПМР</span>
@@ -365,8 +364,8 @@ function renderProducts(products) {
             <div class="product-card__badges">${renderBadges(product)}</div>
             <div class="product-card__actions"><button class="product-card__action product-card__action--wishlist" aria-label="Добавить в избранное" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button></div>
             <figure class="product-card__image">
-                ${product.image && (product.image.endsWith('.png') || product.image.endsWith('.jpg') || product.image.endsWith('.jpeg')) ? `<img src="images/${product.image}" alt="${product.name}" class="product-card__img" loading="lazy">` : `<div class="product-card__placeholder" role="img" aria-label="${product.name}">${product.emoji}</div>`}
-                <meta itemprop="image" content="https://aura-verde.ru/images/products/${product.image}">
+                ${product.image && (product.image.endsWith('.png') || product.image.endsWith('.jpg') || product.image.endsWith('.jpeg')) ? `<img src="../images/${product.image}" alt="${product.name}" class="product-card__img" loading="lazy">` : `<div class="product-card__placeholder" role="img" aria-label="${product.name}">${product.emoji}</div>`}
+                <meta itemprop="image" content="https://aura-verde.ru/../images/products/${product.image}">
                 <button class="product-card__quick-view" data-id="${product.id}" aria-label="Быстрый просмотр товара ${product.name}" type="button">Быстрый просмотр</button>
             </figure>
             <div class="product-card__content">
@@ -511,7 +510,7 @@ function openQuickView(productId) {
 
     const imageContainer = $('#quick-view-image');
     if (product.image && (product.image.endsWith('.png') || product.image.endsWith('.jpg') || product.image.endsWith('.jpeg'))) {
-        imageContainer.innerHTML = `<img src="images/${product.image}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);">`;
+        imageContainer.innerHTML = `<img src="../images/${product.image}" alt="${product.name}" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);">`;
     } else { imageContainer.textContent = product.emoji; }
     
     $('#quick-view-category').textContent = getCategoryName(product.category);
@@ -526,7 +525,7 @@ function openQuickView(productId) {
         certImagesContainer.innerHTML = product.certImages.map(certFile => {
             const label = (window.CERT_LABELS && window.CERT_LABELS[certFile]) || certFile.replace('.svg', '');
             return `<div class="modal__cert-item">
-                <img src="images/certificates/${certFile}" alt="${label}" class="modal__cert-icon">
+                <img src="../images/certificates/${certFile}" alt="${label}" class="modal__cert-icon">
                 <span class="modal__cert-label">${label}</span>
             </div>`;
         }).join('');
@@ -838,7 +837,7 @@ function openArticleModal(article) {
     const modal = $('#article-modal');
     if (!modal) return;
     const articleImage = $('#article-image');
-    if (articleImage && article.image) { const img = articleImage.querySelector('img'); if (img) { img.src = `images/${article.image}`; img.alt = article.title; } articleImage.style.display = 'block'; } else if (articleImage) { articleImage.style.display = 'none'; }
+    if (articleImage && article.image) { const img = articleImage.querySelector('img'); if (img) { img.src = `../images/${article.image}`; img.alt = article.title; } articleImage.style.display = 'block'; } else if (articleImage) { articleImage.style.display = 'none'; }
     $('#article-title').textContent = article.title;
     $('#article-date').textContent = formatDate(article.date);
     $('#article-category').textContent = article.category;

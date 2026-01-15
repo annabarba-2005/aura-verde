@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог товаров — AuraVerde | Экологически чистые товары</title>
     <meta name="description" content="Каталог экологически чистых товаров AuraVerde: органические продукты питания, натуральная косметика, эко-бытовая химия, товары для дома и одежда.">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/free-icon-leaf-5806342.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/free-icon-leaf-5806342.png">
-    <link rel="shortcut icon" type="image/png" href="images/free-icon-leaf-5806342.png">
-    <link rel="apple-touch-icon" href="images/free-icon-leaf-5806342.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/free-icon-leaf-5806342.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/free-icon-leaf-5806342.png">
+    <link rel="shortcut icon" type="image/png" href="../images/free-icon-leaf-5806342.png">
+    <link rel="apple-touch-icon" href="../images/free-icon-leaf-5806342.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="../styles/index.css">
     <style>
         @keyframes floatIcon {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
@@ -768,7 +768,7 @@
     <header class="header" id="header" role="banner">
         <div class="header__top-bar">
             <div class="header__top-container container">
-                <a href="index.html" class="header__logo" aria-label="AuraVerde - главная">
+                <a href="../index.html" class="header__logo" aria-label="AuraVerde - главная">
                     <span class="header__logo-leaf-wrapper">
                         <svg viewBox="0 0 100 100" class="header__logo-animated-leaf">
                             <defs>
@@ -805,7 +805,7 @@
             <div class="header__nav-container container">
                 <nav class="header__nav" id="nav-menu" role="navigation" aria-label="Главное меню">
                     <ul class="header__nav-list">
-                        <li><a href="index.html" class="header__nav-link">Главная</a></li>
+                        <li><a href="../index.html" class="header__nav-link">Главная</a></li>
                         <li><a href="about.html" class="header__nav-link">О нас</a></li>
                         <li><a href="catalog.html" class="header__nav-link header__nav-link--active">Каталог</a></li>
                         <li><a href="blog.html" class="header__nav-link">Блог</a></li>
@@ -823,7 +823,7 @@
     <main>
         <section class="hero-inner">
             <div class="hero-inner__bg">
-                <img src="images/many-green-folders-isolated-white_392895-585784.jpg" alt="Экологичные товары" loading="lazy" style="opacity: 0.6; filter: brightness(0.9) saturate(1.1);">
+                <img src="../images/many-green-folders-isolated-white_392895-585784.jpg" alt="Экологичные товары" loading="lazy" style="opacity: 0.6; filter: brightness(0.9) saturate(1.1);">
             </div>
             <div class="hero-inner__overlay" style="background: linear-gradient(180deg, rgba(27, 94, 32, 0.65) 0%, rgba(46, 125, 50, 0.55) 50%, rgba(27, 94, 32, 0.6) 100%);"></div>
             <div class="hero-inner__content">
@@ -1011,7 +1011,7 @@
             <div class="footer-col">
                 <h4 class="footer-title">Навигация</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="../index.html">Главная</a></li>
                     <li><a href="about.html">О нас</a></li>
                     <li><a href="catalog.html">Каталог</a></li>
                     <li><a href="blog.html">Блог</a></li>
@@ -1321,10 +1321,47 @@
             </div>
         </div>
     </div>
+    <div class="search-modal" id="search-modal" role="dialog" aria-label="Поиск">
+        <div class="search-modal__content">
+            <button class="search-modal__close" id="search-close" aria-label="Закрыть поиск">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="search-modal__input-wrapper">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="search" class="search-modal__input" placeholder="Поиск экологичных товаров..." id="search-input" aria-label="Поиск">
+            </div>
+            <div class="search-modal__suggestions">
+                <span class="suggestion-tag">Органическая косметика</span>
+                <span class="suggestion-tag">Без пластика</span>
+                <span class="suggestion-tag">Fair Trade</span>
+                <span class="suggestion-tag">Местное производство</span>
+            </div>
 
+            <div class="search-modal__results" id="search-results">
+            </div>
+
+            <div class="search-modal__not-found" id="search-not-found" style="display: none;">
+                <div class="search-not-found__icon">🔍</div>
+                <h3 class="search-not-found__title">Товар не найден</h3>
+                <p class="search-not-found__text">
+                    К сожалению, товара «<span id="search-query-text"></span>» нет в нашем каталоге.
+                </p>
+                <p class="search-not-found__promise">
+                    Мы ценим ваш интерес к экологичным товарам! Ваш запрос будет передан нашей команде
+                    для рассмотрения возможности добавления этого товара в ассортимент в будущем.
+                </p>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/data/products.js"></script>
-    <script src="js/app.js"></script>
+    <script src="../scripts/data/products.js"></script>
+    <script src="../scripts/app.js"></script>
 </body>
 </html>
 
