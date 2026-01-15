@@ -90,14 +90,18 @@ function initNavigation() {
 
     $$('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
+            const href = anchor.getAttribute('href');
+            if (!href || !href.startsWith('#')) return;
+
             e.preventDefault();
-            const target = $(anchor.getAttribute('href'));
+            const target = $(href);
             if (target) {
                 const headerHeight = $('#header')?.offsetHeight || 80;
                 window.scrollTo({ top: target.offsetTop - headerHeight, behavior: 'smooth' });
             }
         });
     });
+
 }
 
 function initSearch() {

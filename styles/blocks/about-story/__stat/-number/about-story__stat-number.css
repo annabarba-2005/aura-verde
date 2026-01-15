@@ -1,9 +1,0 @@
-.about-story__stat-number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
-    line-height: 1;
-    margin-bottom: var(--spacing-xs)
-}

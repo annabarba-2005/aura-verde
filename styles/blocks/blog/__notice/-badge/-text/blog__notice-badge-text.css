@@ -1,7 +1,0 @@
-.blog__notice-badge-text {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
